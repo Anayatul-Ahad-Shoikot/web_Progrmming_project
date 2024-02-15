@@ -127,7 +127,7 @@
             </div>
             <div class="box st">
                 <h1>Add New Admin</h1>
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="/accounts/add_admin_BE.php" method="POST" enctype="multipart/form-data">
                     <input type="text" name="username" placeholder="Admin username" required>
                     <input type="email" name="useremail" placeholder="Admin useremail" required>
                     <input type="text" name="priority" placeholder="Admin priyority <?php echo '(must be > '.$prior.' )' ?>" required>
@@ -138,11 +138,7 @@
                 </form>
             </div>
             <div class="box st st">
-                <!-- <?php
-                    include('/xampp/htdocs/DBMS_Project_Organized_One/Root/Admin_Side/Dash/Admin/FETCH_ADMINS.php');
-                ?> -->
-
-                <p>records here</p>
+                
             </div>
         </div>
       </main>
