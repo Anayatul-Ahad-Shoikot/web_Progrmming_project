@@ -131,8 +131,8 @@
                     <input type="text" name="username" placeholder="Admin username" required>
                     <input type="email" name="useremail" placeholder="Admin useremail" required>
                     <input type="text" name="priority" placeholder="Admin priyority <?php echo '(must be > '.$prior.' )' ?>" required>
-                    <input type="password" name="acc_pass" placeholder="Password" required>
-                    <input type="password" name="con_pass" placeholder="Confirm Password" required>
+                    <input type="password" name="Password" placeholder="Password" required>
+                    <input type="password" name="ConfirmPassword" placeholder="ConfirmPassword" required>
                     <input type="password" name="userpassword" placeholder="Password to continue" required>
                     <button type="submit" name="submit2">Add</button>
                 </form>
