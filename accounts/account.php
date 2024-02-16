@@ -64,7 +64,7 @@
                 </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link">
+                    <a href="/history/history.php" class="nav-link">
                         <i style="font-size: 1.7rem;" class='bx bx-history' ></i>
                         <span class="text">History</span>
                     </a>

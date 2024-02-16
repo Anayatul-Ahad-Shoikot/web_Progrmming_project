@@ -2,6 +2,7 @@
 
     include('/xampp/htdocs/web_Progrmming_project/db_con.php');
     session_start();
+    $user = $_SESSION['username'];
     if (isset($_SESSION['ac_id']) && isset($_SESSION['prior'])) {
         $ac_id = $_SESSION['ac_id'];
         $prior = $_SESSION['prior'];
@@ -28,6 +29,11 @@
                                 $stmt->bind_param("sssi", $username, $useremail, $hashed_password, $priority);
                                 $stmt->execute();
                                 if ($stmt->execute()) {
+                                    $history_content = 'New Admin added by - ' . $user . ' at ('  . date('Y/m/d  H:i').').';
+                                    $key_words = 'Admin Added';
+                                    $stmt2 = $con->prepare("INSERT INTO history (key_word, content) VALUES (?, ?)");
+                                    $stmt2->bind_param("ss", $key_words, $history_content);
+                                    $stmt2->execute();    
                                     $_SESSION['green'] = "Admin Added successfully";
                                     header("Location: /accounts/account.php");
                                     exit(0);

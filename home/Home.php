@@ -13,12 +13,26 @@
         <title>Home</title>
     </head>
     <body>
-
+        <div class="notification-container">
+            <?php
+                if(isset($_SESSION['red'])){
+                    echo '<div class="alert one">
+                            <h5>'.$_SESSION['red'].'</h5>
+                        </div>';
+                    unset($_SESSION['red']);
+                }
+                if(isset($_SESSION['green'])){
+                    echo '<div class="alert two">
+                            <h5>'.$_SESSION['green'].'</h5>
+                        </div>';
+                    unset($_SESSION['green']);
+                }
+            ?>
+        </div>
         <section class="sidebar">
             <a href="#" class="logo">
-                <img src="#" alt="Logo" />
+                <img src="/Resource/logo.jpeg"/>
             </a>
-
             <ul class="side-menu top">
                 <li class="active">
                 <a href="#" class="nav-link">
@@ -45,7 +59,7 @@
                 </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link">
+                    <a href="/history/history.php" class="nav-link">
                         <i style="font-size: 1.7rem;" class='bx bx-history' ></i>
                         <span class="text">History</span>
                     </a>
@@ -58,29 +72,22 @@
                 </li>
             </ul>
         </section>
-
         <section class="content">
             <nav class="e">
                 <i class="fas fa-bars menu-btn"></i>
                 <form action="#">
                     <div class="form-input">
-                        <input type="search" placeholder="search..." />
+                        <input type="search" placeholder="search..."/>
                         <button class="search-btn">
                         <i class="fas fa-search search-icon"></i>
                         </button>
                     </div>
                 </form>
-                <input type="checkbox" hidden id="switch-mode" />
+                <input type="checkbox" hidden id="switch-mode"/>
                 <label for="switch-mode" class="switch-mode"></label>
                 <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>" alt="profile"/></a>
             </nav>
-
-
-
         <main>
-
-
-
             <div class="upper-part">
                 <div class="head-title">
                     <h1>Welcome Back</h1>
@@ -112,101 +119,98 @@
                             <div class="day">Sat</div>
                         </div>
                         <div class="days">
-                            <!-- lets add days using js -->
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
             <div class="lower-part">
                 <div class="todo-1">
                     <div class="head">
                         <h1>Notices</h1>
                     </div>
-        
                     <ul class="todo-list">
-
-                        <li class="not-completed">
-                            <div class="notice-date">
-                                <div class="date">
-                                    <h4>13</h4>
-                                </div>
-                                <div class="month">
-                                    <h3>Feb</h3>
-                                </div>
-                            </div>
-                            <div class="notice-container">
-                                <p>contains gose to here</p>
-                            </div>
-                        </li>
-
-                        <li class="completed">
-                            <div class="notice-date">
-                                <div class="date">
-                                    <h4>2</h4>
-                                </div>
-                                <div class="month">
-                                    <h3>Jan</h3>
-                                </div>
-                            </div>
-                            <div class="notice-container">
-                                <p>this is second notice for uiu</p>
-                            </div>
-                        </li>
-
+                        <?php
+                            $url = 'https://www.uiu.ac.bd/notice/';
+                            $html = file_get_contents($url);
+                            $dom = new DOMDocument;
+                            @$dom->loadHTML($html);
+                            $xpath = new DOMXPath($dom);
+                            $dates = $xpath->query("//div[contains(@class, 'date-container')]/span[contains(@class, 'date')]");
+                            $titles = $xpath->query("//div[contains(@class, 'details')]/div[contains(@class, 'title')]/a");
+                            if($dates->length > 0 && $titles->length > 0) {
+                                for($i = 0; $i < $dates->length; $i++) {
+                                    $dateText = $dates->item($i)->nodeValue;
+                                    $titleText = $titles->item($i)->nodeValue;
+                                    $titleLink = $titles->item($i)->getAttribute('href');
+                                    $dateParts = explode(' ', trim($dateText));
+                                    $day = $dateParts[1];
+                                    $month = substr($dateParts[0], 0, 3);
+                                    echo '<li class="completed">
+                                            <div class="notice-date">
+                                                <div class="date">
+                                                    <h4>'.$day.'</h4>
+                                                </div>
+                                                <div class="month">
+                                                    <h3>'.$month.'</h3>
+                                                </div>
+                                            </div>
+                                            <div class="notice-container">
+                                                <p><a href="'.$titleLink.'">'.$titleText.'</a></p>
+                                            </div>
+                                        </li>';
+                                }
+                            } else {
+                                echo 'No notices found.';
+                            }
+                        ?>
                     </ul>
                 </div>
-
-
-
                 <div class="todo">
                     <div class="head">
                     <h2>Notes</h2>
                     <a href="#"><i class='bx bxs-plus-circle' ></i></a>
                     </div>
-        
                     <ul class="todo-list">
-
-                    <li>
-                        <div class="hdr">
-                            <div><p>Fculty Name</p></div>
-                            <div>
-                                <a href="#" ><i class='bx bxs-edit-alt' ></i></a>
-                                <a href="#" ><i class='bx bxs-message-square-x'></i></a>
-                            </div>
-                        </div>
-                        <div class="dsrptn">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias dicta minus harum eveniet quam voluptatum cupiditate ex quasi, laboriosam qui, dignissimos animi maiores perferendis consequuntur similique doloremque nobis, impedit beatae!</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="hdr">
-                            <div><p>Fculty Name</p></div>
-                            <div  class="p">
-                                <a href="#"><i style="font-size: 1.1rem; color:black; margin-right:10px;" class='bx bxs-edit-alt' ></i></a>
-                                <a href="#"><i style="font-size: 1.1rem; color:black;" class='bx bxs-message-square-x'></i></a>
-                            </div>
-                        </div>
-                        <div class="dsrptn">
-                            <p>class not takent by this trimester</p>
-                        </div>
-                    </li>
+                        <?php 
+                            include('/xampp/htdocs/web_Progrmming_project/home/fetch_note_BE.php');
+                        ?>
                     </ul>
                 </div>
             </div>
-            
-        
         </main>
-
         </section>
+        <div id="notePopup" class="note-popup">
+            <div class="popup-content">
+                <span class="close">&times;</span>
+                <form action="/home/save_note_BE.php" id="noteForm" method="POST">
+                    <input type="hidden" id="noteId" name="note_id">
+                    <input type="text" id="facultyName" name="note_for" placeholder="Faculty Name" required>
+                    <textarea id="noteText" name="note_content" placeholder="Write your note here..." required></textarea>
+                    <button type="submit" name="save">Save</button>
+                </form>
+            </div>
+        </div>
 
 
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const alerts = document.querySelectorAll('.notification-container > div');
+                alerts.forEach(function(alert) {
+                    setTimeout(function() {
+                        alert.style.opacity = '1';
+                        setTimeout(function() {
+                            alert.style.opacity = '0';
+                            setTimeout(function() {
+                                alert.style.display = 'none';
+                                }, 500);
+                        }, 6000);
+                    }, 500);
+                });
+            });
+        </script>
         <script src="/home/Home.js"></script>
         <script src="/home/Home_Calender.js"></script>
+        <script src="/home/notes.js"></script>
     </body>
 </html>

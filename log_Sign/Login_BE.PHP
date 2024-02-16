@@ -12,6 +12,7 @@
                 $stored_hashed_acc_pass = $row['userpassword'];    
                 if (password_verify($userpassword, $stored_hashed_acc_pass)) {
                     $_SESSION['ac_id'] = $row['ac_id'];
+                    $_SESSION['username'] = $row['username'];
                     $_SESSION['prior'] = $row['priority'];
                     header("Location: /home/Home.php");
                     exit(0);
