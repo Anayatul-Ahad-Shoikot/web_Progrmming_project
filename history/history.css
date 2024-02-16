@@ -37,6 +37,7 @@ transition: 0.3s linear;
 }
 
 html {
+overflow-y: hidden;
 overflow-x: hidden;
 }
 
@@ -392,7 +393,7 @@ overflow-x: hidden;
     width: 100%;
     border-radius: 2px;
     padding: 7px 31px;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
     background-color: rgb(160, 160, 160, .3);
 }
 
