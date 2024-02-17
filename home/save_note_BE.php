@@ -10,7 +10,7 @@
             $stmt = $con->prepare("INSERT INTO notes (note_for, note_content) VALUES (?, ?)");
             $stmt->bind_param("ss", $note_for, $note_content);
             if ($stmt->execute()) {
-                $content = 'Note created for '. $note_for. ' by '.$user . '('. date('Y/m/d  H:i').').';
+                $content = 'Note created for '. $note_for. ' ('. date('Y/m/d  H:i').') ---'.$user;
                 $content_key = 'Note';
                 $content_activity = 'create';
                 $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");

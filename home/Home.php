@@ -13,22 +13,7 @@
         <title>Home</title>
     </head>
     <body>
-        <div class="notification-container">
-            <?php
-                if(isset($_SESSION['red'])){
-                    echo '<div class="alert one">
-                            <h5>'.$_SESSION['red'].'</h5>
-                        </div>';
-                    unset($_SESSION['red']);
-                }
-                if(isset($_SESSION['green'])){
-                    echo '<div class="alert two">
-                            <h5>'.$_SESSION['green'].'</h5>
-                        </div>';
-                    unset($_SESSION['green']);
-                }
-            ?>
-        </div>
+        
         <section class="sidebar">
             <a href="#" class="logo">
                 <img src="/Resource/logo.jpeg"/>
@@ -91,7 +76,7 @@
             <div class="upper-part">
                 <div class="head-title">
                     <h1>Welcome Back</h1>
-                    <p>Admin...</p>
+                    <p><?php echo $username; ?>...</p>
                 </div>
                 <div class="clndr">
                     <div class="calendar">
@@ -172,7 +157,11 @@
                     </div>
                     <ul class="todo-list">
                         <?php 
-                            include('/xampp/htdocs/web_Progrmming_project/home/fetch_note_BE.php');
+                            if (isset($_GET['query'])){
+                                include('/xampp/htdocs/web_Progrmming_project/home/search1.php');
+                            } else {
+                                include('/xampp/htdocs/web_Progrmming_project/home/fetch_note_BE.php');
+                            }
                         ?>
                     </ul>
                 </div>
@@ -189,6 +178,23 @@
                     <button type="submit" name="save">Save</button>
                 </form>
             </div>
+        </div>
+
+        <div class="notification-container">
+            <?php
+                if(isset($_SESSION['red'])){
+                    echo '<div class="alert one">
+                            <h5>'.$_SESSION['red'].'</h5>
+                        </div>';
+                    unset($_SESSION['red']);
+                }
+                if(isset($_SESSION['green'])){
+                    echo '<div class="alert two">
+                            <h5>'.$_SESSION['green'].'</h5>
+                        </div>';
+                    unset($_SESSION['green']);
+                }
+            ?>
         </div>
         
 

@@ -116,8 +116,8 @@
             <div class="box st">
                 <h1>My Deteails</h1>
                 <form action="/accounts/update_info_BE.php" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="username" placeholder="<?php echo 'Username : '.$username ?>">
-                    <input type="email" name="useremail" placeholder="<?php echo 'Useremail : '.$useremail ?>">
+                    <input type="text" name="username" placeholder="<?php echo 'Username : '.$username ?>" autocomplete="off">
+                    <input type="email" name="useremail" placeholder="<?php echo 'Useremail : '.$useremail ?>" autocomplete="New-email">
                     <input type="password" name="newpass" placeholder="Enter new password">
                     <input type="password" name="re-pass" placeholder="Confirm your new password">Upload Profile Image
                     <input type="file" name="image" accept="image/*">
@@ -128,17 +128,19 @@
             <div class="box st">
                 <h1>Add New Admin</h1>
                 <form action="/accounts/add_admin_BE.php" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="username" placeholder="Admin username" required>
-                    <input type="email" name="useremail" placeholder="Admin useremail" required>
-                    <input type="text" name="priority" placeholder="Admin priyority <?php echo '(must be > '.$prior.' )' ?>" required>
-                    <input type="password" name="Password" placeholder="Password" required>
+                    <input type="text" name="username" placeholder="Admin username" autocomplete="off" required>
+                    <input type="email" name="useremail" placeholder="Admin useremail" autocomplete="off" required>
+                    <input type="text" name="priority" placeholder="Admin priyority <?php echo '(must be > '.$prior.' )' ?>" autocomplete="off" required>
+                    <input type="password" name="Password" placeholder="Password" autocomplete="off" required>
                     <input type="password" name="ConfirmPassword" placeholder="ConfirmPassword" required>
                     <input type="password" name="userpassword" placeholder="Password to continue" required>
                     <button type="submit" name="submit2">Add</button>
                 </form>
             </div>
-            <div class="box st st">
-                
+            <div class="accts">
+                <?php
+                    include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_admins_BE.php');
+                ?>
             </div>
         </div>
       </main>

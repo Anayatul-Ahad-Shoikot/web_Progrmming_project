@@ -8,7 +8,7 @@ if(isset($_GET['note_id'])) {
     if($stmt = $con->prepare($sql)) {
         $stmt->bind_param("i", $note_id);
         if($stmt->execute()) {
-            $content = $user.' deleted a note (Note id = '. $note_id. ') at \t'. date('Y/m/d  H:i').'.';
+            $content = 'Deleted a note [Note id = '. $note_id. '] '. date('Y/m/d  H:i').' ---'.$user;
             $content_key = 'Note';
             $content_activity = 'delete';
             $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");

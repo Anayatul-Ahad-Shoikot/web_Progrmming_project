@@ -16,12 +16,15 @@ transition: 0.3s linear;
 --calenderBG: #f1f1fb;
 --mainText: #fff;
 --activeText: black;
+--dark: #342e37;
+
+
 
 --light: #f9f9f9;
 --blue: #3c91e6;
 --light-blue: #cfe8ff;
 --dark-grey: #c3c3c3;
---dark: #342e37;
+
 --red: #db504a;
 --yellow: #ffce26;
 --light-yellow: #fff2c6;
@@ -392,7 +395,7 @@ object-fit: cover;
 .content main .head-title .left h1 {
   font-size: 36px;
   font-weight: 600;
-  color: var(--color4);
+  color: var(--dark);
 }
 
 .content main .head-title .left .breadcrumb {
@@ -499,25 +502,40 @@ object-fit: cover;
   height: fit-content;
 }
 
+
+content main .container .accts {
+  max-height: 500px;
+  overflow-x: hidden;
+  background-color: red;
+}
 .box.st img {
-  width: 300px;
-  height: 300px;
-  object-fit: fill;
+    width: 100px;
+    height: 100px;
+    object-fit: fill;
+    border-radius: 50%;
 }
 
 .box.st form {
   width: 100%;
   padding: 15px;
+  border-bottom: 1px solid var(--dark);
 }
 
 .box.st button {
-  background: var(--color4);
+  background: var(--sidebars);
   padding: 5px;
   border-radius: 5px;
   color: white;
   font-size: larger;
   align-items: center;
   width: 100%;
+  outline: none;
+  border: none;
+}
+
+.box.st button:hover {
+  background: rgb(255, 149, 62);
+  transform: scale(1.1);
 }
 
 .box.nd button {
@@ -534,6 +552,7 @@ object-fit: cover;
 
   .content main .container  .box h1 {
     margin-bottom: 10px;
+    color: var(--dark);
   }
 
   .content main .container  .box input[type="text"],
@@ -545,6 +564,7 @@ object-fit: cover;
     margin-bottom: 10px;
     width: 100%;
     padding: 5px;
+    border: none;
   }
 
   .content main .container  .box input[type="submit"] {
