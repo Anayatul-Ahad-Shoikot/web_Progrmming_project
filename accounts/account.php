@@ -46,7 +46,7 @@
                 </a>
                 </li>
                 <li>
-                <a href="#" class="nav-link">
+                <a href="/faculty/Faculty.php" class="nav-link">
                     <i style="font-size: 1.7rem;" class='bx bxs-graduation' ></i>
                     <span class="text">Faculties</span>
                 </a>
@@ -70,7 +70,7 @@
                     </a>
                 </li>
                 <li>
-                <a href="#" class="logout">
+                <a href="/log_Sign/logout_BE.php" class="logout">
                     <i style="font-size: 1.7rem; font-weight:900;" class='bx bx-power-off' ></i>
                     <span class="text">Logout</span>
                 </a>

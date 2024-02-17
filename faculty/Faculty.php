@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="/history/history.css" />
+        <link rel="stylesheet" href="/faculty/faculty.css" />
         <title>Home</title>
     </head>
     <body>
@@ -25,8 +25,8 @@
                     <span class="text">Home</span>
                 </a>
                 </li>
-                <li>
-                <a href="/faculty/Faculty.php" class="nav-link">
+                <li class="active">
+                <a href="#" class="nav-link">
                     <i style="font-size: 1.7rem;" class='bx bxs-graduation' ></i>
                     <span class="text">Faculties</span>
                 </a>
@@ -43,8 +43,8 @@
                     <span class="text">TimeLine</span>
                 </a>
                 </li>
-                <li class="active">
-                    <a href="#" class="nav-link">
+                <li>
+                    <a href="/history/history.php" class="nav-link">
                         <i style="font-size: 1.7rem;" class='bx bx-history' ></i>
                         <span class="text">History</span>
                     </a>
@@ -74,21 +74,7 @@
                 <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>" alt="profile"/></a>
             </nav>
             <main>
-                <div class="upper-part">
-                    
-                </div>
-                <div class="lower-part">
-                    <div class="todo-1">
-                        <div class="head">
-                            <h1>History</h1>
-                        </div>
-                        <ul class="todo-list">
-                            <?php
-                                include('/xampp/htdocs/web_Progrmming_project/history/fetch_history_BE.php');
-                            ?>
-                        </ul>
-                    </div>
-                </div>
+                
             </main>
         </section>
         <script src="/home/Home.js"></script>

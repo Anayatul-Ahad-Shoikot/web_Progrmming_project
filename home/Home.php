@@ -41,7 +41,7 @@
                 </a>
                 </li>
                 <li>
-                <a href="#" class="nav-link">
+                <a href="/faculty/Faculty.php" class="nav-link">
                     <i style="font-size: 1.7rem;" class='bx bxs-graduation' ></i>
                     <span class="text">Faculties</span>
                 </a>
