@@ -35,7 +35,7 @@
             </a>
             <ul class="side-menu top">
                 <li class="active">
-                <a href="#" class="nav-link">
+                <a href="/home/Home.php" class="nav-link">
                     <i style="font-size: 1.7rem;" class='bx bxs-home' ></i>
                     <span class="text">Home</span>
                 </a>
@@ -75,10 +75,10 @@
         <section class="content">
             <nav class="e">
                 <i class="fas fa-bars menu-btn"></i>
-                <form action="#">
+                <form action="#" method="GET">
                     <div class="form-input">
-                        <input type="search" placeholder="search..."/>
-                        <button class="search-btn">
+                        <input type="search" name="query" placeholder="search..."/>
+                        <button type="submit" class="search-btn">
                         <i class="fas fa-search search-icon"></i>
                         </button>
                     </div>
@@ -190,7 +190,7 @@
                 </form>
             </div>
         </div>
-
+        
 
 
         <script>

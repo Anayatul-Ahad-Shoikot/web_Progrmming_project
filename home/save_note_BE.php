@@ -10,10 +10,11 @@
             $stmt = $con->prepare("INSERT INTO notes (note_for, note_content) VALUES (?, ?)");
             $stmt->bind_param("ss", $note_for, $note_content);
             if ($stmt->execute()) {
-                $history_content = 'Note created for '. $note_for. ' by '.$user . '('. date('Y/m/d  H:i').').';
-                $key_words = 'Note';
-                $stmt2 = $con->prepare("INSERT INTO history (key_word, content) VALUES (?, ?)");
-                $stmt2->bind_param("ss", $key_words, $history_content);
+                $content = 'Note created for '. $note_for. ' by '.$user . '('. date('Y/m/d  H:i').').';
+                $content_key = 'Note';
+                $content_activity = 'create';
+                $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
                 $stmt2->execute();
                 header("Location: /home/Home.php");
                 exit(0);

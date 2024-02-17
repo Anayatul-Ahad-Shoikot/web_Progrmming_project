@@ -29,10 +29,11 @@
                                 $stmt = mysqli_prepare($con, $SQL);
                                 mysqli_stmt_bind_param($stmt, "sii", $username, $ac_id, $prior);
                                 if (mysqli_stmt_execute($stmt)) {
-                                    $history_content = 'Username changed from '. $user. ' to '.$username . ' by -' . $user . ' at ('  . date('Y/m/d  H:i').').';
-                                    $key_words = 'Username changed';
-                                    $stmt2 = $con->prepare("INSERT INTO history (key_word, content) VALUES (?, ?)");
-                                    $stmt2->bind_param("ss", $key_words, $history_content);
+                                    $content = 'Username changed from '. $user. ' to '.$username . ' ('  . date('Y/m/d  H:i').') ---'.$user;
+                                    $content_key = 'username';
+                                    $content_activity = 'Change';
+                                    $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                                    $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
                                     $stmt2->execute();
                                     unset($_SESSION['username']);
                                     $_SESSION['username'] = $username;
@@ -51,10 +52,11 @@
                             move_uploaded_file($image_tmp_name, $image_path);
                             $SQL2="UPDATE accounts SET img = '$image_path' WHERE ac_id = $ac_id AND priority = $prior LIMIT 1";
                             if (mysqli_query($con, $SQL2)){
-                                $history_content = 'Image updated by -' . $user . ' at ('  . date('Y/m/d  H:i').').';
-                                $key_words = 'Image Update';
-                                $stmt2 = $con->prepare("INSERT INTO history (key_word, content) VALUES (?, ?)");
-                                $stmt2->bind_param("ss", $key_words, $history_content);
+                                $content = 'Image updated ('  . date('Y/m/d  H:i').') ---'.$user;
+                                $content_key = 'Image';
+                                $content_activity = 'Change';
+                                $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                                $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
                                 $stmt2->execute();
                             }
                             $_SESSION['green'] = "Success: Image Updated.";
@@ -63,7 +65,7 @@
                         }
                         if (isset($_POST['useremail']) && !empty($_POST['useremail'])) {
                             $useremail = $_POST['useremail'];
-                            $Email_Check_Query = "SELECT useremail FROM accounts WHERE useremail = '$useremail' LIMIT 1";
+                            $Email_Check_Query = "SELECT useremail FROM accounts WHERE user = '$user' LIMIT 1";
                             $Email_Check_Query_Result = mysqli_query($con, $Email_Check_Query);
                             $row = mysqli_fetch_array($Email_Check_Query_Result);
                             $prev_email = $row["useremail"];
@@ -76,10 +78,11 @@
                                 $stmt = mysqli_prepare($con, $SQL);
                                 mysqli_stmt_bind_param($stmt, "sii", $useremail, $ac_id, $prior);
                                 if (mysqli_stmt_execute($stmt)){
-                                    $history_content = 'Email changed from '. $prev_email. ' to '.$useremail . ' by -' . $user . ' at ('  . date('Y/m/d  H:i').').';
-                                    $key_words = 'Useremail changed';
-                                    $stmt2 = $con->prepare("INSERT INTO history (key_word, content) VALUES (?, ?)");
-                                    $stmt2->bind_param("ss", $key_words, $history_content);
+                                    $content = 'Email changed from '. $prev_email. ' to '.$useremail . ' ('  . date('Y/m/d  H:i').') ---' .$user;
+                                    $content_key = 'Email';
+                                    $content_activity = 'Change';
+                                    $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                                    $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
                                     $stmt2->execute();    
                                 }
                                 mysqli_stmt_close($stmt);
@@ -99,10 +102,11 @@
                                 $hashed_password = password_hash($newpass, PASSWORD_BCRYPT);
                                 $SignUp_Query = "UPDATE accounts SET userpassword = '$hashed_password' WHERE ac_id = $ac_id AND priority = $prior LIMIT 1";
                                 if (mysqli_query($con, $SignUp_Query)){
-                                    $history_content = 'Password changed by -' . $user . ' at ('  . date('Y/m/d  H:i').').';
-                                    $key_words = 'Password Changed';
-                                    $stmt2 = $con->prepare("INSERT INTO history (key_word, content) VALUES (?, ?)");
-                                    $stmt2->bind_param("ss", $key_words, $history_content);
+                                    $content = 'Password changed ('  . date('Y/m/d  H:i').') ---' .$user;
+                                    $content_key = 'Password';
+                                    $content_activity = 'Change';
+                                    $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                                    $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
                                     $stmt2->execute();
                                 }
                                 $_SESSION['green'] = "Success: Password Updated.";

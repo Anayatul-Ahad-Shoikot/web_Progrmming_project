@@ -8,10 +8,11 @@ if(isset($_GET['note_id'])) {
     if($stmt = $con->prepare($sql)) {
         $stmt->bind_param("i", $note_id);
         if($stmt->execute()) {
-            $history_content = $user.' deleted a note(Note id = '. $note_id. ') at '. date('Y/m/d  H:i').'.';
-            $key_words = 'Note';
-            $stmt2 = $con->prepare("INSERT INTO history (key_word, content) VALUES (?, ?)");
-            $stmt2->bind_param("ss", $key_words, $history_content);
+            $content = $user.' deleted a note (Note id = '. $note_id. ') at \t'. date('Y/m/d  H:i').'.';
+            $content_key = 'Note';
+            $content_activity = 'delete';
+            $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+            $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
             $stmt2->execute();
             header('Location: /home/Home.php');
             exit(0);

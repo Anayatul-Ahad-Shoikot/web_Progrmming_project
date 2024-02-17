@@ -1,7 +1,7 @@
 <?php  
     include('/xampp/htdocs/web_Progrmming_project/db_con.php');
     
-    $sql = "SELECT key_word, content FROM history ORDER BY his_id DESC";
+    $sql = "SELECT content_key, content FROM history ORDER BY his_id DESC";
     $result = $con->query($sql);
 
     if ($result->num_rows > 0) {
@@ -15,9 +15,3 @@
     }
     $con->close();
 ?>
-<!-- 
-<div class="notice-date">
-    <div class="date">
-    <h1>' .htmlspecialchars($row["key_word"]). '</h1>
-    </div>
-    </div> -->

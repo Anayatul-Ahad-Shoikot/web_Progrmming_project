@@ -55,6 +55,38 @@ body.dark {
 --activeText: #fff;
 --dark: #fbfbfb;
 }
+.notification-container {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin: 1rem;
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    z-index: 9999;
+  }
+  .alert {
+    width: fit-content;
+    padding: 12px 46px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .alert.two {
+    background-color: rgb(170, 255, 170, 0.5);
+    border: 1px solid rgb(0, 255, 0);
+  }
+  
+  .alert.one {
+    background-color: rgba(255, 170, 170, 0.5);
+    border: 1px solid rgb(255, 0, 0);
+  } 
+  
+
 
 .sidebar {
 position: fixed;
@@ -340,11 +372,47 @@ object-fit: cover;
 
 .content main {
 width: 100%;
-padding: 40px 13rem;
+padding: 40px 5rem;
 font-family: var(--poppins);
 height: 725px;
 overflow-x: hidden;
 }
+
+.content main .head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid;
+  }
+  
+  .content main .head-title .left h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--color4);
+  }
+  
+  .content main .head-title .left .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .content main .head-title .left .breadcrumb i {
+    color: var(--dark);
+  }
+  
+  .content main .head-title .left .breadcrumb li a {
+    color: var(--dark-grey);
+    pointer-events: none;
+  }
+  
+  .content main .head-title .left .breadcrumb li a.active {
+    color: var(--blue);
+    pointer-events: unset;
+  }
+  
 .content main .upper-part {
     display: flex;
     justify-content: space-between;
@@ -360,7 +428,7 @@ overflow-x: hidden;
     display: flex;
     justify-content: space-between;
     align-items: top;
-    margin-top: 20px;
+    margin: 20px 8rem;
     gap: 20px;
 }
 .lower-part .todo-1 {

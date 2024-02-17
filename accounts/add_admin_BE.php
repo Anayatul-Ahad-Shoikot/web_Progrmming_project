@@ -29,11 +29,12 @@
                                 $stmt->bind_param("sssi", $username, $useremail, $hashed_password, $priority);
                                 $stmt->execute();
                                 if ($stmt->execute()) {
-                                    $history_content = 'New Admin added by - ' . $user . ' at ('  . date('Y/m/d  H:i').').';
-                                    $key_words = 'Admin Added';
-                                    $stmt2 = $con->prepare("INSERT INTO history (key_word, content) VALUES (?, ?)");
-                                    $stmt2->bind_param("ss", $key_words, $history_content);
-                                    $stmt2->execute();    
+                                    $content = 'New Admin added ('  . date('Y/m/d  H:i').').' . $user;
+                                    $content_key = 'Password';
+                                    $content_activity = 'Change';
+                                    $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                                    $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
+                                    $stmt2->execute();
                                     $_SESSION['green'] = "Admin Added successfully";
                                     header("Location: /accounts/account.php");
                                     exit(0);
