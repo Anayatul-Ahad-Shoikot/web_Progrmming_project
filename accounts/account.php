@@ -12,26 +12,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/accounts/account.css">
-    <title>orphans</title>
+    <title>Admin</title>
   </head>
   <body>
-
-    <div class="notification-container">
-        <?php
-            if(isset($_SESSION['red'])){
-                echo '<div class="alert one">
-                        <h5>'.$_SESSION['red'].'</h5>
-                    </div>';
-                unset($_SESSION['red']);
-            }
-            if(isset($_SESSION['green'])){
-                echo '<div class="alert two">
-                        <h5>'.$_SESSION['green'].'</h5>
-                    </div>';
-                unset($_SESSION['green']);
-            }
-        ?>
-    </div>
 
     <section class="sidebar">
             <a href="" class="logo">
@@ -113,29 +96,73 @@
         </div>
 
         <div class="container">
-            <div class="box st">
-                <h1>My Deteails</h1>
-                <form action="/accounts/update_info_BE.php" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="username" placeholder="<?php echo 'Username : '.$username ?>" autocomplete="off">
-                    <input type="email" name="useremail" placeholder="<?php echo 'Useremail : '.$useremail ?>" autocomplete="New-email">
-                    <input type="password" name="newpass" placeholder="Enter new password">
-                    <input type="password" name="re-pass" placeholder="Confirm your new password">Upload Profile Image
-                    <input type="file" name="image" accept="image/*">
-                    <input type="password" name="userpassword" placeholder="Password to continue" required>
-                    <button type="submit" name="submit1">Update</button>
-                </form>
-            </div>
-            <div class="box st">
-                <h1>Add New Admin</h1>
-                <form action="/accounts/add_admin_BE.php" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="username" placeholder="Admin username" autocomplete="off" required>
-                    <input type="email" name="useremail" placeholder="Admin useremail" autocomplete="off" required>
-                    <input type="text" name="priority" placeholder="Admin priyority <?php echo '(must be > '.$prior.' )' ?>" autocomplete="off" required>
-                    <input type="password" name="Password" placeholder="Password" autocomplete="off" required>
-                    <input type="password" name="ConfirmPassword" placeholder="ConfirmPassword" required>
-                    <input type="password" name="userpassword" placeholder="Password to continue" required>
-                    <button type="submit" name="submit2">Add</button>
-                </form>
+            <div class="acts">
+                <div class="saaa">
+                    <h1>My Deteails</h1>
+                    <form action="/accounts/update_info_BE.php" method="POST" enctype="multipart/form-data">
+                        <table>
+                            <tr>
+                                <td>UserName: </td>
+                                <td><input type="text" name="username" placeholder="<?php echo $username ?>" autocomplete="off"></td>
+                            </tr>
+                            <tr>
+                                <td>UserEmail: </td>
+                                <td><input type="email" name="useremail" placeholder="<?php echo $useremail ?>" autocomplete="off"></td>
+                            </tr>
+                            <tr>
+                                <td>NewPassword: </td>
+                                <td><input type="password" name="newpass"></td>
+                            </tr>
+                            <tr>
+                                <td>ConfirmPassword: </td>
+                                <td><input type="password" name="Password"></td>
+                            </tr>
+                            <tr>
+                                <td>Upload Image: </td>
+                                <td><input type="file" name="image" accept="image/*"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left"><input type="password" name="userpassword" placeholder="Password to continue" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center"><button type="submit" name="submit1">Update</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="saaa">
+                    <h1>Add New Admin</h1>
+                    <form action="/accounts/add_admin_BE.php" method="POST">
+                        <table>
+                            <tr>
+                                <td>UserName: </td>
+                                <td><input type="text" name="username" autocomplete="off" required></td>
+                            </tr>
+                            <tr>
+                                <td>UserEmail: </td>
+                                <td><input type="email" name="useremail" autocomplete="off" required></td>
+                            </tr>
+                            <tr>
+                                <td>Priority: </td>
+                                <td><input type="text" name="priority" placeholder="<?php echo '(must be > '.$prior.' )' ?>" autocomplete="off" required></td>
+                            </tr>
+                            <tr>
+                                <td>Password: </td>
+                                <td><input type="password" name="Password" placeholder="Password" autocomplete="off" required></td>
+                            </tr>
+                            <tr>
+                                <td>Confirm Password: </td>
+                                <td><input type="password" name="ConfirmPassword" placeholder="ConfirmPassword" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left"><input type="password" name="userpassword" placeholder="Password to continue" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center"><button type="submit" name="submit2">Add</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
             </div>
             <div class="accts">
                 <?php
@@ -146,6 +173,24 @@
       </main>
 
     </section>
+
+
+    <div class="notification-container">
+        <?php
+            if(isset($_SESSION['red'])){
+                echo '<div class="alert one">
+                        <h5>'.$_SESSION['red'].'</h5>
+                    </div>';
+                unset($_SESSION['red']);
+            }
+            if(isset($_SESSION['green'])){
+                echo '<div class="alert two">
+                        <h5>'.$_SESSION['green'].'</h5>
+                    </div>';
+                unset($_SESSION['green']);
+            }
+        ?>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

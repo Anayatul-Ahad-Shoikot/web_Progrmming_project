@@ -5,7 +5,7 @@
     if(isset($_POST['login_btn'])) {
             $username = $_POST['username'];
             $userpassword = $_POST['userpassword'];
-            $Name_Check_Query = "SELECT username, userpassword, ac_id, priority FROM accounts WHERE username = '$username' LIMIT 1";
+            $Name_Check_Query = "SELECT username, userpassword, ac_id, priority FROM accounts WHERE BINARY username = '$username' LIMIT 1";
             $Name_Check_Query_Result = mysqli_query($con, $Name_Check_Query);
             if(mysqli_num_rows($Name_Check_Query_Result) == 1) {
                 $row = mysqli_fetch_array($Name_Check_Query_Result);

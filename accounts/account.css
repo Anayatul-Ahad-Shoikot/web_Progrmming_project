@@ -377,7 +377,7 @@ object-fit: cover;
 
 .content main {
   width: 100%;
-  padding: 36px 24px;
+  padding: 20px 20px;
   font-family: var(--poppins);
   max-height: calc(100vh - 56px);
   overflow-y: auto;
@@ -470,111 +470,84 @@ object-fit: cover;
 
 .content main .container {
     display: flex;
+    flex-direction: column;
     margin-top: 20px;
     gap: 20px;
 }
 
-.content main .container .box {
+.container .acts {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.acts .saaa {
+  background-color: white ;
+  padding: 13px 20px;
+}
+.acts form tr {
+  row-gap: 10px;
+}
+.acts h1{
+  padding-bottom: 20px;
+}
+.acts input {
+  font-size: 1rem;
+  padding: 5px;
+  border: .5px solid var(--dark-grey);
+  width: 250px;
+}
+
+.acts form button {
+  width: 250px;
+}
+
+.container .accts {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow: auto;
+}
+
+.accts::-webkit-scrollbar {
+  display: none;
+}
+
+.accts .sa {
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  background: white;
+  padding: 13px;
+  align-items: center;
+}
+
+.accts .saaa {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accts .saaa input {
+    background: transparent;
     border: none;
-    background-color: white;
+    padding-left: 10px;
+    font-size: 1rem;
+}
+.saaa button {
+    width: 150px;
+    height: 32px;
+    background-color: var(--sidebars);
+    border: none;
     border-radius: 5px;
-    box-shadow: 20px 20px 0 var(--grey);
-    padding: 25px;
-  }
-.content main .container .box.st {
-  display: flex;
-  flex-direction: column;
-  width: 335px;
-  height: 610px;
-  padding: 15px;
-  gap:10px;
-  align-items: center;
-}
-.content main .container .box.nd {
-  width: 30rem;
-  height: min-content;
-  padding: 2rem ;
-  justify-content: center;
-}
-.content main .container .box.st.st {
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
+    margin-top: 20px;
 }
 
-
-content main .container .accts {
-  max-height: 500px;
-  overflow-x: hidden;
-  background-color: red;
+.sa img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 2px solid black ;
 }
-.box.st img {
-    width: 100px;
-    height: 100px;
-    object-fit: fill;
-    border-radius: 50%;
-}
-
-.box.st form {
-  width: 100%;
-  padding: 15px;
-  border-bottom: 1px solid var(--dark);
-}
-
-.box.st button {
-  background: var(--sidebars);
-  padding: 5px;
-  border-radius: 5px;
-  color: white;
-  font-size: larger;
-  align-items: center;
-  width: 100%;
-  outline: none;
-  border: none;
-}
-
-.box.st button:hover {
-  background: rgb(255, 149, 62);
-  transform: scale(1.1);
-}
-
-.box.nd button {
-  background: var(--color4);
-  padding: 5px;
-  border-radius: 5px;
-  color: white;
-  font-size: larger;
-  align-items: center;
-  width: 15rem;
-  justify-content: space-evenly ;
-}
-
-
-  .content main .container  .box h1 {
-    margin-bottom: 10px;
-    color: var(--dark);
-  }
-
-  .content main .container  .box input[type="text"],
-  .content main .container  .box input[type="email"],
-  .content main .container  .box input[type="password"],
-  .content main .container  .box input[type="file"],
-  .content main .container  .box input[type="number"] {
-    display: block;
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 5px;
-    border: none;
-  }
-
-  .content main .container  .box input[type="submit"] {
-    padding: 8px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-
 ::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;

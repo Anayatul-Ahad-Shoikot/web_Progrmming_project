@@ -43,7 +43,7 @@
             <div class="forgetPass">
                 <a href="#">Forget password?</a>
             </div>
-            <p>Don't have an account?  <a href="/log_Sign/Signup.php">SignUp</a></p>
+            <!-- <p>Don't have an account?  <a href="/log_Sign/Signup.php">SignUp</a></p> -->
         </div>
         <div class="img" style="display:flex; align-items:center; background-color: antiquewhite;">
             <img src="/Resource/login.png" alt="">

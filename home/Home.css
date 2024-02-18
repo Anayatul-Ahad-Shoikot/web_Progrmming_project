@@ -382,7 +382,7 @@ width: 100%;
 padding: 36px 24px;
 font-family: var(--poppins);
 max-height: calc(100vh - 56px);
-overflow-x: hidden;
+/* overflow-x: hidden; */
 overflow-y: hidden;
 }
 .content main .upper-part {
@@ -494,7 +494,7 @@ overflow-y: hidden;
     display: flex;
     justify-content: space-between;
     align-items: top;
-    margin-top: 20px;
+    margin-top: 80px;
     gap: 20px;
 }
 
