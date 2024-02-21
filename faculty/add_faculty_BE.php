@@ -21,7 +21,7 @@
                     VALUES ('$f_name', '$f_code', '$f_mail', '$f_contact', '$f_designation', '$f_dept', $f_max_T, $f_max_L)";
             if ($con->query($sql) === TRUE) {
                 $content = 'Faculty "'. $f_name. '" added ('. date('Y/m/d  H:i').') ---'.$user;
-                $content_key = 'Faculty';
+                $content_key = 'faculty';
                 $content_activity = 'add';
                 $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
                 $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);

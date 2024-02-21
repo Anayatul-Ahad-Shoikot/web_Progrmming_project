@@ -17,8 +17,8 @@ if (isset($_SESSION['ac_id']) && isset($_SESSION['prior'])) {
                 $stmt_remove->close();
                 if ($con->affected_rows > 0) {
                     $content = 'Admin removed (' . date('Y/m/d H:i') . ') ---' . $user;
-                    $content_key = 'remove';
-                    $content_activity = 'admin';
+                    $content_key = 'admin';
+                    $content_activity = 'remove';
                     $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
                     $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
                     $stmt2->execute();

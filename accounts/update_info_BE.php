@@ -31,7 +31,7 @@
                                 if (mysqli_stmt_execute($stmt)) {
                                     $content = 'Username changed from '. $user. ' to '.$username . ' ('  . date('Y/m/d  H:i').') ---'.$user;
                                     $content_key = 'username';
-                                    $content_activity = 'Change';
+                                    $content_activity = 'change';
                                     $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
                                     $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
                                     $stmt2->execute();

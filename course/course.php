@@ -9,8 +9,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="/faculty/faculty.css" />
-        <title>Faculties</title>
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="stylesheet" href="/course/course.css" />
+        <title>Courses</title>
     </head>
     <body>
 
@@ -25,14 +26,14 @@
                     <span class="text">Home</span>
                 </a>
                 </li>
-                <li class="active">
-                <a href="#" class="nav-link">
+                <li>
+                <a href="/faculty/Faculty.php" class="nav-link">
                     <i style="font-size: 1.7rem;" class='bx bxs-graduation' ></i>
                     <span class="text">Faculties</span>
                 </a>
                 </li>
-                <li>
-                <a href="/course/course.php" class="nav-link">
+                <li class="active">
+                <a href="#" class="nav-link">
                     <i style="font-size: 1.6rem;" class='bx bxs-book-open'></i>
                     <span class="text">Courses</span>
                 </a>
@@ -65,7 +66,7 @@
                     <div class="form-input">
                         <input type="search" placeholder="search..." />
                         <button class="search-btn">
-                        <i class="fas fa-search search-icon"></i>
+                            <i class="fas fa-search search-icon"></i>
                         </button>
                     </div>
                 </form>
@@ -76,11 +77,11 @@
             <main class="table" id="customers_table">
                 <div class="head-title">
                     <div class="left">
-                        <h1>Faculties</h1>
+                        <h1>Courses</h1>
                         <ul class="breadcrumb">
                             <li><a class="active" href="/home/Home.php">Home</a></li>
                             <li>></li>
-                            <li><a href="">Faculty <?php echo "&nbsp- ".$_SESSION['f_total'] ?></a></li>
+                            <li><a href="">Courses</a></li>
                         </ul>
                     </div>
                     
@@ -89,47 +90,71 @@
                 <table>
                     <thead>
                         <tr>
-                            <th> Faculty Name <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Faculty Code </th>
-                            <th> Designation <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Load <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Dept. <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> ( T / L ) <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Max(T/L) <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Contact </th>
-                            <th> Mail </th>
+                            <th> Course Code <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Course Name </th>
+                            <th> Type <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Section <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Time slot<span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Day slot <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> ------ </th>
+                            <th> Status </th>
                             <th> Action </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr id="first_row">
-                            <form method="POST" action="/faculty/add_faculty_BE.php">
+                            <form method="POST" action="/course/add_course_BE.php">
                                 <td>
-                                    <input type="text" name="f_name" placeholder="Enter Name" required>
+                                    <input type="text" name="c_code" placeholder="Enter Course code" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="f_code" placeholder="Enter Code" required>
+                                    <input type="text" name="c_name" placeholder="Enter Course Name" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="f_designation" placeholder="Enter Designation" required>
+                                    <select name="c_type" id="">
+                                        <option value="">Select Type</option>
+                                        <option value=""> </option>
+                                        <option value="Theory">Theory</option>
+                                        <option value="Lab">Lab</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <!-- load -->
+                                    <input type="text" name="c_sec" placeholder="Enter section" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="f_dept" placeholder="Enter Department" required>
+                                    <select name="c_time" id="">
+                                        <option value="">Select Time</option>
+                                        <option value=""> </option>
+                                        <option value="8:30 - 9:50">8:30 - 9:50</option>
+                                        <option value="9:51 - 11:10">9:51 - 11:10</option>
+                                        <option value="11:11 - 12:30">11:11 - 12:30</option>
+                                        <option value="12:31 - 1:50">12:31 - 1:50</option>
+                                        <option value="1:51 - 3:10">1:51 - 3:10</option>
+                                        <option value="3:11 - 4:30">3:11 - 4:30</option>
+                                        <option value=""> </option>
+                                        <option value="8:30 - 11:00">8:30 - 11:00</option>
+                                        <option value="11:11 - 1:40">11:11 - 1:40</option>
+                                        <option value="2:00 - 4:30">2:00 - 4:30</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <!-- current T/L -->
+                                <select name="c_day" id="">
+                                        <option value="">Select Day</option>
+                                        <option value=""> </option>
+                                        <option value="Sat/Tues">Sat/Tues</option>
+                                        <option value="Sun/Wed">Sun/Wed</option>
+                                        <option value=""> </option>
+                                        <option value="Sat">Sat</option>
+                                        <option value="Sun">Sun</option>
+                                        <option value="Tues">Tues</option>
+                                        <option value="Wed">Wed</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <input type="text" name="faculty_max_TL" placeholder="Maximum theory, lab" required>
+                                    
                                 </td>
                                 <td>
-                                    <input type="text" name="f_contact" placeholder="Enter contact" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_mail" placeholder="Enter email" required>
+                                    
                                 </td>
                                 <td>
                                     <button type="submit" name="add_btn">ADD</button>
@@ -137,7 +162,7 @@
                             </form>
                         </tr>
                         <?php
-                            include('/xampp/htdocs/web_Progrmming_project/faculty/fetch_faculty_BE.php');
+                            include('/xampp/htdocs/web_Progrmming_project/course/fetch_course_BE.php');
                         ?>
                     </tbody>
                 </table>
@@ -161,7 +186,11 @@
                 }
             ?>
         </div>
+        
 
+
+        <script src="scripts.js"></script>
+        <script src="/home/Home.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const alerts = document.querySelectorAll('.notification-container > div');
@@ -179,7 +208,6 @@
             });
         </script>
 
-        <script src="/home/Home.js"></script>
-        <script src="/faculty/scripts.js"></script>
+        
     </body>
 </html>

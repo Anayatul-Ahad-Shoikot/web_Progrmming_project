@@ -40,8 +40,8 @@
                             $stmt->bind_param("sssi", $username, $useremail, $hashed_password, $priority);
                             $stmt->execute();
                             if ($stmt->execute()) {
-                                $content = 'new Admin added ('  . date('Y/m/d  H:i').') ---' . $user;
-                                $content_key = 'new';
+                                $content = 'Admin added ('  . date('Y/m/d  H:i').') ---' . $user;
+                                $content_key = 'admin';
                                 $content_activity = 'add';
                                 $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
                                 $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);

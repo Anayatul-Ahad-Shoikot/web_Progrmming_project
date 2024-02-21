@@ -32,7 +32,7 @@
                 </a>
                 </li>
                 <li>
-                <a href="#" class="nav-link">
+                <a href="/course/course.php" class="nav-link">
                     <i style="font-size: 1.6rem;" class='bx bxs-book-open'></i>
                     <span class="text">Courses</span>
                 </a>

@@ -11,7 +11,7 @@
             $stmt->bind_param("ss", $note_for, $note_content);
             if ($stmt->execute()) {
                 $content = 'Note created for '. $note_for. ' ('. date('Y/m/d  H:i').') ---'.$user;
-                $content_key = 'Note';
+                $content_key = 'note';
                 $content_activity = 'create';
                 $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
                 $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);

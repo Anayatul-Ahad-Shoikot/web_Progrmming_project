@@ -9,7 +9,7 @@ if(isset($_GET['note_id'])) {
         $stmt->bind_param("i", $note_id);
         if($stmt->execute()) {
             $content = 'Deleted a note [Note id = '. $note_id. '] '. date('Y/m/d  H:i').' ---'.$user;
-            $content_key = 'Note';
+            $content_key = 'note';
             $content_activity = 'delete';
             $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
             $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);

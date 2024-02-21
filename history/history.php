@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="/history/history.css" />
-        <title>Home</title>
+        <title>History</title>
     </head>
     <body>
 
@@ -34,7 +34,7 @@
                 </a>
                 </li>
                 <li>
-                <a href="#" class="nav-link">
+                <a href="/course/course.php" class="nav-link">
                     <i style="font-size: 1.6rem;" class='bx bxs-book-open'></i>
                     <span class="text">Courses</span>
                 </a>
