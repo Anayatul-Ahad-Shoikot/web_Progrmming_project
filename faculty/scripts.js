@@ -40,15 +40,17 @@ table_headings.forEach((head, i) => {
     }
 })
 
-
 function sortTable(column, sort_asc) {
-    [...table_rows].sort((a, b) => {
+    // Get all rows excluding the first one
+    const rowsToSort = [...table_rows].slice(1);
+
+    rowsToSort.sort((a, b) => {
         let first_row = a.querySelectorAll('td')[column].textContent.toLowerCase(),
             second_row = b.querySelectorAll('td')[column].textContent.toLowerCase();
 
         return sort_asc ? (first_row < second_row ? 1 : -1) : (first_row < second_row ? -1 : 1);
     })
-        .map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
+    .map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
 }
 
 // 3. Converting HTML table to PDF

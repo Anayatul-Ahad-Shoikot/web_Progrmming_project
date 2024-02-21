@@ -10,7 +10,7 @@
                 $facultyCount++;
                 $_SESSION['f_total'] = $facultyCount;
                 echo '<tr>' .
-                    '<td>' . $row['f_name'] . '</td>' .
+                    '<td><a href="view.php?f_id='.$row['f_load'].'">' . $row['f_name'] . '</a></td>' .
                     '<td>' . $row['f_code'] . '</td>' .
                     '<td>' . $row['f_designation'] . '</td>' .
                     '<td><p class="status delivered">'.$row['f_load'].'</p></td>' .

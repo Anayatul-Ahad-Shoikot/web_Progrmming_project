@@ -105,95 +105,36 @@
                         <tr id="first_row">
                             <form method="POST" action="/faculty/add_faculty_BE.php">
                                 <td>
-                                    <input type="text" name="f_name" placeholder="Enter Name">
+                                    <input type="text" name="f_name" placeholder="Enter Name" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="f_code" placeholder="Enter Code">
+                                    <input type="text" name="f_code" placeholder="Enter Code" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="f_designation" placeholder="Enter Designation">
+                                    <input type="text" name="f_designation" placeholder="Enter Designation" required>
                                 </td>
                                 <td>
                                     <!-- load -->
                                 </td>
                                 <td>
-                                    <input type="text" name="f_dept." placeholder="Enter Department">
+                                    <input type="text" name="f_dept" placeholder="Enter Department" required>
                                 </td>
                                 <td>
                                     <!-- current T/L -->
                                 </td>
                                 <td>
-                                    <input type="text" name="faculty_max_TL" placeholder="Maximum theory, lab ">
+                                    <input type="text" name="faculty_max_TL" placeholder="Maximum theory, lab" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="f_contact" placeholder="Enter contact">
+                                    <input type="text" name="f_contact" placeholder="Enter contact" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="f_mail" placeholder="Enter email">
+                                    <input type="text" name="f_mail" placeholder="Enter email" required>
                                 </td>
                                 <td>
-                                    <button type="submit" name="add_btn">Add</button>
+                                    <button type="submit" name="add_btn">ADD</button>
                                 </td>
                             </form>
-                        </tr>
-                        <tr>
-                            <td>Hasan Sarwar</td>
-                            <td>HS</td>
-                            <td>Professor</td>
-                            <td>
-                                <p class="status delivered"></p>
-                            </td>
-                            <td>CSE</td>
-                            <td>( 1 , 1 )</td>
-                            <td>( 1 , 1 )</td>
-                            <td>01973336001</td>
-                            <td>HS@gmail.com</td>
-                            <td><button> --:-- </button></td>
-                        </tr>
-                        <tr>
-                            
-                            <td>Mohammad Nurul Huda</td>
-                            <td>MNH</td>
-                            <td>Professor</td>
-                            <td>
-                                <p class="status pending"></p>
-                            </td>
-                            <td>CSE</td>
-                            <td>( 1 , 1 )</td>
-                            <td>( 1 , 1 )</td>
-                            <td>01312404674</td>
-                            <td>MNH@gmail.com</td>
-                            <td><button>--:--</button></td>
-                        </tr>
-                        <tr>
-                            
-                            <td>Khondaker Abdullah -Al-Mamun</td>
-                            <td>KAM</td>
-                            <td>Professor</td>
-                            <td>
-                                <p class="status shipped"></p>
-                            </td>
-                            <td>CSE</td>
-                            <td>( 2 , 2 )</td>
-                            <td>( 1 , 1 )</td>
-                            <td>01711404674</td>
-                            <td>KAM@gmail.com</td>
-                            <td><button>--:--</button></td>
-                        </tr>
-                        <tr>
-                            
-                            <td>Salekul Islam</td>
-                            <td>Sakm</td>
-                            <td>Professor</td>
-                            <td>
-                                <p class="status cancelled"></p>
-                            </td>
-                            <td>CSE</td>
-                            <td>( 3 , 3 )</td>
-                            <td>( 1 , 1 )</td>
-                            <td>01973336001</td>
-                            <td>Salm@gmail.com</td>
-                            <td><button>--:--</button></td>
                         </tr>
                         <?php
                             include('/xampp/htdocs/web_Progrmming_project/faculty/fetch_faculty_BE.php');
