@@ -80,169 +80,164 @@
                         <ul class="breadcrumb">
                             <li><a class="active" href="/home/Home.php">Home</a></li>
                             <li>></li>
-                            <li><a href="">Faculty</a></li>
+                            <li><a href="">Faculty <?php echo "&nbsp- ".$_SESSION['f_total'] ?></a></li>
                         </ul>
                     </div>
-                    <div class="add">
-                        <a href="#"><p>Add&nbsp;<i class='bx bx-plus-medical'></i></p></a>
-                    </div>
+                    
                 </div>
             <section class="table__body">
                 <table>
                     <thead>
                         <tr>
-                            <th> Id <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Faculty Name <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Faculty Tag <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Faculty Code </th>
                             <th> Designation <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Load  <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Load <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Dept. <span class="icon-arrow">&UpArrow;</span></th>
                             <th> ( T / L ) <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Max(T/L)  <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Contact  <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Mail  <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Action  <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Max(T/L) <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Contact </th>
+                            <th> Mail </th>
+                            <th> Action </th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tr id="first_row">
+                            <form method="POST" action="/faculty/add_faculty_BE.php">
+                                <td>
+                                    <input type="text" name="f_name" placeholder="Enter Name">
+                                </td>
+                                <td>
+                                    <input type="text" name="f_code" placeholder="Enter Code">
+                                </td>
+                                <td>
+                                    <input type="text" name="f_designation" placeholder="Enter Designation">
+                                </td>
+                                <td>
+                                    <!-- load -->
+                                </td>
+                                <td>
+                                    <input type="text" name="f_dept." placeholder="Enter Department">
+                                </td>
+                                <td>
+                                    <!-- current T/L -->
+                                </td>
+                                <td>
+                                    <input type="text" name="faculty_max_TL" placeholder="Maximum theory, lab ">
+                                </td>
+                                <td>
+                                    <input type="text" name="f_contact" placeholder="Enter contact">
+                                </td>
+                                <td>
+                                    <input type="text" name="f_mail" placeholder="Enter email">
+                                </td>
+                                <td>
+                                    <button type="submit" name="add_btn">Add</button>
+                                </td>
+                            </form>
+                        </tr>
                         <tr>
-                            <td> 1 </td>
                             <td>Hasan Sarwar</td>
-                            <td> HS </td>
-                            <td> Professor </td>
+                            <td>HS</td>
+                            <td>Professor</td>
                             <td>
                                 <p class="status delivered"></p>
                             </td>
-                            <td> ( 1 , 2 ) </td>
-                            <td> ( 3 , 3 ) </td>
-                            <td> 01973336001 </td>
-                            <td> HS@gmail.com </td>
+                            <td>CSE</td>
+                            <td>( 1 , 1 )</td>
+                            <td>( 1 , 1 )</td>
+                            <td>01973336001</td>
+                            <td>HS@gmail.com</td>
+                            <td><button> --:-- </button></td>
+                        </tr>
+                        <tr>
+                            
+                            <td>Mohammad Nurul Huda</td>
+                            <td>MNH</td>
+                            <td>Professor</td>
+                            <td>
+                                <p class="status pending"></p>
+                            </td>
+                            <td>CSE</td>
+                            <td>( 1 , 1 )</td>
+                            <td>( 1 , 1 )</td>
+                            <td>01312404674</td>
+                            <td>MNH@gmail.com</td>
                             <td><button>--:--</button></td>
                         </tr>
                         <tr>
-                            <td> 2 </td>
-                            <td>Jeet Saru </td>
-                            <td> Dhanmondi </td>
-                            <td> 27 Aug, 2023 </td>
+                            
+                            <td>Khondaker Abdullah -Al-Mamun</td>
+                            <td>KAM</td>
+                            <td>Professor</td>
                             <td>
-                                <p class="status cancelled">Cancelled</p>
+                                <p class="status shipped"></p>
                             </td>
-                            <td> <strong>$222.50</strong> </td>
+                            <td>CSE</td>
+                            <td>( 2 , 2 )</td>
+                            <td>( 1 , 1 )</td>
+                            <td>01711404674</td>
+                            <td>KAM@gmail.com</td>
+                            <td><button>--:--</button></td>
                         </tr>
                         <tr>
-                            <td> 3</td>
-                            <td>Sonal Gharti </td>
-                            <td> Mohakhali </td>
-                            <td> 14 Mar, 2023 </td>
+                            
+                            <td>Salekul Islam</td>
+                            <td>Sakm</td>
+                            <td>Professor</td>
                             <td>
-                                <p class="status shipped">Shipped</p>
+                                <p class="status cancelled"></p>
                             </td>
-                            <td> <strong>$333.40</strong> </td>
+                            <td>CSE</td>
+                            <td>( 3 , 3 )</td>
+                            <td>( 1 , 1 )</td>
+                            <td>01973336001</td>
+                            <td>Salm@gmail.com</td>
+                            <td><button>--:--</button></td>
                         </tr>
-                        <tr>
-                            <td> 4</td>
-                            <td>Alson GC </td>
-                            <td> Banani </td>
-                            <td> 25 May, 2023 </td>
-                            <td>
-                                <p class="status delivered">Delivered</p>
-                            </td>
-                            <td> <strong>$444.70</strong> </td>
-                        </tr>
-                        <tr>
-                            <td> 5</td>
-                            <td>Sarita Limbu </td>
-                            <td> gulshan 1 </td>
-                            <td> 23 Apr, 2023 </td>
-                            <td>
-                                <p class="status pending">Pending</p>
-                            </td>
-                            <td> <strong>$55.99</strong> </td>
-                        </tr>
-                        <tr>
-                            <td> 6</td>
-                            <td> Alex Gonley </td>
-                            <td> gulshsan 2 </td>
-                            <td> 23 Apr, 2023 </td>
-                            <td>
-                                <p class="status cancelled">Cancelled</p>
-                            </td>
-                            <td> <strong>$56.99</strong> </td>
-                        </tr>
-                        <tr>
-                            <td> 7</td>
-                            <td>Jeet Saru </td>
-                            <td> Science lab </td>
-                            <td> 20 May, 2023 </td>
-                            <td>
-                                <p class="status delivered">Delivered</p>
-                            </td>
-                            <td> <strong>$99.99</strong> </td>
-                        </tr>
-                        <tr>
-                            <td> 8</td>
-                            <td>Aayat Ali Khan </td>
-                            <td> Khilgaon </td>
-                            <td> 30 Feb, 2023 </td>
-                            <td>
-                                <p class="status pending">Pending</p>
-                            </td>
-                            <td> <strong>$149.70</strong> </td>
-                        </tr>
-                        <tr>
-                            <td> 9</td>
-                            <td>Alson GC </td>
-                            <td> Dhaka </td>
-                            <td> 22 Dec, 2023 </td>
-                            <td>
-                                <p class="status cancelled">Cancelled</p>
-                            </td>
-                            <td> <strong>$249.99</strong> </td>
-                        </tr>
-                        <tr>
-                            <td> 9</td>
-                            <td>Alson GC </td>
-                            <td> Dhaka </td>
-                            <td> 22 Dec, 2023 </td>
-                            <td>
-                                <p class="status cancelled">Cancelled</p>
-                            </td>
-                            <td> <strong>$249.99</strong> </td>
-                        </tr>
-                        <tr>
-                            <td> 9</td>
-                            <td>Alson GC </td>
-                            <td> Wirless </td>
-                            <td> 22 Dec, 2023 </td>
-                            <td>
-                                <p class="status cancelled">Cancelled</p>
-                            </td>
-                            <td> <strong>$219.99</strong> </td>
-                        </tr>
-                        <tr>
-                            <td> 9</td>
-                            <td>Alson GC </td>
-                            <td> dhanmodi 7 </td>
-                            <td> 22 Dec, 2023 </td>
-                            <td>
-                                <p class="status cancelled">Cancelled</p>
-                            </td>
-                            <td> <strong>$209.99</strong> </td>
-                        </tr>
-                        <tr>
-                            <td> 9</td>
-                            <td>Alson GC </td>
-                            <td> Banani 11 </td>
-                            <td> 22 Dec, 2023 </td>
-                            <td>
-                                <p class="status cancelled">Cancelled</p>
-                            </td>
-                            <td> <strong>$2321.99</strong> </td>
-                        </tr>
+                        <?php
+                            include('/xampp/htdocs/web_Progrmming_project/faculty/fetch_faculty_BE.php');
+                        ?>
                     </tbody>
                 </table>
             </section>
         </main>
         </section>
+
+        <div class="notification-container">
+            <?php
+                if(isset($_SESSION['red'])){
+                    echo '<div class="alert one">
+                            <h5>'.$_SESSION['red'].'</h5>
+                        </div>';
+                    unset($_SESSION['red']);
+                }
+                if(isset($_SESSION['green'])){
+                    echo '<div class="alert two">
+                            <h5>'.$_SESSION['green'].'</h5>
+                        </div>';
+                    unset($_SESSION['green']);
+                }
+            ?>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const alerts = document.querySelectorAll('.notification-container > div');
+                alerts.forEach(function(alert) {
+                    setTimeout(function() {
+                        alert.style.opacity = '1';
+                        setTimeout(function() {
+                            alert.style.opacity = '0';
+                            setTimeout(function() {
+                                alert.style.display = 'none';
+                                }, 500);
+                        }, 6000);
+                    }, 500);
+                });
+            });
+        </script>
+
         <script src="/home/Home.js"></script>
         <script src="/faculty/scripts.js"></script>
     </body>
