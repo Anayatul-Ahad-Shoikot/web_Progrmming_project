@@ -137,7 +137,7 @@ $con->close();
                     <tbody>
                         <tr id="first_row">
                             <form method="POST" action="/timeline/test.php">
-                                <td id="faculty"> 
+                                <td>
                                     <input type="text" id="searchInput" oninput="filterDropdown()" placeholder="Search Faculty">
                                     <select name="name" id="facultySelect" onchange="updateFacultyInfo()">
                                         <option value="">Select Faculty</option>
@@ -149,12 +149,12 @@ $con->close();
                                 <td id="currentTd"></td>
                                 <td id="maxTd"></td>
                                 <td id="Course">
-                                    <input type="text" id="CourseInput" oninput="CourseDropdown()" placeholder="Search Course">
-                                    <select name="c_name" id="CourseSelect" onchange="updateFacultyInfo()">
-                                        <option value="">Select Faculty</option>
-                                        <?php
-                                            include('/xampp/htdocs/web_Progrmming_project/timeline/Faculty_sgtn_BE.php');
-                                        ?>
+                                    <input type="text" id="C_Input" oninput="C_Dropdown()" placeholder="Search Faculty">
+                                        <select name="C_Name" id="C_Select" onchange="updateC_Info()">
+                                            <option value="">Select Faculty</option>
+                                            <?php
+                                                include('/xampp/htdocs/web_Progrmming_project/timeline/Course_sgtn_BE.php');
+                                            ?>
                                     </select>
                                 </td> 
                                 <td id="Course_Section">
@@ -201,22 +201,7 @@ $con->close();
             input = document.getElementById("searchInput");
             filter = input.value.toUpperCase();
             select = document.getElementById("facultySelect");
-            option = select.getElementsByTagName("#faculty option");
-
-            for (i = 0; i < option.length; i++) {
-                if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    option[i].style.display = "";
-                } else {
-                    option[i].style.display = "none";
-                }
-            }
-        }
-        function CourseDropdown() {
-            var input, filter, select, option, i;
-            input = document.getElementById("CourseInput");
-            filter = input.value.toUpperCase();
-            select = document.getElementById("CourseSelect");
-            option = select.getElementsByTagName("#Course option");
+            option = select.getElementsByTagName("option");
 
             for (i = 0; i < option.length; i++) {
                 if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
