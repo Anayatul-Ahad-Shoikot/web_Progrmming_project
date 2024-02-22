@@ -18,7 +18,17 @@
                     '<td>' . $row['c_day'] . '</td>' .
                     '<td></td>' .
                     '<td><p class="status delivered">' . $row['status'] . '</p></td>' .
-                    '<td><button> --:-- </button></td>' .
+                    '<td>
+                        <button onclick="openModal()">Action</button>
+                        <div id="myModal" class="modal">
+                            <div class="modal-buttons">
+                                <button onclick="editAction()">Edit</button>
+                                <button onclick="deleteAction()">Delete</button>
+                                <button onclick="viewAction()">View</button>
+                            </div>
+                        </div>
+                        <div id="overlay" class="overlay" onclick="closeModal()"></div>
+                    </td>' .
                     '</tr>';
                 }
         } else {

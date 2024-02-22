@@ -1,5 +1,6 @@
 <?php 
     include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
+    include('/xampp/htdocs/web_Progrmming_project/faculty/faculty_details_BE.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="/faculty/faculty.css" />
+        <link rel="stylesheet" href="/faculty/faculty_profile.css">
         <title>Faculties</title>
     </head>
     <body>
@@ -73,76 +74,36 @@
                 <label for="switch-mode" class="switch-mode"></label>
                 <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>" alt="profile"/></a>
             </nav>
-            <main class="table" id="customers_table">
-                <div class="head-title">
-                    <div class="left">
-                        <h1>Faculties</h1>
-                        <ul class="breadcrumb">
-                            <li><a class="active" href="/home/Home.php">Home</a></li>
-                            <li>></li>
-                            <li><a href="">Faculty <?php echo "&nbsp- ".$_SESSION['f_total'] ?></a></li>
-                        </ul>
+            <main class="mn">
+                <div class="left">
+                    <div class="details">
+                        <h1><?php echo $f_name,", [", $f_code, "]" ?></h1>
+                        <p><?php echo $f_designation, ", Department of ", $f_dept ?></p>
+                        <p><?php echo "Email : ", $f_mail ?></p>
+                        <p><?php echo "Phone : ", $f_contact ?></p>
                     </div>
-                    
+                    <div class="present">
+                        <h1>present courses</h1>
+                    </div>
+                    <div class="past">
+                        <h1>past courses</h1>
+                    </div>
                 </div>
-            <section class="table__body">
-                <table>
-                    <thead>
-                        <tr>
-                            <th> Faculty Name <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Faculty Code </th>
-                            <th> Designation <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Load <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Dept. <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> ( T / L ) <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Max(T/L) <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Contact </th>
-                            <th> Mail </th>
-                            <th> Action </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="first_row">
-                            <form method="POST" action="/faculty/add_faculty_BE.php">
-                                <td>
-                                    <input type="text" name="f_name" placeholder="Enter Name" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_code" placeholder="Enter Code" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_designation" placeholder="Enter Designation" required>
-                                </td>
-                                <td>
-                                    <!-- load -->
-                                </td>
-                                <td>
-                                    <input type="text" name="f_dept" placeholder="Enter Department" required>
-                                </td>
-                                <td>
-                                    <!-- current T/L -->
-                                </td>
-                                <td>
-                                    <input type="text" name="faculty_max_TL" placeholder="Maximum theory, lab" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_contact" placeholder="Enter contact" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_mail" placeholder="Enter email" required>
-                                </td>
-                                <td>
-                                    <button type="submit" name="add_btn">ADD</button>
-                                </td>
-                            </form>
-                        </tr>
-                        <?php
-                            include('/xampp/htdocs/web_Progrmming_project/faculty/fetch_faculty_BE.php');
-                        ?>
-                    </tbody>
-                </table>
-            </section>
-        </main>
+                <div class="right">
+                    <h1>hiii right</h1>
+                    <div class="box">
+                        <div class="best">
+                            <h1>best course</h1>
+                        </div>
+                        <div class="worst">
+                            <h1>worst course</h1>
+                        </div>
+                        <div class="notes">
+                            <h1>notes</h1>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </section>
 
         <div class="notification-container">

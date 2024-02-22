@@ -41,7 +41,7 @@
                 </a>
                 </li>
                 <li>
-                <a href="#" class="nav-link">
+                <a href="/timeline/timeline.php" class="nav-link">
                     <i style="font-size: 1.4rem;" class="fa-regular fa-rectangle-list"></i>
                     <span class="text">TimeLine</span>
                 </a>

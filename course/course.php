@@ -33,13 +33,13 @@
                 </a>
                 </li>
                 <li class="active">
-                <a href="#" class="nav-link">
+                <a href="/course/course.php" class="nav-link">
                     <i style="font-size: 1.6rem;" class='bx bxs-book-open'></i>
                     <span class="text">Courses</span>
                 </a>
                 </li>
                 <li>
-                <a href="#" class="nav-link">
+                <a href="/timeline/timeline.php" class="nav-link">
                     <i style="font-size: 1.4rem;" class="fa-regular fa-rectangle-list"></i>
                     <span class="text">TimeLine</span>
                 </a>
@@ -191,6 +191,7 @@
 
         <script src="scripts.js"></script>
         <script src="/home/Home.js"></script>
+        <script src="/course/button_popup.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const alerts = document.querySelectorAll('.notification-container > div');
