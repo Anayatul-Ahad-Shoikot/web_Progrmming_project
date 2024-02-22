@@ -137,7 +137,7 @@ $con->close();
                     <tbody>
                         <tr id="first_row">
                             <form method="POST" action="/timeline/test.php">
-                                <td>
+                                <td id="faculty"> 
                                     <input type="text" id="searchInput" oninput="filterDropdown()" placeholder="Search Faculty">
                                     <select name="name" id="facultySelect" onchange="updateFacultyInfo()">
                                         <option value="">Select Faculty</option>
@@ -201,7 +201,7 @@ $con->close();
             input = document.getElementById("searchInput");
             filter = input.value.toUpperCase();
             select = document.getElementById("facultySelect");
-            option = select.getElementsByTagName("option");
+            option = select.getElementsByTagName("#faculty option");
 
             for (i = 0; i < option.length; i++) {
                 if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
@@ -216,7 +216,7 @@ $con->close();
             input = document.getElementById("CourseInput");
             filter = input.value.toUpperCase();
             select = document.getElementById("CourseSelect");
-            option = select.getElementsByTagName("option");
+            option = select.getElementsByTagName("#Course option");
 
             for (i = 0; i < option.length; i++) {
                 if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
