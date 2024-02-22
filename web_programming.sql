@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2024 at 07:59 PM
+-- Generation Time: Feb 22, 2024 at 10:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,10 +41,91 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`ac_id`, `username`, `useremail`, `userpassword`, `priority`, `img`) VALUES
-(4, 'AHAD', 'a@gmail.com', '$2y$10$NAyLysF7W3vke9rNO0JcTerVWmswzrhkhdL5aE8egs0.mdvKiLrwi', 1, 'img/416226397_799008138910419_2788070358869374265_n.jpg'),
-(6, 'admin2', 'admin2@gmail.com', '$2y$10$1QZurPwfplIFUkArBaG1H.L991kCMiLaRHtjXNlHm9VnxcbO3v3Xq', 1, 'img/011212107.jpg'),
-(12, 'admin9', 'admin9@gmail.com', '$2y$10$evLQ7Ch4Iz48TSdOMQtAqOxLcOP/FOzO5O.Bqzvmu5zJ8v/VY3zmS', 1, ''),
-(14, 'admin1000', 'admin10@gmail.com', '$2y$10$Wnsxc2bMb63lQYstSKYjpuG9iw5bmOb828yvtQ3I4e/jO042Kp9Ou', 0, '');
+(1, 'admin1', 'admin1@gmail.com', '$2y$10$pLXE2I2F6eSzmmuvQDhwhuTH9rRDRYctTSxobVn4mlaHfEbtrrt1i', 1, 'img/logo.png'),
+(2, 'admin2', 'admin2@gmail.com', '$2y$10$PiOKkb3DUYP3vTlQ5tjNL.uNCoezyrLFrknbPKyh6pfuOAMwTECVm', 2, 'img/405178172_367573859371815_3682155291458542577_n.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE `course` (
+  `c_id` int(2) NOT NULL,
+  `c_code` varchar(20) NOT NULL,
+  `c_name` varchar(50) NOT NULL,
+  `c_type` varchar(10) NOT NULL,
+  `c_sec` varchar(5) NOT NULL,
+  `c_time` varchar(15) NOT NULL,
+  `c_day` varchar(10) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`c_id`, `c_code`, `c_name`, `c_type`, `c_sec`, `c_time`, `c_day`, `status`) VALUES
+(3, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'U', '2:00 - 4:30', 'Tues', 0),
+(4, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'L', '8:30 - 11:00', 'Sat', 0),
+(5, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'F', '11:11 - 1:40', 'Sun', 0),
+(6, 'CSE1111', 'Structured Programmimg Language', 'Theory', 'L', '9:51 - 11:10', 'Sun/Wed', 0),
+(7, 'CSE1111', 'Structured Programmimg Language', 'Theory', 'Q', '1:51 - 3:10', 'Sat/Tues', 0),
+(8, 'CSE1112', 'Structured Programmimg Language', 'Lab', 'B', '11:11 - 1:40', 'Tues', 0),
+(9, 'CSE1112', 'Structured Programmimg Language', 'Lab', 'H', '8:30 - 11:00', 'Sat', 0),
+(10, 'CSE1116', 'Object Oriented Programming', 'Lab', 'F', '2:00 - 4:30', 'Sat', 0),
+(11, 'CSE1115', 'Object Oriented Programming', 'Theory', 'I', '12:31 - 1:50', 'Sat/Tues', 0),
+(12, 'CSE1115', 'Object Oriented Programming', 'Theory', 'H', '11:11 - 12:30', 'Sun/Wed', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty`
+--
+
+CREATE TABLE `faculty` (
+  `f_id` int(4) NOT NULL,
+  `f_name` varchar(70) NOT NULL,
+  `f_code` varchar(20) NOT NULL,
+  `f_mail` varchar(50) NOT NULL,
+  `f_contact` varchar(11) NOT NULL,
+  `f_designation` varchar(30) NOT NULL,
+  `f_dept` varchar(10) NOT NULL,
+  `f_load` float NOT NULL DEFAULT 0,
+  `f_current_T` int(2) NOT NULL DEFAULT 0,
+  `f_max_T` int(2) NOT NULL,
+  `f_current_L` int(2) NOT NULL DEFAULT 0,
+  `f_max_L` int(2) NOT NULL,
+  `visible` int(2) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`f_id`, `f_name`, `f_code`, `f_mail`, `f_contact`, `f_designation`, `f_dept`, `f_load`, `f_current_T`, `f_max_T`, `f_current_L`, `f_max_L`, `visible`) VALUES
+(1, 'Anayatul Ahad Shoikot', 'AAS', 'AAS@gmail.com', '01973336001', 'Student', 'CSE', 0, 0, 3, 0, 3, 1),
+(2, 'Hasan Sarwar', 'HS', 'HS@gmail.com', '345636', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
+(3, 'Mohammad Nurul Huda', 'MNH', 'MNH', '902738432', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
+(4, 'Khondaker Abdullah-Al-Mamun', 'KM', 'KM', '72354793', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
+(5, 'Salekul Islam', 'SaIm', 'SaIm@gmail.com', '497356', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
+(6, 'A.K.M Muzahidul Islam', 'AKMMI', 'AKMMI@gmail.com', '37456239', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
+(7, 'Md. Motaharul Islam', 'MdMIm', 'MdMIm', '73256248', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
+(8, 'Dewan Md. Farid', 'DMF', 'DMF@gmail.com', '985648', 'Professor', 'CSE', 0, 0, 2, 0, 1, 1),
+(9, 'Al-Sakin Khan Pathan', 'ASKP', 'ASKP@gmailcom', '32547097', 'Professor', 'CSE', 0, 0, 2, 0, 1, 1),
+(10, 'Swakkar Shatabda', 'SS', 'SS@gmail.com', '39256276', 'Professor', 'CSE', 0, 0, 2, 0, 2, 1),
+(11, 'Mohammad Shahriar Rahman', 'MdSR', 'MdSR@gmail.com', '23764498', 'Professor', 'CSE', 0, 0, 2, 0, 2, 1),
+(12, 'Muhammad Nomani Kabir', 'MNK', 'MNK@gmail.com', '83724597', 'Associate Professor', 'CSE', 0, 0, 2, 0, 2, 1),
+(13, 'Suman Ahmmed', 'SA', 'SA@gmail.com', '3436625', 'Associate Professor', 'CSE', 0, 0, 3, 0, 2, 1),
+(14, 'Riasat Azim', 'RtAm', 'RtAm@gmail.com', '45632342', 'Associate Professor(car-1)', 'CSE', 0, 0, 2, 0, 3, 1),
+(15, 'Mohammad Mamun Elahi', 'ME', 'ME@gmail.com', '13248765001', 'Associate Professor(car-2)', 'CSE', 0, 0, 2, 0, 3, 1),
+(16, 'Rubaiya Rahtin Khan', 'RRK', 'RRK@gmail.com', '23499834', 'Assistant Professor(cat-2)', 'CSE', 0, 0, 3, 0, 2, 1),
+(17, 'Md. Benzir Ahmed', 'MBAd', 'ABAd@gmail.com', '66773324', 'Assistant Professor(cat-2)', 'CSE', 0, 0, 3, 0, 2, 1),
+(18, 'Nahid Hossain', 'NHn', 'Nhn@gmail.com', '32984765', 'Assistant Professor(cat-2)', 'CSE', 0, 0, 3, 0, 2, 1),
+(19, 'Khushnur Binte Jahangir', 'KBJ', 'KBJ@gmail.com', '019743234', 'Assistant Professor(cat-2)', 'CSE', 0, 0, 3, 0, 3, 1),
+(20, 'Minhajul Bashir', 'MiBa', 'MiBa@gmail.com', '0172312132', 'Lecturer', 'CSE', 0, 0, 3, 0, 3, 1),
+(21, 'Shoib Ahmed Shourav', 'SAhSh', 'SAhSh@gmail.com', '013889731', 'Lecturer', 'CSE', 0, 0, 4, 0, 1, 1),
+(37, 'Subangkar Karmaker Shanto', 'ShKS', 'ShKS@gmail.com', '018744434', 'Lecturer', 'CSE', 0, 0, 4, 0, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -65,41 +146,62 @@ CREATE TABLE `history` (
 --
 
 INSERT INTO `history` (`his_id`, `content_key`, `content`, `user`, `content_activity`) VALUES
-(1, 'note created', 'A note is created for ahad at 2024-02-15 20:04.', '', ''),
-(2, 'note created', 'A note is created for KMAE at 2024/02/16  04:29.', '', ''),
-(3, 'Note Deleted', 'You deleted a note note id (4) at 2024/02/16  04:44.', '', ''),
-(4, 'Note Deleted', 'You deleted a note note id (3) at 2024/02/16  10:18.', '', ''),
-(5, 'note created', 'A note is created for AAS at 2024/02/16  10:20.', '', ''),
-(6, 'Note Deleted', 'You deleted a note note id (5) at 2024/02/16  10:20.', '', ''),
-(7, 'note created', 'A note is created for aas at 2024/02/16  10:20.', '', ''),
-(8, 'note created', 'A note is created for asdwd at 2024/02/16  10:21.', '', ''),
-(9, 'note created', 'A note is created for awds at 2024/02/16  10:22.', '', ''),
-(10, 'Note Deleted', 'You deleted a note note id (6) at 2024/02/16  10:22.', '', ''),
-(11, 'Note Deleted', 'You deleted a note note id (7) at 2024/02/16  10:22.', '', ''),
-(12, 'Note Deleted', 'You deleted a note note id (8) at 2024/02/16  10:22.', '', ''),
-(13, 'note created', 'A note is created for awdsa at 2024/02/16  10:24.', '', ''),
-(14, 'note created', 'A note is created for awds at 2024/02/16  10:24.', '', ''),
-(15, 'Note Deleted', 'You deleted a note note id (9) at 2024/02/16  10:27.', '', ''),
-(16, 'Note Deleted', 'You deleted a note note id (10) at 2024/02/16  10:27.', '', ''),
-(17, 'Notes Created', 'Note created for test by (2024/02/16  11:07).', '', ''),
-(18, 'Note Deleted', 'admin deleted a note(Note id = 11) at 2024/02/16  11:08.', '', ''),
-(19, 'Notes Created', 'Note created for asdwad by admin(2024/02/16  11:09).', '', ''),
-(20, 'Note Deleted', 'admin deleted a note(Note id = 12) at 2024/02/16  11:23.', '', ''),
-(21, 'Notes Created', 'Note created for efe by admin(2024/02/16  11:30).', '', ''),
-(22, 'Note Deleted', 'admin deleted a note(Note id = 13) at 2024/02/16  11:30.', '', ''),
-(23, 'Username changed', 'Username changed from admin to admin by admin at 2024/02/16  11:44).', '', ''),
-(24, 'Image Update', 'Image updated byadmin at 2024/02/16  11:57).', '', ''),
-(25, 'Username changed', 'Username changed from admin to AHAD by admin at (2024/02/16  11:59).', '', ''),
-(26, 'Useremail changed', 'Email changed from  to ahad@gmail.com by -AHAD at (2024/02/16  12:01).', '', ''),
-(27, 'Useremail changed', 'Email changed from  to a@gmail.com by -AHAD at (2024/02/16  12:02).', '', ''),
-(28, 'Note', 'Note created for Nahid Hossain by AHAD(2024/02/16  12:14).', '', ''),
-(29, 'Note', 'Note created for Tanjum by AHAD(2024/02/17  18:07).', 'AHAD', 'create'),
-(30, 'Note', 'AHAD deleted a note (Note id = 14) at \\t2024/02/17  18:07.', 'AHAD', 'delete'),
-(31, 'Note', 'Note created for SHOIKOT by admin10(2024/02/17  18:51).', 'admin10', 'create'),
-(32, 'Note', 'Deleted a note [Note id = 15] 2024/02/17  18:53 ---admin10', 'admin10', 'delete'),
-(33, 'username', 'Username changed from admin10 to admin1000 (2024/02/17  18:53) ---admin10', 'admin10', 'Change'),
-(34, 'Note', 'Deleted a note [Note id = 16] 2024/02/17  19:10 ---admin1000', 'admin1000', 'delete'),
-(35, 'Note', 'Note created for asdaw (2024/02/17  19:25) ---admin1000', 'admin1000', 'create');
+(1, 'Image', 'Image updated (2024/02/18  16:42) ---admin1', 'admin1', 'change'),
+(2, 'Image', 'Image updated (2024/02/18  16:48) ---admin2', 'admin2', 'change'),
+(3, 'new', 'new Admin added (2024/02/18  17:16) ---admin1', 'admin1', 'add'),
+(4, 'faculty', 'Faculty Anayatul Ahad Shoikot added (2024/02/21  07:21) ---admin1', 'admin1', 'add'),
+(5, 'faculty', 'Faculty \"Hasan Sarwar\" added (2024/02/21  07:58) ---admin1', 'admin1', 'add'),
+(6, 'faculty', 'Faculty \"Mohammad Nurul Huda\" added (2024/02/21  07:58) ---admin1', 'admin1', 'add'),
+(7, 'faculty', 'Faculty \"Khondaker Abdullah-Al-Mamun\" added (2024/02/21  07:59) ---admin1', 'admin1', 'add'),
+(8, 'faculty', 'Faculty \"Salekul Islam\" added (2024/02/21  08:00) ---admin1', 'admin1', 'add'),
+(9, 'faculty', 'Faculty \"A.K.M Muzahidul Islam\" added (2024/02/21  08:13) ---admin1', 'admin1', 'add'),
+(10, 'faculty', 'Faculty \"Md. Motaharul Islam\" added (2024/02/21  08:14) ---admin1', 'admin1', 'add'),
+(11, 'faculty', 'Faculty \"Dewan Md. Farid\" added (2024/02/21  08:21) ---admin1', 'admin1', 'add'),
+(12, 'faculty', 'Faculty \"Al-Sakin Khan Pathan\" added (2024/02/21  08:22) ---admin1', 'admin1', 'add'),
+(13, 'faculty', 'Faculty \"Swakkar Shatabda\" added (2024/02/21  08:23) ---admin1', 'admin1', 'add'),
+(14, 'faculty', 'Faculty \"Mohammad Shahriar Rahman\" added (2024/02/21  08:24) ---admin1', 'admin1', 'add'),
+(15, 'faculty', 'Faculty \"Muhammad Nomani Kabir\" added (2024/02/21  08:25) ---admin1', 'admin1', 'add'),
+(16, 'faculty', 'Faculty \"Suman Ahmmed\" added (2024/02/21  08:30) ---admin1', 'admin1', 'add'),
+(17, 'faculty', 'Faculty \"Riasat Azim\" added (2024/02/21  08:34) ---admin1', 'admin1', 'add'),
+(18, 'faculty', 'Faculty \"Mohammad Mamun Elahi\" added (2024/02/21  08:34) ---admin1', 'admin1', 'add'),
+(19, 'faculty', 'Faculty \"Rubaiya Rahtin Khan\" added (2024/02/21  08:48) ---admin1', 'admin1', 'add'),
+(20, 'faculty', 'Faculty \"Md. Benzir Ahmed\" added (2024/02/21  08:56) ---admin1', 'admin1', 'add'),
+(21, 'faculty', 'Faculty \"Nahid Hossain\" added (2024/02/21  08:57) ---admin1', 'admin1', 'add'),
+(22, 'faculty', 'Faculty \"Khushnur Binte Jahangir\" added (2024/02/21  08:58) ---admin1', 'admin1', 'add'),
+(23, 'faculty', 'Faculty \"Minhajul Bashir\" added (2024/02/21  08:59) ---admin1', 'admin1', 'add'),
+(24, 'faculty', 'Faculty \"Shoib Ahmed Shourav\" added (2024/02/21  09:01) ---admin1', 'admin1', 'add'),
+(25, 'faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(26, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(27, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(28, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(29, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(30, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(31, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(32, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(33, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(34, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(35, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(36, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(37, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(38, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(39, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
+(40, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
+(41, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
+(42, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
+(43, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
+(44, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
+(45, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:25) ---admin1', 'admin1', 'add'),
+(46, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:37) ---admin1', 'admin1', 'add'),
+(47, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:40) ---admin1', 'admin1', 'add'),
+(48, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:42) ---admin1', 'admin1', 'add'),
+(49, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:42) ---admin1', 'admin1', 'add'),
+(50, 'course', 'Course \"Structured Programmimg Language\" added (2024/02/21  12:45) ---admin1', 'admin1', 'add'),
+(51, 'course', 'Course \"Structured Programmimg Language\" added (2024/02/21  12:46) ---admin1', 'admin1', 'add'),
+(52, 'course', 'Course \"Structured Programmimg Language\" added (2024/02/21  12:47) ---admin1', 'admin1', 'add'),
+(53, 'course', 'Course \"Structured Programmimg Language\" added (2024/02/21  12:48) ---admin1', 'admin1', 'add'),
+(54, 'course', 'Course \"Object Oriented Programming\" added (2024/02/21  12:49) ---admin1', 'admin1', 'add'),
+(55, 'course', 'Course \"Object Oriented Programming\" added (2024/02/21  12:50) ---admin1', 'admin1', 'add'),
+(56, 'course', 'Course \"Object Oriented Programming\" added (2024/02/21  12:50) ---admin1', 'admin1', 'add');
 
 -- --------------------------------------------------------
 
@@ -115,27 +217,6 @@ CREATE TABLE `notes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `notes`
---
-
-INSERT INTO `notes` (`note_id`, `note_for`, `note_content`, `visibility`) VALUES
-(3, 'ahad', 'this is second test for me', 1),
-(4, 'KMAE', '2nd test.', 0),
-(5, 'AAS', 'don\'t know how to implement', 1),
-(6, 'aas', 'asdweafasdf', 0),
-(7, 'asdwd', 'asdWd', 0),
-(8, 'awds', 'awd', 1),
-(9, 'awdsa', 'asdWdf', 1),
-(10, 'awds', 'adsadw', 1),
-(11, 'test', 'test test test test test test test test test test test test.', 0),
-(12, 'asdwad', 'SdcrfugpSDOJF LASJ:KFHa', 1),
-(13, 'efe', 'ASDFqwd', 1),
-(14, 'Nahid Hossain', 'Web Programming - (2:00pm-4:30pm)', 0),
-(15, 'Tanjum', 'Hi tanjum, how are you?', 1),
-(16, 'SHOIKOT', 'hi hello bye good bad', 0),
-(17, 'asdaw', 'SDWDad ', 1);
-
---
 -- Indexes for dumped tables
 --
 
@@ -143,10 +224,19 @@ INSERT INTO `notes` (`note_id`, `note_for`, `note_content`, `visibility`) VALUES
 -- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`ac_id`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `useremail` (`useremail`),
-  ADD UNIQUE KEY `username_2` (`username`,`useremail`);
+  ADD PRIMARY KEY (`ac_id`);
+
+--
+-- Indexes for table `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`c_id`);
+
+--
+-- Indexes for table `faculty`
+--
+ALTER TABLE `faculty`
+  ADD PRIMARY KEY (`f_id`);
 
 --
 -- Indexes for table `history`
@@ -168,19 +258,31 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `ac_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ac_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `course`
+--
+ALTER TABLE `course`
+  MODIFY `c_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `faculty`
+--
+ALTER TABLE `faculty`
+  MODIFY `f_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `note_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `note_id` int(3) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
