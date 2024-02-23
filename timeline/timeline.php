@@ -128,9 +128,10 @@
         <thead>
             <tr>
                 <th> Faculty <span class="icon-arrow">&UpArrow;</span></th>
-                <th> Current(T/L) <span class="icon-arrow">&UpArrow;</span></th>
-                <th> Max(T/L) <span class="icon-arrow">&UpArrow;</span></th>
+                <th> Load <span class="icon-arrow">&UpArrow;</span></th>
                 <th> Course <span class="icon-arrow">&UpArrow;</span></th>
+                <th> C_Code <span class="icon-arrow">&UpArrow;</span></th>
+                <th> C_Type <span class="icon-arrow">&UpArrow;</span></th>
                 <th> Section <span class="icon-arrow">&UpArrow;</span></th>
                 <th> Time <span class="icon-arrow">&UpArrow;</span></th>
                 <th> Day <span class="icon-arrow">&UpArrow;</span></th>
@@ -140,7 +141,7 @@
         <tbody>
             <tr id="first_row">
                 <form method="POST" action="#">
-                    <td>
+                    <td id="col_1">
                         <input type="text" id="searchInput" oninput="filterDropdown()" placeholder="Search Faculty">
                         <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
                             <option value="">Select Faculty</option>
@@ -157,9 +158,8 @@
                             ?>
                         </select>
                     </td>
-                    <td id="currentTd"></td>
-                    <td id="maxTd"></td>
-                    <td>
+                    <td id="load"></td>
+                    <td id="col_2">
                         <input type="text" id="searchInputCourse" oninput="filterDropdownCourse()" placeholder="Search Course">
                         <select name="course" id="courseSelect" onchange="updateCourseInfo()">
                             <option value="">Select Course</option>
@@ -169,7 +169,7 @@
                                 $result = $con->query($sql);
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
-                                        echo '<option value="' . $row['c_name'] . '" data-code="' . $row['c_code'] . '" data-type="' . $row['c_type'] . '" data-sec="' . $row['c_sec'] . '" data-time="' . $row['c_time'] . '" data-day="' . $row['c_day'] . '">' . $row['c_name'] . ' - lab - '.$row['c_sec'] .'</option>';
+                                        echo '<option value="' . $row['c_name'] . '" data-code="' . $row['c_code'] . '" data-type="' . $row['c_type'] . '" data-sec="' . $row['c_sec'] . '" data-time="' . $row['c_time'] . '" data-day="' . $row['c_day'] . '">' . $row['c_name'] . ' - '.$row['c_type'].' - '.$row['c_sec'].'</option>';
                                     }
                                 }
                                 $con->close();
@@ -242,10 +242,10 @@
         function updateFacultyInfo() {
             var select = document.getElementById("facultySelect");
             var selectedOption = select.options[select.selectedIndex];
-            var currentTd = document.getElementById("currentTd");
-            var maxTd = document.getElementById("maxTd");
-            currentTd.textContent = selectedOption.getAttribute("data-current_T") + " / " + selectedOption.getAttribute("data-current_L");
-            maxTd.textContent = selectedOption.getAttribute("data-max_T") + " / " + selectedOption.getAttribute("data-max_L");
+            var load = document.getElementById("load");
+            var ratioT = selectedOption.getAttribute("data-current_T") + " / " + selectedOption.getAttribute("data-max_T");
+            var RatioL = selectedOption.getAttribute("data-current_L") + " / " + selectedOption.getAttribute("data-max_L");
+            load.innerHTML = "Theory: " + ratioT + "<br> Lab: " + RatioL;
         }
         function updateCourseInfo() {
             var select = document.getElementById("courseSelect");
