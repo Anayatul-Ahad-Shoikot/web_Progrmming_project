@@ -372,6 +372,10 @@ border-radius: 50%;
 object-fit: cover;
 }
 
+main {
+    padding: 22px;
+}
+
 .content_out main .head-title {
     display: flex;
     align-items: center;
@@ -482,35 +486,16 @@ object-fit: cover;
 }
 
 .table__body {
-    /* max-height: calc(89% - 1.6rem); */
-    /* background-color: #fffb; */
-    /* border-radius: .6rem; */
-    /* overflow: auto; */
     margin: .8rem auto;
     width: 100%;
     height: 88%;
     overflow-x: auto;
-    
 }
-
-
 .table__body::-webkit-scrollbar{
     /* width: 0.5rem;
     height: 0.5rem; */
     display: none;
 }
-/* 
-.table__body::-webkit-scrollbar-thumb{
-    border-radius: .5rem;
-    background-color: #0004;
-    visibility: hidden;
-}
-
-.table__body:hover::-webkit-scrollbar-thumb{ 
-    visibility: visible;
-} */
-
-
 table {
     width: 100%;
     color: var(--dark);
@@ -586,32 +571,19 @@ tbody tr:nth-child(even) {
     background: var(--orange);
     color: black;
 }
-
-
-
-
-/* Add your styles here */
-
-/* Style for the searchable-select container */
 #first_row .searchable-select {
   position: relative;
   display: inline-block;
 }
-
-/* Style for the input inside searchable-select */
 #first_row .searchable-select input {
   padding: 5px;
   width: 150px;
 }
-
-/* Style for the select inside searchable-select */
 #first_row .searchable-select select {
   width: 100%;
   padding: 5px;
   margin-top: 5px;
 }
-
-/* Additional styling for the button */
 #first_row button {
   padding: 5px 10px;
   background-color: #4CAF50;
@@ -620,37 +592,26 @@ tbody tr:nth-child(even) {
   border-radius: 3px;
   cursor: pointer;
 }
-
 #first_row button:hover {
   background-color: #45a049;
 }
-
-
-
-
-
-
 tbody tr {
     --delay: .1s;
     transition: .5s ease-in-out var(--delay), background-color 0s;
 }
-
 tbody tr.hide {
     /* opacity: 0;
     transform: translateX(100%); */
     display: none;
 }
-
 tbody tr:hover {
     background-color: #fff6 !important;
 }
-
 tbody tr td,
 tbody tr td a,
 tbody tr td img {
     transition: .2s ease-in-out;
 }
-
 tbody tr.hide td,
 tbody tr.hide td p {
     padding: 0;
