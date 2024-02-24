@@ -51,7 +51,6 @@
         <title>Timeline</title>
     </head>
     <body>
-
         <section class="sidebar">
             <a href="#" class="logo">
                 <img src="#"/>
@@ -140,7 +139,7 @@
         </thead>
         <tbody>
             <tr id="first_row">
-                <form method="POST" action="#">
+            <form id="myForm" method="POST" action="submit.php">
                     <td id="col_1">
                         <input type="text" id="searchInput" oninput="filterDropdown()" placeholder="Search Faculty">
                         <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
@@ -158,7 +157,9 @@
                             ?>
                         </select>
                     </td>
-                    <td id="load"></td>
+                    <td id="load">
+                        
+                    </td>
                     <td id="col_2">
                         <input type="text" id="searchInputCourse" oninput="filterDropdownCourse()" placeholder="Search Course">
                         <select name="course" id="courseSelect" onchange="updateCourseInfo()">
@@ -169,23 +170,36 @@
                                 $result = $con->query($sql);
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
-                                        echo '<option value="' . $row['c_name'] . '" data-code="' . $row['c_code'] . '" data-type="' . $row['c_type'] . '" data-sec="' . $row['c_sec'] . '" data-time="' . $row['c_time'] . '" data-day="' . $row['c_day'] . '">' . $row['c_name'] . ' - '.$row['c_type'].' - '.$row['c_sec'].'</option>';
+                                        echo '<option value="' . $row['c_code'] . '" data-code="' . $row['c_code'] . '" data-type="' . $row['c_type'] . '" data-sec="' . $row['c_sec'] . '" data-time="' . $row['c_time'] . '" data-day="' . $row['c_day'] . '">' . $row['c_name'] . ' - '.$row['c_type'].' - '.$row['c_sec'].'</option>';
                                     }
                                 }
                                 $con->close();
                             ?>
                         </select>
                     </td>
-                    <td id="codeTd"></td>
-                    <td id="typeTd"></td>
-                    <td id="secTd"></td>
-                    <td id="timeTd"></td>
-                    <td id="dayTd"></td>
                     <td>
-                        <button type="submit" name="add_btn">ADD</button>
+                        <input id="codeInput"  name="codeInput" type="text" value="" >
+                    </td>
+                    <td>
+                        <input id="typeInput"  name="typeInput" type="text" value="" >
+                    </td>
+                    <td>
+                        <input id="secInput"  name="secInput" type="text" value="" >
+                    </td>
+                    <td>
+                        <input id="timeInput"  name="timeInput" type="text" value="" >
+                    </td>
+                    <td>
+                        <input id="dayInput"  name="dayInput" type="text" value="" >
+                    </td>
+                    <td>
+                    <button type="submit" name="add_btn">ADD</button>
                     </td>
                 </form>
-            </tr> 
+            </tr>
+            <?php 
+                include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
+            ?>
         </tbody>
     </table>
             </section>
@@ -250,17 +264,31 @@
         function updateCourseInfo() {
             var select = document.getElementById("courseSelect");
             var selectedOption = select.options[select.selectedIndex];
-            var codeTd = document.getElementById("codeTd");
-            var typeTd = document.getElementById("typeTd");
-            var secTd = document.getElementById("secTd");
-            var timeTd = document.getElementById("timeTd");
-            var dayTd = document.getElementById("dayTd");
-            codeTd.textContent = selectedOption.getAttribute("data-code");
-            typeTd.textContent = selectedOption.getAttribute("data-type");
-            secTd.textContent = selectedOption.getAttribute("data-sec");
-            timeTd.textContent = selectedOption.getAttribute("data-time");
-            dayTd.textContent = selectedOption.getAttribute("data-day");
+            console.log(selectedOption.getAttribute("data-code"));
+
+            var codeInput = document.getElementById("codeInput");
+            var typeInput = document.getElementById("typeInput");
+            var secInput = document.getElementById("secInput");
+            var timeInput = document.getElementById("timeInput");
+            var dayInput = document.getElementById("dayInput");
+
+
+            console.log(codeInput);
+            console.log(typeInput);
+            console.log(secInput);
+            console.log(timeInput);
+            console.log(dayInput);
+
+            codeInput.value = selectedOption.getAttribute("data-code");
+            typeInput.value = selectedOption.getAttribute("data-type");
+            secInput.value = selectedOption.getAttribute("data-sec");
+            timeInput.value = selectedOption.getAttribute("data-time");
+            dayInput.value = selectedOption.getAttribute("data-day");
         }
+
+        function submitForm() {
+            event.preventDefault(); 
+}
     </script>
 
         <script>
