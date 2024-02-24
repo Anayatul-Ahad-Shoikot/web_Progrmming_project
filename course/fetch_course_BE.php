@@ -17,7 +17,7 @@
                     '<td>' . $row['c_time'] . '</td>' .
                     '<td>' . $row['c_day'] . '</td>' .
                     '<td></td>' .
-                    '<td><p class="status delivered">' . $row['status'] . '</p></td>' .
+                    '<td><p class="' . ($row['Allocation'] == "Assigned" ? "status cancelled" : "status delivered") . '">' . $row['Allocation'] . '</p></td>' .
                     '<td>
                         <button onclick="openModal()">Action</button>
                         <div id="myModal" class="modal">

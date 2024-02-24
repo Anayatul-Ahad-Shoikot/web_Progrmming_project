@@ -552,6 +552,9 @@ table {
 #col_1 {
     width: 240px;
 }
+#col_2 {
+    width: 330px;
+}
 #first_row input{
     height: 30px;
     background: #d5d1defe;
@@ -561,6 +564,7 @@ table {
     border-radius: 3px;
     padding-left: 9px;
     margin-bottom: 5px;
+    text-align: center;
 }
 #first_row select {
     width: 100%;

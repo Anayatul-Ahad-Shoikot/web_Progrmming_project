@@ -9,8 +9,9 @@ $result = $con->query($query);
 
     while($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td>".$row["t_id"]."</td>
                 <td>".$row["faculty_code"]."</td>
+                <td></td>
+                <td>".$row["course_code"]."</td>
                 <td>".$row["course_code"]."</td>
                 <td>".$row["section"]."</td>
                 <td>".$row["time"]."</td>

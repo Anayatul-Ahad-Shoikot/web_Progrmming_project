@@ -1,213 +1,163 @@
 <?php
-    include('/xampp/htdocs/web_Progrmming_project/db_con.php');
-    if (!empty($selectedFaculty)) {
-        $stmt = $con->prepare("SELECT f_current_T, f_max_T, f_current_L, f_max_L FROM faculty WHERE f_name = ?");
-        $stmt->bind_param("s", $selectedFaculty);
-        $stmt->execute();
-        $stmt->bind_result($current_T, $max_T, $current_L, $max_L);
-        $stmt->fetch();
-        $stmt->close();
-        $facultyInfo = array(
-            'current_T' => $current_T,
-            'max_T' => $max_T,
-            'current_L' => $current_L,
-            'max_L' => $max_L
-        );
-        echo json_encode($facultyInfo);
-    }
-    if (!empty($selectedCourse)) {
-        $stmt = $con->prepare("SELECT c_code, c_name, c_type, c_sec, c_time, c_day FROM course WHERE c_name = ?");
-        $stmt->bind_param("s", $selectedCourse);
-        $stmt->execute();
-        $stmt->bind_result($c_code, $c_name, $c_type, $c_sec, $c_time, $c_day);
-        $stmt->fetch();
-        $stmt->close();
-        $courseInfo = array(
-            'c_code' => $c_code,
-            'c_name' => $c_name,
-            'c_type' => $c_type,
-            'c_sec' => $c_sec,
-            'c_time' => $c_time,
-            'c_day' => $c_day
-        );
-        echo json_encode($courseInfo);
-    }
-    $con->close();
-?>
-<?php 
+    include('/xampp/htdocs/web_Progrmming_project/timeline/DataHold.php');
     include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="/timeline/timeline.css" />
-        <title>Timeline</title>
-    </head>
-    <body>
-        <section class="sidebar">
-            <a href="#" class="logo">
-                <img src="#"/>
-            </a>
-            <ul class="side-menu top">
-                <li>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/timeline/timeline.css" />
+    <title>Timeline</title>
+</head>
+
+<body>
+    <section class="sidebar">
+        <a href="#" class="logo"><img src="#" /></a>
+        <ul class="side-menu top">
+            <li>
                 <a href="/home/Home.php" class="nav-link">
-                    <i style="font-size: 1.7rem;" class='bx bxs-home' ></i>
+                    <i style="font-size: 1.7rem;" class='bx bxs-home'></i>
                     <span class="text">Home</span>
                 </a>
-                </li>
-                <li>
+            </li>
+            <li>
                 <a href="/faculty/Faculty.php" class="nav-link">
-                    <i style="font-size: 1.7rem;" class='bx bxs-graduation' ></i>
+                    <i style="font-size: 1.7rem;" class='bx bxs-graduation'></i>
                     <span class="text">Faculties</span>
                 </a>
-                </li>
-                <li>
+            </li>
+            <li>
                 <a href="/course/course.php" class="nav-link">
                     <i style="font-size: 1.6rem;" class='bx bxs-book-open'></i>
                     <span class="text">Courses</span>
                 </a>
-                </li>
-                <li class="active">
+            </li>
+            <li class="active">
                 <a href="/timeline/timeline.php" class="nav-link">
                     <i style="font-size: 1.4rem;" class="fa-regular fa-rectangle-list"></i>
                     <span class="text">TimeLine</span>
                 </a>
-                </li>
-                <li>
-                    <a href="/history/history.php" class="nav-link">
-                        <i style="font-size: 1.7rem;" class='bx bx-history' ></i>
-                        <span class="text">History</span>
-                    </a>
-                </li>
-                <li>
+            </li>
+            <li>
+                <a href="/history/history.php" class="nav-link">
+                    <i style="font-size: 1.7rem;" class='bx bx-history'></i>
+                    <span class="text">History</span>
+                </a>
+            </li>
+            <li>
                 <a href="/log_Sign/logout_BE.php" class="logout">
-                    <i style="font-size: 1.7rem; font-weight:900;" class='bx bx-power-off' ></i>
+                    <i style="font-size: 1.7rem; font-weight:900;" class='bx bx-power-off'></i>
                     <span class="text">Logout</span>
                 </a>
-                </li>
-            </ul>
-        </section>
+            </li>
+        </ul>
+    </section>
 
-        <section class="content_out">
-            <nav class="e">
-                <i class="fas fa-bars menu-btn"></i>
-                <form action="#">
-                    <div class="form-input">
-                        <input type="search" placeholder="search..." />
-                        <button class="search-btn">
-                        <i class="fas fa-search search-icon"></i>
-                        </button>
-                    </div>
-                </form>
-                <input type="checkbox" hidden id="switch-mode" />
-                <label for="switch-mode" class="switch-mode"></label>
-                <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>" alt="profile"/></a>
-            </nav>
-            <main class="table" id="customers_table">
-                <div class="head-title">
-                    <div class="left">
-                        <h1>TimeLine (Spring 24')</h1>
-                        <ul class="breadcrumb">
-                            <li><a class="active" href="/home/Home.php">Home</a></li>
-                            <li>></li>
-                            <li><a href="">Timeline</a></li>
-                        </ul>
-                    </div>
-                    
+    <section class="content_out">
+        <nav class="e">
+            <i class="fas fa-bars menu-btn"></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="search..." />
+                    <button class="search-btn"><i class="fas fa-search search-icon"></i></button>
                 </div>
+            </form>
+            <input type="checkbox" hidden id="switch-mode" />
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>"
+                    alt="profile" /></a>
+        </nav>
+        <main class="table" id="customers_table">
+            <div class="head-title">
+                <div class="left">
+                    <h1>TimeLine (Spring 24')</h1>
+                    <ul class="breadcrumb">
+                        <li><a class="active" href="/home/Home.php">Home</a></li>
+                        <li>></li>
+                        <li><a href="">Timeline</a></li>
+                    </ul>
+                </div>
+            </div>
             <section class="table__body">
-            <table>
-        <thead>
-            <tr>
-                <th> Faculty <span class="icon-arrow">&UpArrow;</span></th>
-                <th> Load <span class="icon-arrow">&UpArrow;</span></th>
-                <th> Course <span class="icon-arrow">&UpArrow;</span></th>
-                <th> C_Code <span class="icon-arrow">&UpArrow;</span></th>
-                <th> C_Type <span class="icon-arrow">&UpArrow;</span></th>
-                <th> Section <span class="icon-arrow">&UpArrow;</span></th>
-                <th> Time <span class="icon-arrow">&UpArrow;</span></th>
-                <th> Day <span class="icon-arrow">&UpArrow;</span></th>
-                <th> Action </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr id="first_row">
-            <form id="myForm" method="POST" action="submit.php">
-                    <td id="col_1">
-                        <input type="text" id="searchInput" oninput="filterDropdown()" placeholder="Search Faculty">
-                        <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
-                            <option value="">Select Faculty</option>
-                            <?php
-                                include('/xampp/htdocs/web_Progrmming_project/db_con.php');
-                                $sql = "SELECT * FROM faculty";
-                                $result = $con->query($sql);
-                                if ($result->num_rows > 0) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo '<option value="' . $row['f_name'] . '" data-current_T="' . $row['f_current_T'] . '" data-max_T="' . $row['f_max_T'] . '" data-current_L="' . $row['f_current_L'] . '" data-max_L="' . $row['f_max_L'] . '">' . $row['f_name'] . '</option>';
-                                    }
-                                }
-                                $con->close();
+                <table>
+                    <thead>
+                        <tr>
+                            <th> Faculty <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Load <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Course <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> C_Code <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> C_Type <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Section <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Time <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Day <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="first_row">
+                            <form id="myForm" method="POST" action="submit.php">
+                                <td id="col_1">
+                                    <input type="text" id="searchInput" oninput="filterDropdown()"
+                                        placeholder="Search Faculty">
+                                    <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
+                                        <option selected disabled>Select Faculty</option>
+                                        <?php
+                                                include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_faculty.php');
+                                            ?>
+                                    </select>
+                                </td>
+                                <td id="load">
+                                
+                                </td>
+                                <td id="col_2">
+                                    <input type="text" id="searchInputCourse" oninput="filterDropdownCourse()"
+                                        placeholder="Search Course">
+                                    <select name="course" id="courseSelect" onchange="updateCourseInfo()">
+                                        <option selected disabled>Select Course</option>
+                                        <?php
+                                                include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_course.php');
+                                            ?>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input id="codeInput" name="codeInput" type="text" value="">
+                                </td>
+                                <td>
+                                    <input id="typeInput" name="typeInput" type="text" value="">
+                                </td>
+                                <td>
+                                    <input id="secInput" name="secInput" type="text" value="">
+                                </td>
+                                <td>
+                                    <input id="timeInput" name="timeInput" type="text" value="">
+                                </td>
+                                <td>
+                                    <input id="dayInput" name="dayInput" type="text" value="">
+                                </td>
+                                <td>
+                                    <button type="submit" name="add_btn">ADD</button>
+                                </td>
+                                    <input type="hidden" id="c_t" name="c_t" value="">
+                                    <input type="hidden" id="m_t" name="m_t" value="">
+                                    <input type="hidden" id="c_l" name="c_l" value="">
+                                    <input type="hidden" id="m_l" name="m_l" value="">
+                            </form>
+                        </tr>
+                        <?php 
+                                include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
                             ?>
-                        </select>
-                    </td>
-                    <td id="load">
-                        
-                    </td>
-                    <td id="col_2">
-                        <input type="text" id="searchInputCourse" oninput="filterDropdownCourse()" placeholder="Search Course">
-                        <select name="course" id="courseSelect" onchange="updateCourseInfo()">
-                            <option value="">Select Course</option>
-                            <?php
-                                include('/xampp/htdocs/web_Progrmming_project/db_con.php');
-                                $sql = "SELECT * FROM course";
-                                $result = $con->query($sql);
-                                if ($result->num_rows > 0) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo '<option value="' . $row['c_code'] . '" data-code="' . $row['c_code'] . '" data-type="' . $row['c_type'] . '" data-sec="' . $row['c_sec'] . '" data-time="' . $row['c_time'] . '" data-day="' . $row['c_day'] . '">' . $row['c_name'] . ' - '.$row['c_type'].' - '.$row['c_sec'].'</option>';
-                                    }
-                                }
-                                $con->close();
-                            ?>
-                        </select>
-                    </td>
-                    <td>
-                        <input id="codeInput"  name="codeInput" type="text" value="" >
-                    </td>
-                    <td>
-                        <input id="typeInput"  name="typeInput" type="text" value="" >
-                    </td>
-                    <td>
-                        <input id="secInput"  name="secInput" type="text" value="" >
-                    </td>
-                    <td>
-                        <input id="timeInput"  name="timeInput" type="text" value="" >
-                    </td>
-                    <td>
-                        <input id="dayInput"  name="dayInput" type="text" value="" >
-                    </td>
-                    <td>
-                    <button type="submit" name="add_btn">ADD</button>
-                    </td>
-                </form>
-            </tr>
-            <?php 
-                include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
-            ?>
-        </tbody>
-    </table>
+                    </tbody>
+                </table>
             </section>
         </main>
-        </section>
-
-        <div class="notification-container">
-            <?php
+    </section>
+    <div class="notification-container">
+        <?php
                 if(isset($_SESSION['red'])){
                     echo '<div class="alert one">
                             <h5>'.$_SESSION['red'].'</h5>
@@ -221,93 +171,29 @@
                     unset($_SESSION['green']);
                 }
             ?>
-        </div>
+    </div>
+
 
 
     <script>
-        function filterDropdown() {
-            var input, filter, select, option, i;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
-            select = document.getElementById("facultySelect");
-            option = select.getElementsByTagName("option");
-            for (i = 0; i < option.length; i++) {
-                if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    option[i].style.display = "";
-                } else {
-                    option[i].style.display = "none";
-                }
-            }
-        }
-        function filterDropdownCourse() {
-            var input, filter, select, option, i;
-            input = document.getElementById("searchInputCourse");
-            filter = input.value.toUpperCase();
-            select = document.getElementById("courseSelect");
-            option = select.getElementsByTagName("option");
-            for (i = 0; i < option.length; i++) {
-                if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    option[i].style.display = "";
-                } else {
-                    option[i].style.display = "none";
-                }
-            }
-        }
-        function updateFacultyInfo() {
-            var select = document.getElementById("facultySelect");
-            var selectedOption = select.options[select.selectedIndex];
-            var load = document.getElementById("load");
-            var ratioT = selectedOption.getAttribute("data-current_T") + " / " + selectedOption.getAttribute("data-max_T");
-            var RatioL = selectedOption.getAttribute("data-current_L") + " / " + selectedOption.getAttribute("data-max_L");
-            load.innerHTML = "Theory: " + ratioT + "<br> Lab: " + RatioL;
-        }
-        function updateCourseInfo() {
-            var select = document.getElementById("courseSelect");
-            var selectedOption = select.options[select.selectedIndex];
-            console.log(selectedOption.getAttribute("data-code"));
-
-            var codeInput = document.getElementById("codeInput");
-            var typeInput = document.getElementById("typeInput");
-            var secInput = document.getElementById("secInput");
-            var timeInput = document.getElementById("timeInput");
-            var dayInput = document.getElementById("dayInput");
-
-
-            console.log(codeInput);
-            console.log(typeInput);
-            console.log(secInput);
-            console.log(timeInput);
-            console.log(dayInput);
-
-            codeInput.value = selectedOption.getAttribute("data-code");
-            typeInput.value = selectedOption.getAttribute("data-type");
-            secInput.value = selectedOption.getAttribute("data-sec");
-            timeInput.value = selectedOption.getAttribute("data-time");
-            dayInput.value = selectedOption.getAttribute("data-day");
-        }
-
-        function submitForm() {
-            event.preventDefault(); 
-}
-    </script>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const alerts = document.querySelectorAll('.notification-container > div');
-                alerts.forEach(function(alert) {
+    document.addEventListener('DOMContentLoaded', function() {
+        const alerts = document.querySelectorAll('.notification-container > div');
+        alerts.forEach(function(alert) {
+            setTimeout(function() {
+                alert.style.opacity = '1';
+                setTimeout(function() {
+                    alert.style.opacity = '0';
                     setTimeout(function() {
-                        alert.style.opacity = '1';
-                        setTimeout(function() {
-                            alert.style.opacity = '0';
-                            setTimeout(function() {
-                                alert.style.display = 'none';
-                                }, 500);
-                        }, 6000);
+                        alert.style.display = 'none';
                     }, 500);
-                });
-            });
-        </script>
-        <script src="/home/Home.js"></script>
-        <script src="/faculty/scripts.js"></script>
-    </body>
+                }, 6000);
+            }, 500);
+        });
+    });
+    </script>
+    <script src="/timeline/InputScript.js"></script>
+    <script src="/home/Home.js"></script>
+    <script src="/faculty/scripts.js"></script>
+</body>
+
 </html>
