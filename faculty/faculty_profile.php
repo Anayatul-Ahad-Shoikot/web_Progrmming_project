@@ -75,34 +75,49 @@
                 <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>" alt="profile"/></a>
             </nav>
             <main class="mn">
+                <div class="head-title">
+                    <div class="left">
+                        <h1>Faculties</h1>
+                        <ul class="breadcrumb">
+                            <li><a class="active" href="/home/Home.php">Home</a></li>
+                            <li>></li>
+                            <li><a class="active" href="/faculty/Faculty.php">Faculty</a></li>
+                            <li>></li>
+                            <li><a>Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="profileBox">
                 <div class="left">
-                    <div class="details">
-                        <h1><?php echo $f_name,", [", $f_code, "]" ?></h1>
-                        <p><?php echo $f_designation, ", Department of ", $f_dept ?></p>
-                        <p><?php echo "Email : ", $f_mail ?></p>
-                        <p><?php echo "Phone : ", $f_contact ?></p>
+                        <div class="details">
+                            <h1><?php echo $f_name,", [", $f_code, "]" ?></h1>
+                            <p><?php echo $f_designation, ", Department of ", $f_dept ?></p>
+                            <p><?php echo "Email : ", $f_mail ?></p>
+                            <p><?php echo "Phone : ", $f_contact ?></p>
+                        </div>
+                        <div class="present">
+                            <h1>present courses</h1>
+                        </div>
+                        <div class="past">
+                            <h1>past courses</h1>
+                        </div>
                     </div>
-                    <div class="present">
-                        <h1>present courses</h1>
-                    </div>
-                    <div class="past">
-                        <h1>past courses</h1>
+                    <div class="right">
+                        <h1>hiii right</h1>
+                        <div class="box">
+                            <div class="best">
+                                <h1>best course</h1>
+                            </div>
+                            <div class="worst">
+                                <h1>worst course</h1>
+                            </div>
+                            <div class="notes">
+                                <h1>notes</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="right">
-                    <h1>hiii right</h1>
-                    <div class="box">
-                        <div class="best">
-                            <h1>best course</h1>
-                        </div>
-                        <div class="worst">
-                            <h1>worst course</h1>
-                        </div>
-                        <div class="notes">
-                            <h1>notes</h1>
-                        </div>
-                    </div>
-                </div>
+                    
             </main>
         </section>
 

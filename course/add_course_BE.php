@@ -7,7 +7,7 @@
         $prior = $_SESSION['prior'];
             if (isset($_POST['add_btn'])) {
                 $c_code = strtoupper($_POST["c_code"]);
-                $c_name = strtoupper($_POST["c_name"]);
+                $c_name = ucwords(strtolower($_POST['c_name']));
                 $c_type = $_POST["c_type"];
                 $c_sec = strtoupper($_POST["c_sec"]);
                 $c_time = $_POST["c_time"];

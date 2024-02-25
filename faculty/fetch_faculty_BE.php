@@ -13,17 +13,18 @@
                     '<td><a href="/faculty/faculty_profile.php?f_id='.$row['f_id'].'">' . $row['f_name'] . '</a></td>' .
                     '<td>' . $row['f_code'] . '</td>' .
                     '<td>' . $row['f_designation'] . '</td>' .
-                    '<td><p class="status delivered">'.$row['f_load'].'</p></td>' .
                     '<td>' . $row['f_dept'] . '</td>' .
-                    '<td>( ' . $row['f_current_T'] . ' , ' . $row['f_current_L'] . ' )</td>' .
-                    '<td>( ' . $row['f_max_T'] . ' , ' . $row['f_max_L'] . ' )</td>' .
+                    '<td><p class="status delivered">'.$row['f_load'].'</p></td>' .
+                    '<td>' . $row['f_current_T'] . ' / ' . $row['f_max_T'] . '</td>' .
+                    '<td>' . $row['f_current_L'] . ' / ' . $row['f_max_L'] . '</td>' .
+                    '<td> ' . $row['f_max_T'] . ' , ' . $row['f_max_L'] . '</td>' .
                     '<td>' . $row['f_contact'] . '</td>' .
                     '<td>' . $row['f_mail'] . '</td>' .
-                    '<td><button> --:-- </button></td>' .
+                    '<td><a href="/faculty/faculty_profile.php?f_id=' . $row['f_id'] . '"> view </a></td>' .
                     '</tr>';
                 }
         } else {
-            echo '<tr><td colspan="10">No faculty records found</td></tr>';
+            echo '<tr><td colspan="11">No faculty records found</td></tr>';
         }
 
         $con->close();

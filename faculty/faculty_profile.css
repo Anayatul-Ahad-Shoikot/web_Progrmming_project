@@ -303,18 +303,16 @@ color: var(--dark);
 }
 
 .content .e form .form-input button {
-width: 36px;
-height: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-background: var(--blue);
-color: var(--light);
-font-size: 18px;
-border: none;
-outline: none;
-border-radius: 0 36px 36px 0;
-cursor: pointer;
+  width: 36px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 0 36px 36px 0;
+  cursor: pointer;
 }
 
 .content .e .switch-mode {
@@ -371,17 +369,46 @@ height: 36px;
 border-radius: 50%;
 object-fit: cover;
 }
-
 .content .mn{
-    margin: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    background-color: #526D82;
-    height: 100%;
-    width: 100%;
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  background-color: #526D82;
 }
-  
+.mn .head-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid;
+  font-family: var(--poppins);
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+.head-title .left h1 {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--color4);
+}
+.head-title .left .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.head-title .left .breadcrumb i {
+  color: var(--dark);
+}
+.head-title .left .breadcrumb li a {
+  color: var(--dark-grey);
+  pointer-events: none;
+}
+.head-title .left .breadcrumb li a.active {
+  color: var(--blue);
+  pointer-events: unset;
+}
 
-  
+.mn .profileBox {
+  display: flex;
+  justify-content: space-between;
+}

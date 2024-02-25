@@ -172,8 +172,21 @@
             <div class="popup-content">
                 <span class="close">&times;</span>
                 <form action="/home/save_note_BE.php" id="noteForm" method="POST">
-                    <input type="hidden" id="noteId" name="note_id">
-                    <input type="text" id="facultyName" name="note_for" placeholder="Faculty Name" required>
+                    <!-- <input type="text" id="facultyName" name="note_for" placeholder="Faculty Name" required> -->
+                    <select name="note_for" id="facultyName">
+                        <option selected disabled>Select Faculty</option>
+                        <?php
+                            include('/xampp/htdocs/web_Progrmming_project/db_con.php');
+                            $sql = "SELECT * FROM faculty WHERE (f_current_T < f_max_T OR f_current_L < f_max_L)";
+                            $result = $con->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '<option value="' . $row['f_name'] . '">' . $row['f_name'] . '</option>';
+                                }
+                            }
+                            $con->close();
+                        ?>
+                    </select>
                     <textarea id="noteText" name="note_content" placeholder="Write your note here..." required></textarea>
                     <button type="submit" name="save">Save</button>
                 </form>

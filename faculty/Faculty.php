@@ -92,10 +92,11 @@
                             <th> Faculty Name <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Faculty Code </th>
                             <th> Designation <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Load <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Dept. <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> ( T / L ) <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Max(T/L) <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> WorkLoad <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> T Ratio <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> L Ratio <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Maximum T,L <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Contact </th>
                             <th> Mail </th>
                             <th> Action </th>
@@ -114,13 +115,16 @@
                                     <input type="text" name="f_designation" placeholder="Enter Designation" required>
                                 </td>
                                 <td>
-                                    <!-- load -->
-                                </td>
-                                <td>
                                     <input type="text" name="f_dept" placeholder="Enter Department" required>
                                 </td>
                                 <td>
-                                    <!-- current T/L -->
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
                                 </td>
                                 <td>
                                     <input type="text" name="faculty_max_TL" placeholder="Maximum theory, lab" required>

@@ -4,9 +4,8 @@
 if (isset($_SESSION['ac_id']) && isset($_SESSION['prior'])) {
     if (isset($_GET['f_id'])) {
         $f_id = $_GET['f_id'];
-        $sql = "SELECT * FROM faculty WHERE f_id = $f_id LIMIT 1";
+        $sql = "SELECT * FROM faculty WHERE f_id = $f_id";
         $result = $con->query($sql);
-
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $f_name = $row['f_name'];

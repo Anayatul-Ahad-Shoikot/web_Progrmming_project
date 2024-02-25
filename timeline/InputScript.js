@@ -41,6 +41,21 @@ function updateFacultyInfo() {
     var ratioT = selectedOption.getAttribute("data-current_T") + " / " + selectedOption.getAttribute("data-max_T");
     var RatioL = selectedOption.getAttribute("data-current_L") + " / " + selectedOption.getAttribute("data-max_L");
     load.innerHTML = "Theory: " + ratioT + "<br> Lab: " + RatioL;
+
+    var selectedFaculty = selectedOption.value;
+    if (selectedFaculty) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "fetch_notes.php?faculty=" + selectedFaculty, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var notes = xhr.responseText;
+                if (notes.trim() !== "") { // Check if notes data is not empty
+                    displayPopup(notes);
+                }
+            }
+        };
+        xhr.send();
+    }
 }
 function updateCourseInfo() {
     var select = document.getElementById("courseSelect");
@@ -55,4 +70,20 @@ function updateCourseInfo() {
     secInput.value = selectedOption.getAttribute("data-sec");
     timeInput.value = selectedOption.getAttribute("data-time");
     dayInput.value = selectedOption.getAttribute("data-day");
+}
+
+function displayPopup(notes) {
+    var popupSound = document.getElementById("popupSound");
+    popupSound.play();
+    var popup = document.getElementById("notePopup");
+    var noteContent = document.getElementById("noteContent");
+    noteContent.innerHTML = notes;
+    popup.style.display = "block";
+    var popupSound = document.getElementById("popupSound");
+    popupSound.play();
+}
+
+function closePopup() {
+    var popup = document.getElementById("notePopup");
+    popup.style.display = "none";
 }

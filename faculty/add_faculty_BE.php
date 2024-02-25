@@ -6,10 +6,10 @@
         $ac_id = $_SESSION['ac_id'];
         $prior = $_SESSION['prior'];
         if (isset($_POST['add_btn'])) {
-            $f_name = $_POST["f_name"];
-            $f_code = $_POST["f_code"];
-            $f_designation = $_POST["f_designation"];
-            $f_dept = $_POST["f_dept"];
+            $f_name = ucwords(strtolower($_POST['f_name']));
+            $f_code = strtoupper($_POST["f_code"]);
+            $f_designation = ucwords(strtolower($_POST["f_designation"]));
+            $f_dept = strtoupper($_POST["f_dept"]);
             $faculty_max_TL = $_POST["faculty_max_TL"];
             $f_contact = $_POST["f_contact"];
             $f_mail = $_POST["f_mail"];

@@ -2,18 +2,17 @@
 session_start();
 include('/xampp/htdocs/web_Progrmming_project/db_con.php');
     if(isset($_POST['add_btn'])) {
-        $faculty = $_POST['faculty'];
-        $course = $_POST['course'];
-        $codeInput = $_POST['codeInput'];
-        $typeInput = $_POST['typeInput'];
-        $secInput = $_POST['secInput'];
-        $timeInput = $_POST['timeInput'];
-        $dayInput = $_POST['dayInput'];
+        $f_name = $_POST['faculty'];
+        $c_name = $_POST['course'];
+        $c_code = $_POST['codeInput'];
+        $c_type = $_POST['typeInput'];
+        $c_sec = $_POST['secInput'];
+        $c_time = $_POST['timeInput'];
+        $c_day = $_POST['dayInput'];
         $c_t = $_POST['c_t'];
         $m_t = $_POST['m_t'];
         $c_l = $_POST['c_l'];
         $m_l = $_POST['m_l'];
-        
         // $stmt = $con->prepare("INSERT INTO timeline (faculty_code, course_code, section, time, day) VALUES (?, ?, ?, ?, ?)");
         // $stmt->bind_param("sssss", $faculty, $codeInput, $secInput, $timeInput, $dayInput);
         // if ($stmt->execute()) {

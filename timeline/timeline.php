@@ -12,6 +12,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/timeline/timeline.css" />
+    <style>
+        /* CSS for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            width: 25%;
+            bottom: 45px;
+            right: 49px;
+            background-color: lightsalmon;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 999999;
+        }
+        .popup h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-family: 'Segoe UI';
+        }
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
     <title>Timeline</title>
 </head>
 
@@ -108,7 +133,7 @@
                                         <option selected disabled>Select Faculty</option>
                                         <?php
                                                 include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_faculty.php');
-                                            ?>
+                                        ?>
                                     </select>
                                 </td>
                                 <td id="load">
@@ -172,6 +197,12 @@
                 }
             ?>
     </div>
+    <div class="popup" id="notePopup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h3>Proposals:</h3>
+        <div id="noteContent"></div>
+    </div>
+    
 
 
 
@@ -194,6 +225,9 @@
     <script src="/timeline/InputScript.js"></script>
     <script src="/home/Home.js"></script>
     <script src="/faculty/scripts.js"></script>
+    <audio id="popupSound">
+        <source src="/Resource/notification.wav" type="audio/mpeg">
+    </audio>
 </body>
 
 </html>
