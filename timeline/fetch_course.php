@@ -1,6 +1,6 @@
 <?php
     include('/xampp/htdocs/web_Progrmming_project/db_con.php');
-    $sql = "SELECT * FROM course";
+    $sql = "SELECT * FROM course WHERE Allocation = 'Not Assigned'";
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
