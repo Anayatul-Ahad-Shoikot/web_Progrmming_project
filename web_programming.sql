@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2024 at 10:46 AM
+-- Generation Time: Feb 25, 2024 at 10:25 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -58,24 +58,35 @@ CREATE TABLE `course` (
   `c_sec` varchar(5) NOT NULL,
   `c_time` varchar(15) NOT NULL,
   `c_day` varchar(10) NOT NULL,
-  `status` int(1) NOT NULL
+  `Allocation` varchar(20) NOT NULL DEFAULT 'Not Assigned'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`c_id`, `c_code`, `c_name`, `c_type`, `c_sec`, `c_time`, `c_day`, `status`) VALUES
-(3, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'U', '2:00 - 4:30', 'Tues', 0),
-(4, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'L', '8:30 - 11:00', 'Sat', 0),
-(5, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'F', '11:11 - 1:40', 'Sun', 0),
-(6, 'CSE1111', 'Structured Programmimg Language', 'Theory', 'L', '9:51 - 11:10', 'Sun/Wed', 0),
-(7, 'CSE1111', 'Structured Programmimg Language', 'Theory', 'Q', '1:51 - 3:10', 'Sat/Tues', 0),
-(8, 'CSE1112', 'Structured Programmimg Language', 'Lab', 'B', '11:11 - 1:40', 'Tues', 0),
-(9, 'CSE1112', 'Structured Programmimg Language', 'Lab', 'H', '8:30 - 11:00', 'Sat', 0),
-(10, 'CSE1116', 'Object Oriented Programming', 'Lab', 'F', '2:00 - 4:30', 'Sat', 0),
-(11, 'CSE1115', 'Object Oriented Programming', 'Theory', 'I', '12:31 - 1:50', 'Sat/Tues', 0),
-(12, 'CSE1115', 'Object Oriented Programming', 'Theory', 'H', '11:11 - 12:30', 'Sun/Wed', 0);
+INSERT INTO `course` (`c_id`, `c_code`, `c_name`, `c_type`, `c_sec`, `c_time`, `c_day`, `Allocation`) VALUES
+(17, 'ACT2111/ACT111', 'Financial And Managerial Accounting', 'Theory', 'A', '8:30 - 9:50', 'Sat / Tues', 'Not Assigned'),
+(18, 'ACT2111/ACT111', 'Financial And Managerial Accounting', 'Theory', 'B', '12:31 - 1:50', 'Sat / Tues', 'Not Assigned'),
+(19, 'ACT2111/ACT111', 'Financial And Managerial Accounting', 'Theory', 'C', '3:11 - 4:30', 'Sat / Tues', 'Not Assigned'),
+(20, 'BDS1201', 'History Of The Emergence Of Bangladesh', 'Theory', 'A', '9:51 - 11:10', 'Sun / Wed', 'Not Assigned'),
+(21, 'BDS1201', 'History Of The Emergence Of Bangladesh', 'Theory', 'B', '8:30 - 9:50', 'Sun / Wed', 'Not Assigned'),
+(22, 'BDS1201', 'History Of The Emergence Of Bangladesh', 'Theory', 'C', '9:51 - 11:10', 'Sat / Tues', 'Not Assigned'),
+(23, 'BIO3105', 'Biology For Engineers', 'Theory', 'A', '11:11 - 12:30', 'Sun / Wed', 'Not Assigned'),
+(24, 'BIO3105', 'Biology For Engineers', 'Theory', 'B', '11:11 - 12:30', 'Sat / Tues', 'Not Assigned'),
+(25, 'BIO3105', 'Biology For Engineers', 'Theory', 'C', '9:51 - 11:10', 'Sat / Tues', 'Not Assigned'),
+(26, 'BIO3105', 'Biology For Engineers', 'Theory', 'D', '9:51 - 11:10', 'Sun / Wed', 'Not Assigned'),
+(27, 'CSE1110', 'Introduction To Computer Systems', 'Lab', 'A', '8:30 - 11:00', 'Sat', 'Not Assigned'),
+(28, 'CSE1110', 'Introduction To Computer Systems', 'Lab', 'B', '8:30 - 11:00', 'Tues', 'Not Assigned'),
+(29, 'CSE1110', 'Introduction To Computer Systems', 'Lab', 'E', '11:11 - 1:40', 'Sat', 'Not Assigned'),
+(30, 'CSE1110', 'Introduction To Computer Systems', 'Lab', 'V', '2:00 - 4:30', 'Sun', 'Not Assigned'),
+(31, 'CSE1111/CSI121', 'Structured Programming Language', 'Theory', 'A', '8:30 - 9:50', 'Sun / Wed', 'Not Assigned'),
+(32, 'CSE1111/CSI121', 'Structured Programming Language', 'Theory', 'E', '12:31 - 1:50', 'Sat / Tues', 'Not Assigned'),
+(33, 'CSE1111/CSI121', 'Structured Programming Language', 'Theory', 'X', '3:11 - 4:30', 'Sat / Tues', 'Not Assigned'),
+(34, 'CSE1116/CSI212', 'Object Oriented Programming', 'Lab', 'A', '11:11 - 1:40', 'Sun', 'Not Assigned'),
+(35, 'CSE1116/CSI212', 'Object Oriented Programming', 'Lab', 'E', '8:30 - 11:00', 'Tues', 'Not Assigned'),
+(36, 'CSE1115/CSI211', 'Object Oriented Programming', 'Theory', 'N', '12:31 - 1:50', 'Sat / Tues', 'Not Assigned'),
+(37, 'CSE1115/CSI211', 'Object Oriented Programming', 'Theory', 'A', '8:30 - 9:50', 'Sun / Wed', 'Not Assigned');
 
 -- --------------------------------------------------------
 
@@ -146,62 +157,30 @@ CREATE TABLE `history` (
 --
 
 INSERT INTO `history` (`his_id`, `content_key`, `content`, `user`, `content_activity`) VALUES
-(1, 'Image', 'Image updated (2024/02/18  16:42) ---admin1', 'admin1', 'change'),
-(2, 'Image', 'Image updated (2024/02/18  16:48) ---admin2', 'admin2', 'change'),
-(3, 'new', 'new Admin added (2024/02/18  17:16) ---admin1', 'admin1', 'add'),
-(4, 'faculty', 'Faculty Anayatul Ahad Shoikot added (2024/02/21  07:21) ---admin1', 'admin1', 'add'),
-(5, 'faculty', 'Faculty \"Hasan Sarwar\" added (2024/02/21  07:58) ---admin1', 'admin1', 'add'),
-(6, 'faculty', 'Faculty \"Mohammad Nurul Huda\" added (2024/02/21  07:58) ---admin1', 'admin1', 'add'),
-(7, 'faculty', 'Faculty \"Khondaker Abdullah-Al-Mamun\" added (2024/02/21  07:59) ---admin1', 'admin1', 'add'),
-(8, 'faculty', 'Faculty \"Salekul Islam\" added (2024/02/21  08:00) ---admin1', 'admin1', 'add'),
-(9, 'faculty', 'Faculty \"A.K.M Muzahidul Islam\" added (2024/02/21  08:13) ---admin1', 'admin1', 'add'),
-(10, 'faculty', 'Faculty \"Md. Motaharul Islam\" added (2024/02/21  08:14) ---admin1', 'admin1', 'add'),
-(11, 'faculty', 'Faculty \"Dewan Md. Farid\" added (2024/02/21  08:21) ---admin1', 'admin1', 'add'),
-(12, 'faculty', 'Faculty \"Al-Sakin Khan Pathan\" added (2024/02/21  08:22) ---admin1', 'admin1', 'add'),
-(13, 'faculty', 'Faculty \"Swakkar Shatabda\" added (2024/02/21  08:23) ---admin1', 'admin1', 'add'),
-(14, 'faculty', 'Faculty \"Mohammad Shahriar Rahman\" added (2024/02/21  08:24) ---admin1', 'admin1', 'add'),
-(15, 'faculty', 'Faculty \"Muhammad Nomani Kabir\" added (2024/02/21  08:25) ---admin1', 'admin1', 'add'),
-(16, 'faculty', 'Faculty \"Suman Ahmmed\" added (2024/02/21  08:30) ---admin1', 'admin1', 'add'),
-(17, 'faculty', 'Faculty \"Riasat Azim\" added (2024/02/21  08:34) ---admin1', 'admin1', 'add'),
-(18, 'faculty', 'Faculty \"Mohammad Mamun Elahi\" added (2024/02/21  08:34) ---admin1', 'admin1', 'add'),
-(19, 'faculty', 'Faculty \"Rubaiya Rahtin Khan\" added (2024/02/21  08:48) ---admin1', 'admin1', 'add'),
-(20, 'faculty', 'Faculty \"Md. Benzir Ahmed\" added (2024/02/21  08:56) ---admin1', 'admin1', 'add'),
-(21, 'faculty', 'Faculty \"Nahid Hossain\" added (2024/02/21  08:57) ---admin1', 'admin1', 'add'),
-(22, 'faculty', 'Faculty \"Khushnur Binte Jahangir\" added (2024/02/21  08:58) ---admin1', 'admin1', 'add'),
-(23, 'faculty', 'Faculty \"Minhajul Bashir\" added (2024/02/21  08:59) ---admin1', 'admin1', 'add'),
-(24, 'faculty', 'Faculty \"Shoib Ahmed Shourav\" added (2024/02/21  09:01) ---admin1', 'admin1', 'add'),
-(25, 'faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(26, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(27, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(28, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(29, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(30, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(31, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(32, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(33, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(34, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(35, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(36, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(37, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(38, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(39, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:04) ---admin1', 'admin1', 'add'),
-(40, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
-(41, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
-(42, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
-(43, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
-(44, 'Faculty', 'Faculty \"Subangkar Karmaker Shanto\" added (2024/02/21  09:05) ---admin1', 'admin1', 'add'),
-(45, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:25) ---admin1', 'admin1', 'add'),
-(46, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:37) ---admin1', 'admin1', 'add'),
-(47, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:40) ---admin1', 'admin1', 'add'),
-(48, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:42) ---admin1', 'admin1', 'add'),
-(49, 'course', 'Course \"Introduction to Computer Systems\" added (2024/02/21  12:42) ---admin1', 'admin1', 'add'),
-(50, 'course', 'Course \"Structured Programmimg Language\" added (2024/02/21  12:45) ---admin1', 'admin1', 'add'),
-(51, 'course', 'Course \"Structured Programmimg Language\" added (2024/02/21  12:46) ---admin1', 'admin1', 'add'),
-(52, 'course', 'Course \"Structured Programmimg Language\" added (2024/02/21  12:47) ---admin1', 'admin1', 'add'),
-(53, 'course', 'Course \"Structured Programmimg Language\" added (2024/02/21  12:48) ---admin1', 'admin1', 'add'),
-(54, 'course', 'Course \"Object Oriented Programming\" added (2024/02/21  12:49) ---admin1', 'admin1', 'add'),
-(55, 'course', 'Course \"Object Oriented Programming\" added (2024/02/21  12:50) ---admin1', 'admin1', 'add'),
-(56, 'course', 'Course \"Object Oriented Programming\" added (2024/02/21  12:50) ---admin1', 'admin1', 'add');
+(1, 'course', 'Course \"Financial And Managerial Accounting\" added (2024/02/25  08:31) ---admin1', 'admin1', 'add'),
+(2, 'course', 'Course \"Financial And Managerial Accounting\" added (2024/02/25  08:31) ---admin1', 'admin1', 'add'),
+(3, 'course', 'Course \"Financial And Managerial Accounting\" added (2024/02/25  08:32) ---admin1', 'admin1', 'add'),
+(4, 'course', 'Course \"History Of The Emergence Of Bangladesh\" added (2024/02/25  08:33) ---admin1', 'admin1', 'add'),
+(5, 'course', 'Course \"History Of The Emergence Of Bangladesh\" added (2024/02/25  08:34) ---admin1', 'admin1', 'add'),
+(6, 'course', 'Course \"History Of The Emergence Of Bangladesh\" added (2024/02/25  08:34) ---admin1', 'admin1', 'add'),
+(7, 'course', 'Course \"Biology For Engineers\" added (2024/02/25  08:35) ---admin1', 'admin1', 'add'),
+(8, 'course', 'Course \"Biology For Engineers\" added (2024/02/25  08:36) ---admin1', 'admin1', 'add'),
+(9, 'course', 'Course \"Biology For Engineers\" added (2024/02/25  08:37) ---admin1', 'admin1', 'add'),
+(10, 'course', 'Course \"Biology For Engineers\" added (2024/02/25  08:38) ---admin1', 'admin1', 'add'),
+(11, 'course', 'Course \"Introduction To Computer Systems\" added (2024/02/25  08:40) ---admin1', 'admin1', 'add'),
+(12, 'course', 'Course \"Introduction To Computer Systems\" added (2024/02/25  08:41) ---admin1', 'admin1', 'add'),
+(13, 'course', 'Course \"Introduction To Computer Systems\" added (2024/02/25  08:41) ---admin1', 'admin1', 'add'),
+(14, 'course', 'Course \"Introduction To Computer Systems\" added (2024/02/25  08:42) ---admin1', 'admin1', 'add'),
+(15, 'course', 'Course \"Structured Programming Language\" added (2024/02/25  08:43) ---admin1', 'admin1', 'add'),
+(16, 'course', 'Course \"Structured Programming Language\" added (2024/02/25  08:44) ---admin1', 'admin1', 'add'),
+(17, 'course', 'Course \"Structured Programming Language\" added (2024/02/25  08:44) ---admin1', 'admin1', 'add'),
+(18, 'course', 'Course \"Object Oriented Programming\" added (2024/02/25  08:57) ---admin1', 'admin1', 'add'),
+(19, 'course', 'Course \"Object Oriented Programming\" added (2024/02/25  08:58) ---admin1', 'admin1', 'add'),
+(20, 'course', 'Course \"Object Oriented Programming\" added (2024/02/25  08:59) ---admin1', 'admin1', 'add'),
+(21, 'course', 'Course \"Object Oriented Programming\" added (2024/02/25  09:00) ---admin1', 'admin1', 'add'),
+(22, 'note', 'Note created for Nahid Hossain (2024/02/25  09:04) ---admin1', 'admin1', 'create'),
+(23, 'note', 'Note created for Dewan Md. Farid (2024/02/25  09:05) ---admin1', 'admin1', 'create'),
+(24, 'note', 'Note created for Nahid Hossain (2024/02/25  10:17) ---admin1', 'admin1', 'create');
 
 -- --------------------------------------------------------
 
@@ -211,9 +190,33 @@ INSERT INTO `history` (`his_id`, `content_key`, `content`, `user`, `content_acti
 
 CREATE TABLE `notes` (
   `note_id` int(3) NOT NULL,
-  `note_for` varchar(20) NOT NULL,
+  `note_for` varchar(50) NOT NULL,
   `note_content` varchar(255) NOT NULL,
   `visibility` int(2) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notes`
+--
+
+INSERT INTO `notes` (`note_id`, `note_for`, `note_content`, `visibility`) VALUES
+(1, 'Nahid Hossain', 'Web Programming', 1),
+(2, 'Dewan Md. Farid', 'Machine Learning', 1),
+(3, 'Nahid Hossain', 'AOOP at 8:30AM', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timeline`
+--
+
+CREATE TABLE `timeline` (
+  `t_id` int(2) NOT NULL,
+  `faculty_code` varchar(50) NOT NULL,
+  `course_code` varchar(15) NOT NULL,
+  `section` varchar(3) NOT NULL,
+  `time` varchar(20) NOT NULL,
+  `day` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -251,6 +254,12 @@ ALTER TABLE `notes`
   ADD PRIMARY KEY (`note_id`);
 
 --
+-- Indexes for table `timeline`
+--
+ALTER TABLE `timeline`
+  ADD PRIMARY KEY (`t_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -264,25 +273,31 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `c_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `c_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `f_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `f_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `note_id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `note_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `timeline`
+--
+ALTER TABLE `timeline`
+  MODIFY `t_id` int(2) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
