@@ -95,11 +95,17 @@
                             <p><?php echo "Email : ", $f_mail ?></p>
                             <p><?php echo "Phone : ", $f_contact ?></p>
                         </div>
+                        <h1 id="header">present courses</h1>
                         <div class="present">
-                            <h1>present courses</h1>
+                            <?php
+                                include ('/xampp/htdocs/web_Progrmming_project/faculty/present_details_BE.php');
+                            ?>
                         </div>
-                        <div class="past">
-                            <h1>past courses</h1>
+                        <h1 id="header">past courses</h1>
+                        <div class="present">
+                            <?php
+                                include ('/xampp/htdocs/web_Progrmming_project/faculty/past_details_BE.php');
+                            ?>
                         </div>
                     </div>
                     <div class="right">

@@ -1,6 +1,6 @@
 <?php
     include("/xampp/htdocs/web_Progrmming_project/db_con.php");
-    $query = "SELECT f_name, c_name, section, time, day FROM timeline";
+    $query = "SELECT * FROM timeline WHERE present = 1";
     $result = $con->query($query);
 
     while($row = $result->fetch_assoc()) {
@@ -37,6 +37,7 @@
                 <td>".$row["section"]."</td>
                 <td>".$row["time"]."</td>
                 <td>".$row["day"]."</td>
+                <td>".$row["rating"]."</td>
                 <td><button>Edit</button></td>
             </tr>";
     }

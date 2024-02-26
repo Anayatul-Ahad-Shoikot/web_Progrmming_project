@@ -5,15 +5,127 @@
     --backGround2 : #71717a;
     --textColor : #040D12;
     --textColor2 : #DDE6ED;
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative; /* Ensures the floating background is positioned correctly */
+    margin: 0; /* Resets any default margin */
+    overflow: hidden; /* Ensures the floating background does not cause scrollbars */
+}
+.auth-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-width: 100%;
     min-height: 100vh;
-    font-family: 'Poppins';
-    backdrop-filter: blur(10px);
+}
+
+.auth-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.r {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(-135deg, #d6b12f 0%, #f45136 100%);
+}
+
+/* Large circles */
+.r:not(.s) {
+    width: 340px;
+    height: 340px;
+}
+
+/* Small circles specifics */
+.r.s {
+    width: 25px;
+    height: 25px;
+    background: #4654c8; /* Example color, adjust as needed */
+}
+
+/* Odd and even animations for floating */
+.r:nth-child(odd) {
+    animation: floating 7s infinite;
+}
+
+.r:nth-child(even) {
+    animation: floating 9s infinite;
+}
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+.r:first-child {
+    top: 4rem;
+    left: 60rem;
+}
+.r.s:nth-child(2) {
+    top: 34rem;
+    right: 23rem;
+    background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
+}
+.r.s:nth-child(3) {
+    bottom: 28rem;
+    left: 24rem;
+    background: linear-gradient(-135deg, #d6b12f 0%, #f45136 100%);
+}
+.r:last-child {
+    bottom: 4rem;
+    right: 58rem;
+    background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
+}
+
+.login-container, .alert {
+    position: relative;
+    z-index: 2;
 }
 
 .login-container.two{
@@ -31,7 +143,7 @@ body {
     text-align: center;
     padding: 20px;
     border-radius: 3px;
-    background: #ff7717;
+    background: linear-gradient(-135deg, #d6b12f 0%, #f45136 100%);
 }
 
 .alert {

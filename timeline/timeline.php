@@ -13,7 +13,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/timeline/timeline.css" />
     <style>
-        /* CSS for the popup */
         .popup {
             display: none;
             position: fixed;
@@ -82,7 +81,6 @@
             </li>
         </ul>
     </section>
-
     <section class="content_out">
         <nav class="e">
             <i class="fas fa-bars menu-btn"></i>
@@ -120,6 +118,7 @@
                             <th> Section <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Time <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Day <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Ratings <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Action </th>
                         </tr>
                     </thead>
@@ -163,6 +162,9 @@
                                 </td>
                                 <td>
                                     <input id="dayInput" name="dayInput" type="text" value="">
+                                </td>
+                                <td>
+                                    
                                 </td>
                                 <td>
                                     <button type="submit" name="add_btn">ADD</button>

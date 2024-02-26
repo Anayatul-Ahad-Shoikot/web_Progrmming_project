@@ -10,7 +10,7 @@
                 $facultyCount++;
                 $_SESSION['f_total'] = $facultyCount;
                 echo '<tr>' .
-                    '<td><a href="/faculty/faculty_profile.php?f_id='.$row['f_id'].'">' . $row['f_name'] . '</a></td>' .
+                    '<td><a href="/faculty/faculty_profile.php?f_name='.$row['f_name'].'">' . $row['f_name'] . '</a></td>' .
                     '<td>' . $row['f_code'] . '</td>' .
                     '<td>' . $row['f_designation'] . '</td>' .
                     '<td>' . $row['f_dept'] . '</td>' .
@@ -20,7 +20,7 @@
                     '<td> ' . $row['f_max_T'] . ' , ' . $row['f_max_L'] . '</td>' .
                     '<td>' . $row['f_contact'] . '</td>' .
                     '<td>' . $row['f_mail'] . '</td>' .
-                    '<td><a href="/faculty/faculty_profile.php?f_id=' . $row['f_id'] . '"> view </a></td>' .
+                    '<td><a class="btn" href="/faculty/faculty_profile.php?f_name=' . $row['f_name'] . '"> view </a></td>' .
                     '</tr>';
                 }
         } else {

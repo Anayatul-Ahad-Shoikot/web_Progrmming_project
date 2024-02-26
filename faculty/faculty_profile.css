@@ -34,6 +34,7 @@ transition: 0.3s linear;
 --color5: #f3254e;
 --color6: #62CDFF;
 --color7: #9dd0e1;
+font-family: 'Poppins';
 }
 
 html {
@@ -373,7 +374,6 @@ object-fit: cover;
   margin: 25px;
   display: flex;
   flex-direction: column;
-  background-color: #526D82;
 }
 .mn .head-title {
   display: flex;
@@ -411,4 +411,42 @@ object-fit: cover;
 .mn .profileBox {
   display: flex;
   justify-content: space-between;
+}
+
+.details{
+  margin: 1rem 2rem;
+}
+
+.details h1 {
+  font-size: 3rem;
+}
+
+#header{
+  margin: 0rem 2rem;
+  font-size: medium;
+}
+
+.present {
+    margin: 0rem 2rem;
+    padding: 10px;
+    height: 9rem;
+    overflow-x: hidden;
+}
+
+.present::-webkit-scrollbar {
+  display: none;
+}
+
+.present p {
+    background: rgb(227, 143, 54);
+    padding: 3px 15px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.presentt {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -576,14 +576,11 @@ tbody tr:nth-child(even) {
     border-radius: 5px;
     background: var(--sidebars);
     color: wheat;
+    transition: .8s;
 }
 #first_row button:hover {
-    padding: 5px;
-    width: 60%;
-    border-radius: 5px;
-    border: 2px solid black;
-    background: var(--orange);
     color: black;
+    transition: .5s;
 }
 
 
@@ -593,8 +590,6 @@ tbody tr {
 }
 
 tbody tr.hide {
-    /* opacity: 0;
-    transform: translateX(100%); */
     display: none;
 }
 
@@ -608,6 +603,21 @@ tbody tr td img {
     transition: .2s ease-in-out;
 }
 
+td .btn {
+    background: linear-gradient(-191deg, #d6b12f -3%, #f45136 106%);
+    padding: 3% 10%;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    transition: .8s;
+}
+
+td .btn:hover {
+    color: black;
+    background: linear-gradient(-90deg, #d6b12f -3%, #f45136 106%);
+    transition: .8s;
+    border: 1px solid black;
+}
 tbody tr.hide td,
 tbody tr.hide td p {
     padding: 0;
