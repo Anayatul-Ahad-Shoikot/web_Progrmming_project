@@ -16,7 +16,7 @@
 
         <section class="sidebar">
             <a href="#" class="logo">
-                <img src="#"/>
+                <img src="/Resource/UIU_logo_Long.png"/>
             </a>
             <ul class="side-menu top">
                 <li>
@@ -83,7 +83,11 @@
                             <li><a href="">Faculty <?php echo "&nbsp- ".$_SESSION['f_total'] ?></a></li>
                         </ul>
                     </div>
-                    
+                    <!-- new code added -->
+                    <div class="addFaculty">
+                        <button id="addFacultyBtn">Add Faculty</button>
+                    </div>
+                    <!-- -------------- -->
                 </div>
             <section class="table__body">
                 <table>
@@ -91,55 +95,14 @@
                         <tr>
                             <th> Faculty Name <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Faculty Code </th>
-                            <th> Designation <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Dept. <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> WorkLoad <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> T Ratio <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> L Ratio <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Maximum T,L <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Contact </th>
                             <th> Mail </th>
+                            <th> Contact </th>
+                            <th> Theory <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Lab <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Action </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr id="first_row">
-                            <form method="POST" action="/faculty/add_faculty_BE.php">
-                                <td>
-                                    <input type="text" name="f_name" placeholder="Enter Name" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_code" placeholder="Enter Code" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_designation" placeholder="Enter Designation" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_dept" placeholder="Enter Department" required>
-                                </td>
-                                <td>
-                                    
-                                </td>
-                                <td>
-                                    
-                                </td>
-                                <td>
-                                    
-                                </td>
-                                <td>
-                                    <input type="text" name="faculty_max_TL" placeholder="Maximum theory, lab" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_contact" placeholder="Enter contact" required>
-                                </td>
-                                <td>
-                                    <input type="text" name="f_mail" placeholder="Enter email" required>
-                                </td>
-                                <td>
-                                    <button type="submit" name="add_btn">ADD</button>
-                                </td>
-                            </form>
-                        </tr>
                         <?php
                             include('/xampp/htdocs/web_Progrmming_project/faculty/fetch_faculty_BE.php');
                         ?>
@@ -148,6 +111,41 @@
             </section>
         </main>
         </section>
+        <div id="facultyModal" class="modal">
+            <div class="modal-content">
+            <i class='bx bx-x close'></i>
+                <h1>Register Faculty</h1>
+                <form method="POST" action="/faculty/add_faculty_BE.php">
+                    <label for="f_name">Faculty Name :</label><br>
+                    <input type="text" name="f_name" required><br>
+                    <label for="f_code">Faculty Code :</label><br>
+                    <input type="text" name="f_code" required><br>
+                    <label for="f_contact">Contact :</label><br>
+                    <input type="text" name="f_contact" required><br>
+                    <label for="f_mail">Mail :</label><br>
+                    <input type="text" name="f_mail" required><br>
+                    <label for="f_max_t">Theory Limit :</label>
+                    <select name="f_max_t">
+                        <option selected disabled>Max Theory class No.</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br>
+                    <label for="f_max_l">Lab Limit :</label>
+                    <select name="f_max_l">
+                        <option selected disabled>Max lab class No.</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br>
+                    <button type="submit" name="add_btn">ADD</button>
+                </form>
+            </div>
+        </div>
 
         <div class="notification-container">
             <?php
@@ -182,6 +180,45 @@
                 });
             });
         </script>
+
+<script>
+    var modal = document.getElementById("facultyModal");
+    var btn = document.getElementById("addFacultyBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    function resetModal() {
+        modal.classList.remove("open", "close");
+        modal.style.display = "none"; // Ensure modal is not displayed
+        modal.style.right = "-30%"; // Reset to initial off-screen position
+    }
+
+    btn.onclick = function() {
+        modal.style.display = "block"; // Make the modal display:block but off-screen
+        requestAnimationFrame(() => {
+            modal.classList.add("open"); // Then, trigger the slide-in effect
+            modal.style.right = ""; // Clear this style to allow .open class to take effect
+        });
+    }
+
+    span.onclick = function() {
+        modal.classList.add("close");
+        modal.classList.remove("open");
+        setTimeout(() => {
+            resetModal(); // Use reset function to ensure correct state for next opening
+        }, 500); // Wait for the animation to finish
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.classList.add("close");
+            modal.classList.remove("open");
+            setTimeout(() => {
+                resetModal(); // Use reset function to ensure correct state for next opening
+            }, 500); // Wait for the animation to finish
+        }
+    }
+</script>
+
 
         <script src="/home/Home.js"></script>
         <script src="/faculty/scripts.js"></script>

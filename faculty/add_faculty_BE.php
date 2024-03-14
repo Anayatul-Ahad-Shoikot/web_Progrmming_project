@@ -8,17 +8,13 @@
         if (isset($_POST['add_btn'])) {
             $f_name = ucwords(strtolower($_POST['f_name']));
             $f_code = strtoupper($_POST["f_code"]);
-            $f_designation = ucwords(strtolower($_POST["f_designation"]));
-            $f_dept = strtoupper($_POST["f_dept"]);
-            $faculty_max_TL = $_POST["faculty_max_TL"];
             $f_contact = $_POST["f_contact"];
             $f_mail = $_POST["f_mail"];
-            $Values = explode(',', $faculty_max_TL);
-            $f_max_T = trim($Values[0]);
-            $f_max_L = trim($Values[1]);
+            $f_max_t = $_POST["f_max_t"];
+            $f_max_l = $_POST["f_max_l"];
 
-            $sql = "INSERT INTO faculty (f_name, f_code, f_mail, f_contact, f_designation, f_dept ,f_max_T, f_max_L) 
-                    VALUES ('$f_name', '$f_code', '$f_mail', '$f_contact', '$f_designation', '$f_dept', $f_max_T, $f_max_L)";
+            $sql = "INSERT INTO faculty (f_name, f_code, f_mail, f_contact, f_max_T, f_max_L) 
+                    VALUES ('$f_name', '$f_code', '$f_mail', '$f_contact',  $f_max_t, $f_max_l)";
             if ($con->query($sql) === TRUE) {
                 $content = 'Faculty "'. $f_name. '" added ('. date('Y/m/d  H:i').') ---'.$user;
                 $content_key = 'faculty';

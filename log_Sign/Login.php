@@ -18,8 +18,6 @@
         <span class="r s"></span>
         <span class="r"></span>
     </div>
-
-    <!-- Your existing content goes here -->
     <div class="content" style="position: relative; z-index: 2;">
         <div class="alert one">
             <?php
@@ -37,7 +35,6 @@
                 }
             ?>
         </div>
-        
         <div style="display: flex;">
             <div class="login-container">
                 <form action="/log_Sign/Login_BE.PHP" method="POST">
@@ -57,8 +54,8 @@
                 </div>
                 <!-- <p>Don't have an account?  <a href="/log_Sign/Signup.php">SignUp</a></p> -->
             </div>
-            <div class="img" style="display:flex; align-items:center; background-color: antiquewhite;">
-                <img src="/Resource/login.png" alt="">
+            <div class="img">
+                <img src="/Resource/uiu_logo_update.png">
             </div>
         </div>
     </div>
