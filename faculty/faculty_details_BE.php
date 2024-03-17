@@ -10,11 +10,10 @@ if (isset($_SESSION['ac_id']) && isset($_SESSION['prior'])) {
             while ($row = $result->fetch_assoc()) {
                 $f_name = $row['f_name'];
                 $f_code = $row['f_code'];
-                $f_contact = $row['f_contact'];
                 $f_mail = $row['f_mail'];
-                $f_designation = $row['f_designation'];
-                $f_load = $row['f_load'];
-                $f_dept = $row['f_dept'];
+                $f_contact = $row['f_contact'];
+                $dept = $row['dept'];
+                $desig = $row['desig'];
                 $f_current_T = $row['f_current_T'];
                 $f_current_L = $row['f_current_L'];
                 $f_max_T = $row['f_max_T'];

@@ -63,7 +63,7 @@
             <nav class="e">
                 <i class="fas fa-bars menu-btn"></i>
                 <form action="#">
-                    <div class="form-input">
+                    <div class="form-input" style="visibility:hidden;">
                         <input type="search" placeholder="search..." />
                         <button class="search-btn">
                         <i class="fas fa-search search-icon"></i>

@@ -124,6 +124,22 @@
                     <input type="text" name="f_contact" required><br>
                     <label for="f_mail">Mail :</label><br>
                     <input type="text" name="f_mail" required><br>
+                    <label for="dept">Department :</label>
+                    <select name="dept">
+                        <option value="" disabled selected>Select Department</option>
+                        <option value="CSE">CSE</option>
+                        <option value="DS">DS</option>
+                        <option value="BBA">BBA</option>
+                        <option value="EEE">EEE</option>
+                    </select><br>
+                    <label for="desig">Designation :</label>
+                    <select name="desig">
+                        <option value="" disabled selected>Select Designation</option>
+                        <option value="Professor">Professor</option>
+                        <option value="Assistant Prof.">Assistant Prof.</option>
+                        <option value="Lecturer">Lecturer</option>
+                        <option value="Instructor">Instructor</option>
+                    </select><br>
                     <label for="f_max_t">Theory Limit :</label>
                     <select name="f_max_t">
                         <option selected disabled>Max Theory class No.</option>
@@ -133,7 +149,7 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select><br>
-                    <label for="f_max_l">Lab Limit :</label>
+                    <label for="f_max_l">Lab Limit :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <select name="f_max_l">
                         <option selected disabled>Max lab class No.</option>
                         <option value="1">1</option>

@@ -307,20 +307,22 @@ position: relative;
 }
 
 .content .e .switch-mode::before {
-content: "";
-position: absolute;
-top: 2px;
-left: 2px;
-bottom: 2px;
-width: calc(25px - 4px);
-background: var(--blue);
-border-radius: 50%;
-transition: 0.3s ease;
-}
-
-.content .e #switch-mode:checked + .switch-mode::before {
-left: calc(100% - (25px - 4px) - 2px);
-}
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    width: calc(25px - 4px);
+    background: black;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    }
+    
+    .content .e #switch-mode:checked + .switch-mode::before {
+    left: calc(100% - (25px - 4px) - 2px);
+    background-color: white;
+    transition: 0.3s ease;
+    }
 
 .content .e .notification {
 font-size: 20px;

@@ -337,6 +337,7 @@ transition: 0.3s ease;
 .content .e #switch-mode:checked + .switch-mode::before {
 left: calc(100% - (25px - 4px) - 2px);
 background-color: white;
+transition: 0.3s ease;
 }
 
 .content .e .notification {
