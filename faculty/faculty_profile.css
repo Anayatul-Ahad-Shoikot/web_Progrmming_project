@@ -415,6 +415,15 @@ object-fit: cover;
   justify-content: space-between;
 }
 
+.profileBox .left{
+  width: 70%;
+  min-height: 75vh;
+}
+
+.profileBox .right{
+  width: 30%;
+  min-height: 75vh;
+}
 .details{
   margin: 1rem 2rem;
 }

@@ -91,7 +91,7 @@
                 <div class="left">
                         <div class="details">
                             <h1><?php echo $f_name,", [", $f_code, "]" ?></h1>
-                            <p><?php echo $f_designation, ", Department of ", $f_dept ?></p>
+                            <p><?php echo $desig, ", Department of ", $dept ?></p>
                             <p><?php echo "Email : ", $f_mail ?></p>
                             <p><?php echo "Phone : ", $f_contact ?></p>
                         </div>
