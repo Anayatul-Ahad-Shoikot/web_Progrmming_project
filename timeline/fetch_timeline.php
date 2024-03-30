@@ -26,18 +26,17 @@
         }
 
         echo "<tr>
-                <td>".$fname."</td>
-                <td>
-                Theory: ".$f_current_T." / ".$f_max_T." <br>
-                Lab: ".$f_current_L." / ".$f_max_L." <br>
-                </td>
                 <td>".$cname."</td>
                 <td>".$c_code."</td>
                 <td>".$c_type."</td>
+                <td>".$fname."</td>
+                <td>
+                Theory: ".$f_current_T." - ".$f_max_T." <br>
+                Lab: ".$f_current_L." - ".$f_max_L." <br>
+                </td>
                 <td>".$row["section"]."</td>
                 <td>".$row["time"]."</td>
                 <td>".$row["day"]."</td>
-                <td>".$row["rating"]."</td>
                 <td><button>Edit</button></td>
             </tr>";
     }

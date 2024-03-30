@@ -42,7 +42,7 @@
 <body>
     <section class="sidebar">
         <a href="#" class="logo">
-            <img src="/Resource/UIU_logo_Long.png"/>
+            <img src="/Resource/R.png"/>
         </a>
         <ul class="side-menu top">
             <li>
@@ -112,34 +112,20 @@
                 <table>
                     <thead>
                         <tr>
-                            <th> Faculty <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Load <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Course <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> C_Code <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> C_Type <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Section <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Time <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Day <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Ratings <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Course</th>
+                            <th> C_Code </th>
+                            <th> C_Type </th>
+                            <th> Faculty </th>
+                            <th> Load </th>
+                            <th> Section </th>
+                            <th> Time </th>
+                            <th> Day </th>
                             <th> Action </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr id="first_row">
                             <form id="myForm" method="POST" action="submit.php">
-                                <td id="col_1">
-                                    <input type="text" id="searchInput" oninput="filterDropdown()"
-                                        placeholder="Search Faculty">
-                                    <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
-                                        <option selected disabled>Select Faculty</option>
-                                        <?php
-                                                include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_faculty.php');
-                                        ?>
-                                    </select>
-                                </td>
-                                <td id="load">
-                                
-                                </td>
                                 <td id="col_2">
                                     <input type="text" id="searchInputCourse" oninput="filterDropdownCourse()"
                                         placeholder="Search Course">
@@ -156,6 +142,19 @@
                                 <td>
                                     <input id="typeInput" name="typeInput" type="text" value="">
                                 </td>
+                                <td id="col_1">
+                                    <input type="text" id="searchInput" oninput="filterDropdown()"
+                                        placeholder="Search Faculty">
+                                    <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
+                                        <option selected disabled>Select Faculty</option>
+                                        <?php
+                                                include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_faculty.php');
+                                        ?>
+                                    </select>
+                                </td>
+                                <td id="load">
+                                
+                                </td>
                                 <td>
                                     <input id="secInput" name="secInput" type="text" value="">
                                 </td>
@@ -164,9 +163,6 @@
                                 </td>
                                 <td>
                                     <input id="dayInput" name="dayInput" type="text" value="">
-                                </td>
-                                <td>
-                                    
                                 </td>
                                 <td>
                                     <button type="submit" name="add_btn">ADD</button>

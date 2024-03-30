@@ -8,7 +8,6 @@ list-style: none;
 text-decoration: none;
 transition: 0.3s linear;
 font-family: "Poppins";
-color: var(--textcolor);
 }
 :root {
 --poppins: "Poppins", sans-serif;
