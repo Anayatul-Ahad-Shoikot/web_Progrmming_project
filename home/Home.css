@@ -12,9 +12,9 @@ font-family: "Poppins";
 :root {
 --poppins: "Poppins", sans-serif;
 --lato: "Lato", sans-serif;
---background: #eee;
---sidebars: cadetblue;
---textcolor: #35374B;
+--background: rgb(237, 237, 237);
+--sidebars: rgb(95, 158, 160);
+--textcolor: rgb(53, 55, 75);
 
 
 
@@ -50,13 +50,15 @@ overflow-x: hidden;
 }
 
 body.dark {
---light: #0c0c1e;
---background: #060714;
---sidebars: #d37e42;
---calenderBG: #bfbfc6d1;
---mainText: black;
+/* --light: #0c0c1e; */
+--background: #040D12;
+--sidebars: #183D3D;
+--textcolor: rgb(185, 180, 180);
+--calenderBG: #bfbfc672;
+--dark: #aeaeae;
+/* --mainText: black;
 --activeText: #fff;
---dark: #fbfbfb;
+--dark: #fbfbfb; */
 }
 
 
@@ -523,7 +525,7 @@ overflow-y: hidden;
     align-items: center;
     gap: 25px;
     width: 100%;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
     border-radius: 2px;
     padding: 14px 20px;
     margin-bottom: 2px;

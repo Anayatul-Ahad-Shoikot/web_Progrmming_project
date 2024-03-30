@@ -9,10 +9,6 @@
             $c_sec = $_POST['secInput'];
             $c_time = $_POST['timeInput'];
             $c_day = $_POST['dayInput'];
-            // $c_t = $_POST['c_t'];
-            // $m_t = $_POST['m_t'];
-            // $c_l = $_POST['c_l'];
-            // $m_l = $_POST['m_l'];
             $stmt = $con->prepare("INSERT INTO timeline (f_name, c_name, section, time, day) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param("sssss", $f_name, $c_name, $c_sec, $c_time, $c_day);
             if ($stmt->execute()) {

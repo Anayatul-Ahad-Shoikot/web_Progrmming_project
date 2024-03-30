@@ -370,7 +370,7 @@ overflow-x: hidden; */
   .content main .head-title .left h1 {
     font-size: 36px;
     font-weight: 600;
-    color: var(--color4);
+    color: var(--textcolor);
   }
   
   .content main .head-title .left .breadcrumb {
@@ -389,7 +389,7 @@ overflow-x: hidden; */
   }
   
   .content main .head-title .left .breadcrumb li a.active {
-    color: var(--blue);
+    color: var(--textcolor);
     pointer-events: unset;
   }
   

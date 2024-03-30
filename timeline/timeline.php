@@ -110,7 +110,7 @@
             </div>
             <section class="table__body">
                 <table>
-                    <thead>
+                    <!-- <thead>
                         <tr>
                             <th> Course</th>
                             <th> C_Code </th>
@@ -122,7 +122,7 @@
                             <th> Day </th>
                             <th> Action </th>
                         </tr>
-                    </thead>
+                    </thead> -->
                     <tbody>
                         <tr id="first_row">
                             <form id="myForm" method="POST" action="submit.php">
@@ -153,7 +153,7 @@
                                     </select>
                                 </td>
                                 <td id="load">
-                                
+                            
                                 </td>
                                 <td>
                                     <input id="secInput" name="secInput" type="text" value="">
@@ -173,11 +173,34 @@
                                     <input type="hidden" id="m_l" name="m_l" value="">
                             </form>
                         </tr>
-                        <?php 
-                                include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
-                            ?>
+                        <!-- <?php 
+                            include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
+                        ?> -->
                     </tbody>
                 </table>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <!-- <th> Course</th> -->
+                            <!-- <th> C_Code </th> -->
+                            <!-- <th> C_Type </th> -->
+                            <th> Faculty </th>
+                            <th> Friday </th>
+                            <th> Saturday </th>
+                            <th> Sunday </th>
+                            <th> Tuesday </th>
+                            <th> Wednesday </th>
+                            <th> Load </th>
+                            <th> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
+                        ?>
+                        </tbody>
+                    </table>
             </section>
         </main>
     </section>
