@@ -1,5 +1,6 @@
 <?php 
     include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
+    include('/xampp/htdocs/web_Progrmming_project/course/course_counter_BE.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +85,7 @@
                     <ul class="breadcrumb">
                         <li><a class="active" href="/home/Home.php">Home</a></li>
                         <li>></li>
-                        <li><a href="">Courses</a></li>
+                        <li><a href="">Courses - <?php echo $_SESSION['c_total']  ?></a></li>
                     </ul>
                 </div>
 
@@ -187,6 +188,59 @@
             }, 500);
         });
     });
+    </script>
+    <script>
+        function makeEditable(c_id) {
+            var fields = ['code', 'name',  'type', 'sec'];
+            fields.forEach(function(field) {
+                var currentValue = document.getElementById(field + '_' + c_id).innerText;
+                document.getElementById(field + '_' + c_id).innerHTML = '<input type="text" value="' + currentValue + '">';
+            });
+            document.getElementById('edit_' + c_id).style.display = 'none';
+            document.getElementById('save_' + c_id).style.display = 'inline-block';
+            document.getElementById('rmv_' + c_id).style.display = 'inline-block';
+        }
+        function saveData(c_id) {
+            var fields = ['code', 'name',  'type', 'sec'];
+            var courseData = {};
+            fields.forEach(function(field) {
+                var inputValue = document.getElementById(field + '_' + c_id).querySelector('input').value;
+                document.getElementById(field + '_' + c_id).innerText = inputValue;
+                courseData[field] = inputValue;
+            });
+            console.log("Sending data to server:", JSON.stringify({c_id: c_id, data: courseData}));
+
+            document.getElementById('save_' + c_id).style.display = 'none';
+            document.getElementById('rmv_' + c_id).style.display = 'none';
+            document.getElementById('edit_' + c_id).style.display = 'inline-block';
+            document.getElementById('edit_' + c_id).onclick = function() { makeEditable(c_id); };
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'edit_course_BE.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log("Response from server:", xhr.responseText);
+                    window.location.reload();
+                }
+            };
+            xhr.send(JSON.stringify({c_id: c_id, data: courseData}));
+        }
+        function rmvData(c_id) {
+            document.getElementById('save_' + c_id).style.display = 'none';
+            document.getElementById('rmv_' + c_id).style.display = 'none';
+            document.getElementById('edit_' + c_id).style.display = 'inline-block';
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'remove_course_BE.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log("Response from server:", xhr.responseText);
+                    window.location.reload();
+                }
+            };
+            xhr.send(JSON.stringify({c_id: c_id}));
+        }
     </script>
 
 
