@@ -13,11 +13,14 @@ font-family: "Poppins";
 --poppins: "Poppins", sans-serif;
 --lato: "Lato", sans-serif;
 --background: #eee;
---sidebars: #f37013;
+--sidebars: cadetblue;
+--textcolor: #35374B;
+
+
+
 --calenderBG: #f1f1fb;
 --mainText: #fff;
 --activeText: black;
-
 --light: #f9f9f9;
 --blue: #3c91e6;
 --light-blue: #cfe8ff;
@@ -111,25 +114,6 @@ width: 60px;
 .sidebar::-webkit-scrollbar {
 display: none;
 }
-/* 
-.sidebar .logo {
-font-size: 24px;
-font-weight: 700;
-height: 56px;
-display: flex;
-flex-direction: column;
-align-items: center;
-color: var(--blue);
-position: sticky;
-top: 0;
-left: 0;
-background: var(--sidebars);
-z-index: 500;
-padding-bottom: 20px;
-box-sizing: content-box;
-gap: 15px;
-} */
-
 .sidebar .logo i {
 min-width: 60px;
 display: flex;
@@ -202,14 +186,14 @@ width: calc(48px - (4px * 2));
 }
 
 .sidebar .side-menu li.active a {
-color: var(--activeText);
+color: var(--textcolor);
 }
 .sidebar .side-menu.top li a:hover {
-color: var(--activeText);
+color: var(--textcolor);
 font-size: 1.4rem;
 }
 .sidebar .side-menu li a.logout {
-color: black;
+color: var(--textcolor);
 font-weight: 900;
 }
 
@@ -263,7 +247,7 @@ color: var(--dark);
 .content .e .fa-bars {
 font-size: 1.7rem;
 cursor: pointer;
-color: var(--dark);
+color: var(--textcolor);
 }
 
 .content .e .nav-link {
@@ -391,7 +375,7 @@ overflow-y: hidden;
 .upper-part .head-title {
     font-size: 3rem;
     font-weight: 600;
-    color: var(--sidebars);
+    color: var(--textcolor);
     padding-left: 5rem;
 }
 
@@ -440,7 +424,7 @@ overflow-y: hidden;
     transition: all 0.3s;
 }
 .calendar .header .btns .btn:hover {
-    background-color: #d9620d;
+    background-color: rgb(126, 192, 194);
     transform: scale(1.05);
 }
 .weekdays {
@@ -494,6 +478,7 @@ overflow-y: hidden;
     align-items: top;
     margin-top: 30px;
     gap: 40px;
+    color: var(--textcolor);
 }
 
 /*---------------------------------------------------Notice--------------------------------------*/
@@ -554,7 +539,7 @@ overflow-y: hidden;
     justify-content: center;
     gap: 6px;
     padding: 5px 17px;
-    background: rgba(244, 128, 27, 0.702);
+    background: rgba(95, 158, 160, 0.5);
     border-radius: 5px;
 }
 .todo-1 .notice-container a {
@@ -578,13 +563,12 @@ max-width: 450px;
     padding: 10px 30px 10px 8px;
     border-bottom: 1px solid var(--activeText);
     margin-bottom: 10px;
-    color: var(--activeText);
 }
 
 .todo .head i {
     margin-top: 10px;
     font-size: 1.1rem;
-    color: var(--activeText);
+    color: var(--textcolor);
 }
 .todo .todo-list {
     width: 100%;
@@ -594,7 +578,7 @@ max-width: 450px;
     flex-direction: column;
     width: 100%;
     margin-bottom: 16px;
-    background: rgb(248, 196, 98 , .3);
+    background: rgb(248, 196, 98 , .2);
     border-radius: 10px;
     padding: 14px 20px;
 }
@@ -616,13 +600,13 @@ max-width: 450px;
 .hdr a .bx.bxs-message-square-x {
     font-size: 1.1rem;
     margin-right:10px;
-    color: red;
+    color: var(--textcolor);
 }
 
 .hdr a .bx.bxs-edit-alt {
     font-size: 1.1rem;
     margin-right:10px;
-    color: var(--activeText);
+    color: var(--textcolor);
 }
 
 .todo .todo-list li:last-child {

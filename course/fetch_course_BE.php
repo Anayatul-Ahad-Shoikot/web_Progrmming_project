@@ -16,18 +16,15 @@
                     '<td>' . $row['c_sec'] . '</td>' .
                     '<td>' . $row['c_time'] . '</td>' .
                     '<td>' . $row['c_day'] . '</td>' .
-                    '<td></td>' .
                     '<td><p class="' . ($row['Allocation'] == "Assigned" ? "status cancelled" : "status delivered") . '">' . $row['Allocation'] . '</p></td>' .
                     '<td>
-                        <button onclick="openModal()">Action</button>
-                        <div id="myModal" class="modal">
-                            <div class="modal-buttons">
-                                <button onclick="editAction()">Edit</button>
-                                <button onclick="deleteAction()">Delete</button>
-                                <button onclick="viewAction()">View</button>
-                            </div>
+                    <div class="button-container">
+                        <button>Action</button>
+                        <div class="popup-buttons">
+                            <button>Edit</button>
+                            <button>Delete</button>
                         </div>
-                        <div id="overlay" class="overlay" onclick="closeModal()"></div>
+                    </div>
                     </td>' .
                     '</tr>';
                 }

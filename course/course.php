@@ -99,7 +99,6 @@
                             <th> Section <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Time slot<span class="icon-arrow">&UpArrow;</span></th>
                             <th> Day slot </th>
-                            <th> ------ </th>
                             <th> Status <span class="icon-arrow">&UpArrow;</span></th>
                             <th> Action </th>
                         </tr>
@@ -132,9 +131,6 @@
                                     <select name="c_day" id="c_day" disabled>
                                         <option selected disabled>Select Day</option>
                                     </select>
-                                </td>
-                                <td>
-
                                 </td>
                                 <td>
 

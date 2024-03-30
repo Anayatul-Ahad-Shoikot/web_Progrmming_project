@@ -16,7 +16,7 @@
         
         <section class="sidebar">
             <a href="#" class="logo">
-                <img src="/Resource/UIU_logo_Long.png"/>
+                <img src="/Resource/R.png"/>
             </a>
             <ul class="side-menu top">
                 <li class="active">

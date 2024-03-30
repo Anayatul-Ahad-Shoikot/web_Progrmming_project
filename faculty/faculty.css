@@ -14,8 +14,9 @@ font-family: "Poppins";
 --lato: "Lato", sans-serif;
 --background: #eee;
 /* --sidebars: #f37013; */
---sidebars: #f37013;
---popups: #939B62;
+--sidebars: cadetblue;
+--textcolor: #35374B;
+--popups: #78A083;
 --calenderBG: #f1f1fb;
 --mainText: #fff;
 --activeText: black;
@@ -47,6 +48,7 @@ overflow-x: hidden;
 body {
 background: var(--background);
 overflow-x: hidden;
+color: var(--textcolor);
 }
 
 body.dark {
@@ -188,14 +190,14 @@ width: calc(48px - (4px * 2));
 }
 
 .sidebar .side-menu li.active a {
-color: var(--activeText);
+color: var(--textcolor);
 }
 .sidebar .side-menu.top li a:hover {
-color: var(--activeText);
+color: var(--textcolor);
 font-size: 1.4rem;
 }
 .sidebar .side-menu li a.logout {
-color: black;
+color: var(--textcolor);
 font-weight: 900;
 }
 
@@ -368,7 +370,7 @@ object-fit: cover;
   .content main .head-title .left h1 {
     font-size: 36px;
     font-weight: 600;
-    color: var(--color4);
+    color: var(--textcolor);
   }
   
   .content main .head-title .left .breadcrumb {
@@ -387,7 +389,7 @@ object-fit: cover;
   }
   
   .content main .head-title .left .breadcrumb li a.active {
-    color: var(--blue);
+    color: var(--textcolor);
     pointer-events: unset;
   }
 
@@ -501,10 +503,12 @@ table {
 
 table a {
     color: var(--dark);
+    transition: .3s;
 }
 table a:hover {
-    color: var(--orange);
-    font-weight: 500;
+    color: var(--sidebars);
+    font-weight: 300;
+    transition: .3s;
 }
 
 td img {
@@ -530,6 +534,7 @@ thead th {
     cursor: pointer;
     text-transform: capitalize;
     min-width: 130px;
+    border-radius: 7px;
 }
 
 tbody tr:nth-child(even) {
@@ -566,8 +571,6 @@ tbody tr:nth-child(even) {
     color: black;
     transition: .5s;
 }
-
-
 tbody tr {
     --delay: .1s;
     transition: .5s ease-in-out var(--delay), background-color 0s;
@@ -661,15 +664,15 @@ thead th span.icon-arrow {
 }
 
 thead th:hover span.icon-arrow{
-    border: 1.4px solid #6c00bd;
+    border:  var(--sidebars);
 }
 
 thead th:hover {
-    color: #6c00bd;
+    color:  var(--sidebars);
 }
 
 thead th.active span.icon-arrow{
-    background-color: #6c00bd;
+    background-color: var(--popups);
     color: #fff;
 }
 
@@ -678,113 +681,49 @@ thead th.asc span.icon-arrow{
 }
 
 thead th.active,tbody td.active {
-    color: #6c00bd;
+    color: var(--sidebars);
 }
 
-.head-title .add .export__file {
-    position: relative;
-    background-color: red;
+tbody td button {
+    background-color: rgba(95, 158, 160, 0.5);
+    border: none;
+    padding: 2px 17px;
+    border-radius: 5px;
+    transition: .3s;
 }
 
-.export__file .export__file-btn {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    background: #fff6 url(images/export.png) center / 80% no-repeat;
-    border-radius: 50%;
-    transition: .2s ease-in-out;
-}
-
-.export__file .export__file-btn:hover { 
-    background-color: #f55f5f;
-    transform: scale(1.15);
+tbody td button:hover {
+    background-color: rgba(95, 158, 160);
     cursor: pointer;
+    transition: .3s;
 }
 
-.export__file input {
-    display: none;
-}
-
-.export__file .export__file-options {
-    position: absolute;
-    right: 0;
-    
-    width: 12rem;
-    border-radius: .5rem;
-    overflow: hidden;
-    text-align: center;
-
-    opacity: 0;
-    transform: scale(.8);
-    transform-origin: top right;
-    
-    box-shadow: 0 .2rem .5rem #0004;
-    
-    transition: .2s;
-}
-
-.export__file input:checked + .export__file-options {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 100;
-}
-
-.export__file .export__file-options label{
-    display: block;
-    width: 100%;
-    padding: .6rem 0;
-    background-color: #f2f2f2;
-    
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    transition: .2s ease-in-out;
-}
-
-.export__file .export__file-options label:first-of-type{
-    padding: 1rem 0;
-    background-color: #86e49d !important;
-}
-
-.export__file .export__file-options label:hover{
-    transform: scale(1.05);
-    background-color: #fff;
-    cursor: pointer;
-}
-
-.export__file .export__file-options img{
-    width: 2rem;
-    height: auto;
-}
 .modal {
     display: none;
     position: fixed;
-    bottom: 23px;
-    width: 18%;
+    bottom: 21px;
     overflow: auto;
-    background-color: wheat;
-    border: 1px solid #888;
+    background: var(--sidebars);
     z-index: 999999999999;
     border-radius: 5px;
     right: -30%;
     transition: right 0.5s ease-in-out;
-    box-shadow: -8px -6px 19px 0px;
+    box-shadow: -3px -2px 10px 1px;
 }
 .modal.open {
-    right: 16px; /* Adjusted to slide in */
+    right: 30px; /* Adjusted to slide in */
 }
 
 .modal.close {
     right: -30%; /* Adjusted to slide out */
 }
 .modal-content {
-    margin: 15px;
+    margin: 15px 30px;
     display: flex;
     flex-direction: column;
 }
 .modal-content h1 {
-    color: var(--dark);
+    color: var(--textcolor);
     text-align: center;
     padding: 0px 0px 15px 0px;
 }
@@ -810,49 +749,49 @@ thead th.active,tbody td.active {
     border-radius: 5px;
 }
 .modal-content select:hover{
-    background-color: #FFD56F;
+    background-color: rgba(252, 227, 170, 0.509);
 }
 .close {
     display: flex;
-    color: black;
+    color: var(--textcolor);
     font-size: 18px;
     font-weight: bold;
     justify-content: right;
 }
 .close:hover {
     cursor: pointer;
-    color: red;
-    font-size: 21px;
+    color: black;
 }
 .modal-content button {
     width: 100%;
     margin-top: 2rem;
-    background-color: black;
-    color: #FFD56F;
+    background-color: white;
+    color: var(--sidebars);
     border: none;
     border-radius: 10px;
+    font-size: 1rem;
     height: 30px;
-    font-weight: 700;
-    transition: .7s ease-in-out;
+    font-weight: 500;
+    transition: .5s ease-in-out;
 }
 .modal-content button:hover{
-    background-color: rgb(0, 0, 0, .5);
-    transition: .7s ease-in-out;
+    cursor: pointer;
+    transition: .5s ease-in-out;
 }
 #addFacultyBtn {
     width: 137px;
-    background: linear-gradient(-207deg, blue -51%, skyblue 105%);
+    background: var(--sidebars);
     padding: 10px 25px;
-    border-radius: 30px;
-    color: black;
-    font-weight: 800;
-    transition: .3s;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    transition: .6s;
     border: none;
     margin-right: 3rem;
 }
 #addFacultyBtn:hover{
-    background: skyblue;
-    scale: 1.2;
-    color: white;
-    transition: .3s;
+    background: rgba(95, 158, 160, 0.5);
+    scale: 1.05;
+    color: var(--textcolor);
+    transition: .6s;
 }

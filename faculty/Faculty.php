@@ -1,5 +1,6 @@
 <?php 
     include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
+    include('/xampp/htdocs/web_Progrmming_project/faculty/faculty_counter_BE.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@
 
         <section class="sidebar">
             <a href="#" class="logo">
-                <img src="/Resource/UIU_logo_Long.png"/>
+                <img src="/Resource/R.png"/>
             </a>
             <ul class="side-menu top">
                 <li>
@@ -93,12 +94,12 @@
                 <table>
                     <thead>
                         <tr>
-                            <th> Faculty Name <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Faculty Name</th>
                             <th> Faculty Code </th>
                             <th> Mail </th>
                             <th> Contact </th>
-                            <th> Theory <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Lab <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Theory</th>
+                            <th> Lab</th>
                             <th> Action </th>
                         </tr>
                     </thead>
@@ -196,46 +197,76 @@
                 });
             });
         </script>
+        <script>
+            var modal = document.getElementById("facultyModal");
+            var btn = document.getElementById("addFacultyBtn");
+            var span = document.getElementsByClassName("close")[0];
 
-<script>
-    var modal = document.getElementById("facultyModal");
-    var btn = document.getElementById("addFacultyBtn");
-    var span = document.getElementsByClassName("close")[0];
+            function resetModal() {
+                modal.classList.remove("open", "close");
+                modal.style.display = "none"; // Ensure modal is not displayed
+                modal.style.right = "-30%"; // Reset to initial off-screen position
+            }
+            btn.onclick = function() {
+                modal.style.display = "block"; // Make the modal display:block but off-screen
+                requestAnimationFrame(() => {
+                    modal.classList.add("open"); // Then, trigger the slide-in effect
+                    modal.style.right = ""; // Clear this style to allow .open class to take effect
+                });
+            }
+            span.onclick = function() {
+                modal.classList.add("close");
+                modal.classList.remove("open");
+                setTimeout(() => {
+                    resetModal(); // Use reset function to ensure correct state for next opening
+                }, 500); // Wait for the animation to finish
+            }
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.classList.add("close");
+                    modal.classList.remove("open");
+                    setTimeout(() => {
+                        resetModal(); // Use reset function to ensure correct state for next opening
+                    }, 500); // Wait for the animation to finish
+                }
+            }
+        </script>
+        <script>
+            function makeEditable(f_id) {
+                var fields = ['name', 'code', 'mail', 'contact', 'theory', 'lab'];
+                fields.forEach(function(field) {
+                    var currentValue = document.getElementById(field + '_' + f_id).innerText;
+                    document.getElementById(field + '_' + f_id).innerHTML = '<input type="text" value="' + currentValue + '">';
+                });
+                document.getElementById('edit_' + f_id).style.display = 'none';
+                document.getElementById('save_' + f_id).style.display = 'inline-block';
+            }
+            function saveData(f_id) {
+    var fields = ['name', 'code', 'mail', 'contact', 'theory', 'lab'];
+    var facultyData = {};
+    fields.forEach(function(field) {
+        var inputValue = document.getElementById(field + '_' + f_id).querySelector('input').value;
+        document.getElementById(field + '_' + f_id).innerText = inputValue;
+        facultyData[field] = inputValue; // Collecting data
+    });
+    console.log("Sending data to server:", JSON.stringify({f_id: f_id, data: facultyData})); // Log data being sent
 
-    function resetModal() {
-        modal.classList.remove("open", "close");
-        modal.style.display = "none"; // Ensure modal is not displayed
-        modal.style.right = "-30%"; // Reset to initial off-screen position
-    }
+    document.getElementById('save_' + f_id).style.display = 'none';
+    document.getElementById('edit_' + f_id).style.display = 'inline-block';
+    document.getElementById('edit_' + f_id).onclick = function() { makeEditable(f_id); };
 
-    btn.onclick = function() {
-        modal.style.display = "block"; // Make the modal display:block but off-screen
-        requestAnimationFrame(() => {
-            modal.classList.add("open"); // Then, trigger the slide-in effect
-            modal.style.right = ""; // Clear this style to allow .open class to take effect
-        });
-    }
-
-    span.onclick = function() {
-        modal.classList.add("close");
-        modal.classList.remove("open");
-        setTimeout(() => {
-            resetModal(); // Use reset function to ensure correct state for next opening
-        }, 500); // Wait for the animation to finish
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.classList.add("close");
-            modal.classList.remove("open");
-            setTimeout(() => {
-                resetModal(); // Use reset function to ensure correct state for next opening
-            }, 500); // Wait for the animation to finish
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'edit_faculty_BE.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log("Response from server:", xhr.responseText); // Log response
         }
-    }
-</script>
+    };
+    xhr.send(JSON.stringify({f_id: f_id, data: facultyData}));
+}
 
-
+        </script>
         <script src="/home/Home.js"></script>
         <script src="/faculty/scripts.js"></script>
     </body>
