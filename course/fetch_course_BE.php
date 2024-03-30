@@ -19,7 +19,6 @@
                     '<td><p class="' . ($row['Allocation'] == "Assigned" ? "status cancelled" : "status delivered") . '">' . $row['Allocation'] . '</p></td>' .
                     '<td>
                     <div class="button-container">
-                        <button>Action</button>
                         <div class="popup-buttons">
                             <button>Edit</button>
                             <button>Delete</button>

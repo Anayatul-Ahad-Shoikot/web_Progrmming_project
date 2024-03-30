@@ -19,7 +19,7 @@
 
     <section class="sidebar">
         <a href="#" class="logo">
-            <img src="/Resource/UIU_logo_Long.png"/>
+            <img src="/Resource/R.png"/>
         </a>
         <ul class="side-menu top">
             <li>
@@ -93,14 +93,14 @@
                 <table>
                     <thead>
                         <tr>
-                            <th> Course Code <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Course Name <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Type <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Section <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Time slot<span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Day slot </th>
-                            <th> Status <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Action </th>
+                            <th> Course Code</th>
+                            <th> Course Name</th>
+                            <th> Type</th>
+                            <th> Section</th>
+                            <th> Time slot</th>
+                            <th> Day slot</th>
+                            <th> Status</th>
+                            <th> Action</th>
                         </tr>
                     </thead>
                     <tbody>
