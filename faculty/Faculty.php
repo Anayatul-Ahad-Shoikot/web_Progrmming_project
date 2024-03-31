@@ -241,6 +241,7 @@
                 document.getElementById('edit_' + f_id).style.display = 'none';
                 document.getElementById('save_' + f_id).style.display = 'inline-block';
                 document.getElementById('rmv_' + f_id).style.display = 'inline-block';
+                document.getElementById('cncl_' + f_id).style.display = 'inline-block';
             }
             function saveData(f_id) {
                 var fields = ['name', 'code', 'mail', 'contact', 'theory', 'lab'];
@@ -254,6 +255,7 @@
 
                 document.getElementById('save_' + f_id).style.display = 'none';
                 document.getElementById('rmv_' + f_id).style.display = 'none';
+                document.getElementById('cncl_' + f_id).style.display = 'none';
                 document.getElementById('edit_' + f_id).style.display = 'inline-block';
                 document.getElementById('edit_' + f_id).onclick = function() { makeEditable(f_id); };
 
@@ -271,6 +273,7 @@
             function rmvData(f_id) {
                 document.getElementById('save_' + f_id).style.display = 'none';
                 document.getElementById('rmv_' + f_id).style.display = 'none';
+                document.getElementById('cncl_' + f_id).style.display = 'none';
                 document.getElementById('edit_' + f_id).style.display = 'inline-block';
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', 'remove_faculty_BE.php', true);
@@ -282,6 +285,14 @@
                     }
                 };
                 xhr.send(JSON.stringify({f_id: f_id}));
+            }
+
+            function cnclData(f_id) {
+                document.getElementById('save_' + f_id).style.display = 'none';
+                document.getElementById('rmv_' + f_id).style.display = 'none';
+                document.getElementById('cncl_' + f_id).style.display = 'none';
+                document.getElementById('edit_' + f_id).style.display = 'inline-block';
+                window.location.reload();
             }
         </script>
         <script src="/home/Home.js"></script>

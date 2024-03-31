@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 :root {
+    --sidebars: cadetblue;
+    --textcolor: #35374B;
+    --popups: #78A083;
+    --sidebars2: #CCD5AE;
     --bodyBackground: #ffffff;
     --backGround1 : #2f2f2f;
     --backGround2 : #71717a;
@@ -68,23 +72,20 @@ body {
 .r {
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(-135deg, #d6b12f 0%, #f45136 100%);
+    background: linear-gradient(-135deg, #0C7B93 0%, #27496D 100%);
 }
 
 /* Large circles */
 .r:not(.s) {
-    width: 340px;
-    height: 340px;
+    width: 282px;
+    height: 282px;
 }
-
-/* Small circles specifics */
 .r.s {
     width: 25px;
     height: 25px;
-    background: #4654c8; /* Example color, adjust as needed */
+    background: #4654c8;
 }
 
-/* Odd and even animations for floating */
 .r:nth-child(odd) {
     animation: floating 7s infinite;
 }
@@ -104,22 +105,22 @@ body {
     }
 }
 .r:first-child {
-    top: 9rem;
-    left: 67rem;
+    top: 2rem;
+    left: 65rem;
 }
 .r.s:nth-child(2) {
-    top: 38rem;
-    right: 27rem;
+    top: 20rem;
+    right: 13rem;
     background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
 }
 .r.s:nth-child(3) {
-    bottom: 34rem;
-    left: 22rem;
+    bottom: 22rem;
+    left: 48rem;
     background: linear-gradient(-135deg, #d6b12f 0%, #f45136 100%);
 }
 .r:last-child {
-    bottom: 8rem;
-    right: 69rem;
+    bottom: 1rem;
+    right: 42rem;
     background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
 }
 
@@ -144,7 +145,7 @@ body {
     text-align: center;
     padding: 20px;
     border-radius: 3px;
-    background: linear-gradient(-175deg, #d6b12f 0%, #f45136 100%);
+    background: linear-gradient(-175deg, var(--sidebars) 0%, var(--popups) 100%);
 }
 
 .alert {
@@ -253,7 +254,7 @@ p {
 .img {
     display:flex; 
     align-items:center; 
-    background-color: antiquewhite;
+    background-color: rgb(95, 158, 160, .5);
     padding: 70px;
 }
 

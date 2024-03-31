@@ -12,9 +12,11 @@
                     '<td id="contact_' . $row['f_id'] . '">' . $row['f_contact'] . '</td>' .
                     '<td id="theory_' . $row['f_id'] . '">' . $row['f_current_T'] . ' / ' . $row['f_max_T'] . '</td>' .
                     '<td id="lab_' . $row['f_id'] . '">' . $row['f_current_L'] . ' / ' . $row['f_max_L'] . '</td>' .
-                    '<td><button id="edit_' . $row['f_id'] . '" onclick="makeEditable(\'' . $row['f_id'] . '\')">Edit</button>
-                    <button type="submit" id="save_' .$row['f_id']. '" onclick="saveData(\'' .$row['f_id'] . '\')" style="display: none;" name="saveBTN" >Save</button>
-                    <button type="submit" id="rmv_' .$row['f_id']. '" onclick="rmvData(\'' .$row['f_id'] . '\')" style="display: none;" name="rmvBTN" >Remove</button></td>' .
+                    '<td><button id="edit_' . $row['f_id'] . '" onclick="makeEditable(\'' . $row['f_id'] . '\')"><i class="bx bx-edit" ></i></button>
+                    <button type="submit" id="save_' .$row['f_id']. '" onclick="saveData(\'' .$row['f_id'] . '\')" style="display: none;" name="saveBTN" ><i class="bx bx-list-check" ></i></button>
+                    <button type="submit" id="rmv_' .$row['f_id']. '" onclick="rmvData(\'' .$row['f_id'] . '\')" style="display: none;" name="rmvBTN" ><i class="bx bx-trash" ></i></button>
+                    <button type="submit" id="cncl_' .$row['f_id']. '" onclick="cnclData(\'' .$row['f_id'] . '\')" style="display: none;" name="cnclBTN" ><i class="bx bx-x"></i></button>
+                    </td>' .
                     '</tr>';
                 }
         } else {

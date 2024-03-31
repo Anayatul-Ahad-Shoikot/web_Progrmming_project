@@ -687,7 +687,7 @@ thead th.active,tbody td.active {
 tbody td button {
     background-color: rgba(95, 158, 160, 0.5);
     border: none;
-    padding: 2px 17px;
+    padding: 1px 5px;
     border-radius: 5px;
     transition: .3s;
 }
@@ -703,12 +703,13 @@ tbody td button:hover {
     position: fixed;
     bottom: 21px;
     overflow: auto;
-    background: var(--sidebars);
+    background: white;
+    border: 3px double var(--textcolor);
     z-index: 999999999999;
     border-radius: 5px;
     right: -30%;
     transition: right 0.5s ease-in-out;
-    box-shadow: -3px -2px 10px 1px;
+    box-shadow: 20px 32px 115px 93px rgb(0, 0, 0, .2);
 }
 .modal.open {
     right: 30px; /* Adjusted to slide in */
@@ -718,9 +719,10 @@ tbody td button:hover {
     right: -30%; /* Adjusted to slide out */
 }
 .modal-content {
-    margin: 15px 30px;
+    padding: 15px 30px;
     display: flex;
     flex-direction: column;
+    background-color: rgb(95, 158, 160, .5);
 }
 .modal-content h1 {
     color: var(--textcolor);
@@ -775,6 +777,8 @@ tbody td button:hover {
     transition: .5s ease-in-out;
 }
 .modal-content button:hover{
+    background-color: var(--sidebars);
+    color: white;
     cursor: pointer;
     transition: .5s ease-in-out;
 }

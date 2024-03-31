@@ -85,7 +85,7 @@
                     <ul class="breadcrumb">
                         <li><a class="active" href="/home/Home.php">Home</a></li>
                         <li>></li>
-                        <li><a href="">Courses - <?php echo $_SESSION['c_total']  ?></a></li>
+                        <li><a href="">Courses - <?php echo $_SESSION['C_total']  ?></a></li>
                     </ul>
                 </div>
 
