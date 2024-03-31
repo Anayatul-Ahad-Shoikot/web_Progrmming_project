@@ -49,7 +49,7 @@ function updateFacultyInfo() {
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var notes = xhr.responseText;
-                if (notes.trim() !== "") { // Check if notes data is not empty
+                if (notes.trim() !== "") {
                     displayPopup(notes);
                 }
             }

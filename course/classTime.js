@@ -41,7 +41,8 @@ function addTheoryTimeOptions(selectElement) {
 function addTheoryDayOptions(selectElement) {
     var theoryDays = [
         "Sat / Tues",
-        "Sun / Wed"
+        "Sun / Wed",
+        "Fri"
     ];
     theoryDays.forEach(function(day) {
         var option = document.createElement("option");
@@ -70,7 +71,8 @@ function addLabDayOptions(selectElement) {
         "Sat",
         "Sun",
         "Tues",
-        "Wed"
+        "Wed",
+        "Fri"
     ];
     labDays.forEach(function(day) {
         var option = document.createElement("option");

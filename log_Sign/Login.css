@@ -104,22 +104,22 @@ body {
     }
 }
 .r:first-child {
-    top: 4rem;
-    left: 60rem;
+    top: 9rem;
+    left: 67rem;
 }
 .r.s:nth-child(2) {
-    top: 34rem;
-    right: 23rem;
+    top: 38rem;
+    right: 27rem;
     background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
 }
 .r.s:nth-child(3) {
-    bottom: 28rem;
-    left: 24rem;
+    bottom: 34rem;
+    left: 22rem;
     background: linear-gradient(-135deg, #d6b12f 0%, #f45136 100%);
 }
 .r:last-child {
-    bottom: 4rem;
-    right: 58rem;
+    bottom: 8rem;
+    right: 69rem;
     background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
 }
 
@@ -140,10 +140,11 @@ body {
 }
 
 .login-container {
+    width: 350px;
     text-align: center;
     padding: 20px;
     border-radius: 3px;
-    background: linear-gradient(-135deg, #d6b12f 0%, #f45136 100%);
+    background: linear-gradient(-175deg, #d6b12f 0%, #f45136 100%);
 }
 
 .alert {
@@ -174,13 +175,14 @@ h1 {
 }
 form {
     padding: 0;
-    margin: 0 10px;
+    margin: 2rem 10px 10px;
     align-items: center;
     justify-items: center;
 }
 
 
 .input-container {
+
     text-align: left;
     margin-bottom: 10px;
     color: white;
@@ -191,18 +193,20 @@ label {
     font-size: small;
 }
 input {
-    width: 97%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1.3rem;
+    width: 95%;
+    padding: 5px 2px 5px 15px;
+    border: none;
+    border-bottom: 1.5px solid rgb(0, 0, 0);
+    font-size: 1rem;
     font-family: 'Poppins';
-    background-color:  rgb(255, 255, 255, .1);
-    font-weight: 700;
-    color: #ffffff;
+    background-color:  transparent;
+    font-weight: 400;
+    color: #000000;
+    outline: none;
 }
 input:hover {
     background-color:  rgb(255, 255, 255, .5);
+    border-radius: 8px;
 }
 button {
     width: 100%;
@@ -234,7 +238,7 @@ p {
 }
 .forgetPass {
     text-align: right;
-    margin-right: 21px;
+    margin-right: 13px;
     margin-bottom: 40px;
 }
 .forgetPass a {
@@ -244,5 +248,16 @@ p {
 }
 .forgetPass a:hover {
     color: black;
+}
+
+.img {
+    display:flex; 
+    align-items:center; 
+    background-color: antiquewhite;
+    padding: 70px;
+}
+
+.img img {
+    width: 300px;
 }
 

@@ -12,12 +12,15 @@ font-family: "Poppins";
 :root {
 --poppins: "Poppins", sans-serif;
 --lato: "Lato", sans-serif;
---background: #eee;
---sidebars: #f37013;
+--background: rgb(237, 237, 237);
+--sidebars: rgb(95, 158, 160);
+--textcolor: rgb(53, 55, 75);
+
+
+
 --calenderBG: #f1f1fb;
 --mainText: #fff;
 --activeText: black;
-
 --light: #f9f9f9;
 --blue: #3c91e6;
 --light-blue: #cfe8ff;
@@ -47,13 +50,15 @@ overflow-x: hidden;
 }
 
 body.dark {
---light: #0c0c1e;
---background: #060714;
---sidebars: #d37e42;
---calenderBG: #bfbfc6d1;
---mainText: black;
+/* --light: #0c0c1e; */
+--background: #040D12;
+--sidebars: #183D3D;
+--textcolor: rgb(185, 180, 180);
+--calenderBG: #bfbfc672;
+--dark: #aeaeae;
+/* --mainText: black;
 --activeText: #fff;
---dark: #fbfbfb;
+--dark: #fbfbfb; */
 }
 
 
@@ -111,36 +116,15 @@ width: 60px;
 .sidebar::-webkit-scrollbar {
 display: none;
 }
-
-.sidebar .logo {
-font-size: 24px;
-font-weight: 700;
-height: 56px;
-display: flex;
-flex-direction: column;
-align-items: center;
-color: var(--blue);
-position: sticky;
-top: 0;
-left: 0;
-background: var(--sidebars);
-z-index: 500;
-padding-bottom: 20px;
-box-sizing: content-box;
-gap: 15px;
-}
-
 .sidebar .logo i {
 min-width: 60px;
 display: flex;
 justify-content: center;
 }
 
-.sidebar img {
-width: 80px;
-height: 100px;
-object-fit: cover;
-padding: 1rem 0rem;
+.logo img {
+    margin: 19px 5px;
+    height: 52px;
 }
 
 
@@ -204,14 +188,14 @@ width: calc(48px - (4px * 2));
 }
 
 .sidebar .side-menu li.active a {
-color: var(--activeText);
+color: var(--textcolor);
 }
 .sidebar .side-menu.top li a:hover {
-color: var(--activeText);
+color: var(--textcolor);
 font-size: 1.4rem;
 }
 .sidebar .side-menu li a.logout {
-color: black;
+color: var(--textcolor);
 font-weight: 900;
 }
 
@@ -265,7 +249,7 @@ color: var(--dark);
 .content .e .fa-bars {
 font-size: 1.7rem;
 cursor: pointer;
-color: var(--dark);
+color: var(--textcolor);
 }
 
 .content .e .nav-link {
@@ -331,13 +315,15 @@ top: 2px;
 left: 2px;
 bottom: 2px;
 width: calc(25px - 4px);
-background: var(--blue);
+background: black;
 border-radius: 50%;
 transition: 0.3s ease;
 }
 
 .content .e #switch-mode:checked + .switch-mode::before {
 left: calc(100% - (25px - 4px) - 2px);
+background-color: white;
+transition: 0.3s ease;
 }
 
 .content .e .notification {
@@ -381,7 +367,6 @@ width: 100%;
 padding: 36px 24px;
 font-family: var(--poppins);
 max-height: calc(100vh - 56px);
-/* overflow-x: hidden; */
 overflow-y: hidden;
 }
 .content main .upper-part {
@@ -392,7 +377,7 @@ overflow-y: hidden;
 .upper-part .head-title {
     font-size: 3rem;
     font-weight: 600;
-    color: var(--sidebars);
+    color: var(--textcolor);
     padding-left: 5rem;
 }
 
@@ -441,7 +426,7 @@ overflow-y: hidden;
     transition: all 0.3s;
 }
 .calendar .header .btns .btn:hover {
-    background-color: #d9620d;
+    background-color: rgb(126, 192, 194);
     transform: scale(1.05);
 }
 .weekdays {
@@ -493,8 +478,9 @@ overflow-y: hidden;
     display: flex;
     justify-content: space-between;
     align-items: top;
-    margin-top: 80px;
-    gap: 20px;
+    margin-top: 4rem;
+    gap: 40px;
+    color: var(--textcolor);
 }
 
 /*---------------------------------------------------Notice--------------------------------------*/
@@ -526,7 +512,7 @@ overflow-y: hidden;
     margin-bottom: 10px;
 }
 .todo-list {
-    max-height: 370px;
+    max-height: 438px;
     overflow-y: auto;
 }
 
@@ -539,7 +525,7 @@ overflow-y: hidden;
     align-items: center;
     gap: 25px;
     width: 100%;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
     border-radius: 2px;
     padding: 14px 20px;
     margin-bottom: 2px;
@@ -551,11 +537,11 @@ overflow-y: hidden;
 }
 .todo-1 .notice-date {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 6px;
     padding: 5px 17px;
-    background: var(--color7);
+    background: rgba(95, 158, 160, 0.5);
     border-radius: 5px;
 }
 .todo-1 .notice-container a {
@@ -579,13 +565,12 @@ max-width: 450px;
     padding: 10px 30px 10px 8px;
     border-bottom: 1px solid var(--activeText);
     margin-bottom: 10px;
-    color: var(--activeText);
 }
 
 .todo .head i {
     margin-top: 10px;
     font-size: 1.1rem;
-    color: var(--activeText);
+    color: var(--textcolor);
 }
 .todo .todo-list {
     width: 100%;
@@ -595,7 +580,7 @@ max-width: 450px;
     flex-direction: column;
     width: 100%;
     margin-bottom: 16px;
-    background: rgb(248, 196, 98 , .3);
+    background: rgb(248, 196, 98 , .2);
     border-radius: 10px;
     padding: 14px 20px;
 }
@@ -617,13 +602,13 @@ max-width: 450px;
 .hdr a .bx.bxs-message-square-x {
     font-size: 1.1rem;
     margin-right:10px;
-    color: red;
+    color: var(--textcolor);
 }
 
 .hdr a .bx.bxs-edit-alt {
     font-size: 1.1rem;
     margin-right:10px;
-    color: var(--activeText);
+    color: var(--textcolor);
 }
 
 .todo .todo-list li:last-child {
@@ -720,11 +705,12 @@ border-radius: 5rem;
     background-color: var(--light-yellow);
     padding: 20px;
     border: 1px solid #888;
+    border-radius: 12px;
     margin: 10% auto;
     margin-top: 20%;
     width: 350px;
-    height: 310px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 330px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
 }

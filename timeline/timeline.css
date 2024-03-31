@@ -13,7 +13,9 @@ font-family: "Poppins";
 --poppins: "Poppins", sans-serif;
 --lato: "Lato", sans-serif;
 --background: #eee;
---sidebars: #f37013;
+--sidebars: cadetblue;
+--textcolor: #35374B;
+--popups: #78A083;
 --calenderBG: #f1f1fb;
 --mainText: #fff;
 --activeText: black;
@@ -114,37 +116,16 @@ width: 60px;
 display: none;
 }
 
-.sidebar .logo {
-font-size: 24px;
-font-weight: 700;
-height: 56px;
-display: flex;
-flex-direction: column;
-align-items: center;
-color: var(--blue);
-position: sticky;
-top: 0;
-left: 0;
-background: var(--sidebars);
-z-index: 500;
-padding-bottom: 20px;
-box-sizing: content-box;
-gap: 15px;
-}
-
 .sidebar .logo i {
-min-width: 60px;
-display: flex;
-justify-content: center;
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
 }
-
-.sidebar img {
-width: 80px;
-height: 100px;
-object-fit: cover;
-padding: 1rem 0rem;
+    
+.logo img {
+    margin: 19px 5px;
+    height: 52px;
 }
-
 
 .sidebar .side-menu {
 width: 100%;
@@ -206,14 +187,14 @@ width: calc(48px - (4px * 2));
 }
 
 .sidebar .side-menu li.active a {
-color: var(--activeText);
+color: var(--textcolor);
 }
 .sidebar .side-menu.top li a:hover {
-color: var(--activeText);
+color: var(--textcolor);
 font-size: 1.4rem;
 }
 .sidebar .side-menu li a.logout {
-color: black;
+color: var(--textcolor);
 font-weight: 900;
 }
 
@@ -267,7 +248,7 @@ color: var(--dark);
 .content_out .e .fa-bars {
 font-size: 1.7rem;
 cursor: pointer;
-color: var(--dark);
+color: var(--textcolor);
 }
 
 .content_out .e .nav-link {
@@ -327,19 +308,21 @@ position: relative;
 }
 
 .content_out .e .switch-mode::before {
-content: "";
-position: absolute;
-top: 2px;
-left: 2px;
-bottom: 2px;
-width: calc(25px - 4px);
-background: var(--blue);
-border-radius: 50%;
-transition: 0.3s ease;
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    width: calc(25px - 4px);
+    background: black;
+    border-radius: 50%;
+    transition: 0.3s ease;
 }
-
+    
 .content_out .e #switch-mode:checked + .switch-mode::before {
-left: calc(100% - (25px - 4px) - 2px);
+    left: calc(100% - (25px - 4px) - 2px);
+    background-color: white;
+    transition: 0.3s ease;
 }
 
 .content_out .e .notification {
@@ -388,7 +371,7 @@ main {
   .content_out main .head-title .left h1 {
     font-size: 36px;
     font-weight: 600;
-    color: var(--color4);
+    color: var(--textcolor);
   }
   
   .content_out main .head-title .left .breadcrumb {
@@ -407,7 +390,7 @@ main {
   }
   
   .content_out main .head-title .left .breadcrumb li a.active {
-    color: var(--blue);
+    color: var(--textcolor);
     pointer-events: unset;
   }
 
@@ -578,7 +561,7 @@ table {
 #first_row ::-webkit-scrollbar {
     display: none;
 }
-
+/* 
 #first_row button {
     padding: 5px;
     width: 60%;
@@ -594,7 +577,7 @@ table {
     border: 2px solid black;
     background: var(--orange);
     color: black;
-}
+} */
 #first_row .searchable-select {
   position: relative;
   display: inline-block;
@@ -609,16 +592,16 @@ table {
   margin-top: 5px;
 }
 #first_row button {
-  padding: 5px 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+    background-color: rgba(95, 158, 160, 0.5);
+    border: none;
+    padding: 2px 17px;
+    border-radius: 5px;
+    transition: .3s;
 }
 #first_row button:hover {
-  background-color: #45a049;
-}
+    background-color: rgba(95, 158, 160);
+    cursor: pointer;
+    transition: .3s;}
 tbody tr {
     --delay: .1s;
     transition: .5s ease-in-out var(--delay), background-color 0s;

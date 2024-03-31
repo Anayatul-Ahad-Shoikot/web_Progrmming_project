@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2024 at 10:25 AM
+-- Generation Time: Mar 30, 2024 at 10:34 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,8 +41,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`ac_id`, `username`, `useremail`, `userpassword`, `priority`, `img`) VALUES
-(1, 'admin1', 'admin1@gmail.com', '$2y$10$pLXE2I2F6eSzmmuvQDhwhuTH9rRDRYctTSxobVn4mlaHfEbtrrt1i', 1, 'img/logo.png'),
-(2, 'admin2', 'admin2@gmail.com', '$2y$10$PiOKkb3DUYP3vTlQ5tjNL.uNCoezyrLFrknbPKyh6pfuOAMwTECVm', 2, 'img/405178172_367573859371815_3682155291458542577_n.jpg');
+(1, 'admin1', 'admin1@gmail.com', '$2y$10$pLXE2I2F6eSzmmuvQDhwhuTH9rRDRYctTSxobVn4mlaHfEbtrrt1i', 1, 'img/logo.png');
 
 -- --------------------------------------------------------
 
@@ -66,15 +65,15 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`c_id`, `c_code`, `c_name`, `c_type`, `c_sec`, `c_time`, `c_day`, `Allocation`) VALUES
-(17, 'ACT2111/ACT111', 'Financial And Managerial Accounting', 'Theory', 'A', '8:30 - 9:50', 'Sat / Tues', 'Not Assigned'),
+(17, 'ACT2111/ACT111', 'Financial And Managerial Accounting', 'Theory', 'A', '8:30 - 9:50', 'Sat / Tues', 'Assigned'),
 (18, 'ACT2111/ACT111', 'Financial And Managerial Accounting', 'Theory', 'B', '12:31 - 1:50', 'Sat / Tues', 'Not Assigned'),
 (19, 'ACT2111/ACT111', 'Financial And Managerial Accounting', 'Theory', 'C', '3:11 - 4:30', 'Sat / Tues', 'Not Assigned'),
-(20, 'BDS1201', 'History Of The Emergence Of Bangladesh', 'Theory', 'A', '9:51 - 11:10', 'Sun / Wed', 'Not Assigned'),
+(20, 'BDS1201', 'History Of The Emergence Of Bangladesh', 'Theory', 'A', '9:51 - 11:10', 'Sun / Wed', 'Assigned'),
 (21, 'BDS1201', 'History Of The Emergence Of Bangladesh', 'Theory', 'B', '8:30 - 9:50', 'Sun / Wed', 'Not Assigned'),
-(22, 'BDS1201', 'History Of The Emergence Of Bangladesh', 'Theory', 'C', '9:51 - 11:10', 'Sat / Tues', 'Not Assigned'),
-(23, 'BIO3105', 'Biology For Engineers', 'Theory', 'A', '11:11 - 12:30', 'Sun / Wed', 'Not Assigned'),
-(24, 'BIO3105', 'Biology For Engineers', 'Theory', 'B', '11:11 - 12:30', 'Sat / Tues', 'Not Assigned'),
-(25, 'BIO3105', 'Biology For Engineers', 'Theory', 'C', '9:51 - 11:10', 'Sat / Tues', 'Not Assigned'),
+(22, 'BDS1201', 'History Of The Emergence Of Bangladesh', 'Theory', 'C', '9:51 - 11:10', 'Sat / Tues', 'Assigned'),
+(23, 'BIO3105', 'Biology For Engineers', 'Theory', 'A', '11:11 - 12:30', 'Sun / Wed', 'Assigned'),
+(24, 'BIO3105', 'Biology For Engineers', 'Theory', 'B', '11:11 - 12:30', 'Sat / Tues', 'Assigned'),
+(25, 'BIO3105', 'Biology For Engineers', 'Theory', 'C', '9:51 - 11:10', 'Sat / Tues', 'Assigned'),
 (26, 'BIO3105', 'Biology For Engineers', 'Theory', 'D', '9:51 - 11:10', 'Sun / Wed', 'Not Assigned'),
 (27, 'CSE1110', 'Introduction To Computer Systems', 'Lab', 'A', '8:30 - 11:00', 'Sat', 'Not Assigned'),
 (28, 'CSE1110', 'Introduction To Computer Systems', 'Lab', 'B', '8:30 - 11:00', 'Tues', 'Not Assigned'),
@@ -82,8 +81,8 @@ INSERT INTO `course` (`c_id`, `c_code`, `c_name`, `c_type`, `c_sec`, `c_time`, `
 (30, 'CSE1110', 'Introduction To Computer Systems', 'Lab', 'V', '2:00 - 4:30', 'Sun', 'Not Assigned'),
 (31, 'CSE1111/CSI121', 'Structured Programming Language', 'Theory', 'A', '8:30 - 9:50', 'Sun / Wed', 'Not Assigned'),
 (32, 'CSE1111/CSI121', 'Structured Programming Language', 'Theory', 'E', '12:31 - 1:50', 'Sat / Tues', 'Not Assigned'),
-(33, 'CSE1111/CSI121', 'Structured Programming Language', 'Theory', 'X', '3:11 - 4:30', 'Sat / Tues', 'Not Assigned'),
-(34, 'CSE1116/CSI212', 'Object Oriented Programming', 'Lab', 'A', '11:11 - 1:40', 'Sun', 'Not Assigned'),
+(33, 'CSE1111/CSI121', 'Structured Programming Language', 'Theory', 'X', '3:11 - 4:30', 'Sat / Tues', 'Assigned'),
+(34, 'CSE1116/CSI212', 'Object Oriented Programming', 'Lab', 'A', '11:11 - 1:40', 'Sun', 'Assigned'),
 (35, 'CSE1116/CSI212', 'Object Oriented Programming', 'Lab', 'E', '8:30 - 11:00', 'Tues', 'Not Assigned'),
 (36, 'CSE1115/CSI211', 'Object Oriented Programming', 'Theory', 'N', '12:31 - 1:50', 'Sat / Tues', 'Not Assigned'),
 (37, 'CSE1115/CSI211', 'Object Oriented Programming', 'Theory', 'A', '8:30 - 9:50', 'Sun / Wed', 'Not Assigned');
@@ -100,9 +99,8 @@ CREATE TABLE `faculty` (
   `f_code` varchar(20) NOT NULL,
   `f_mail` varchar(50) NOT NULL,
   `f_contact` varchar(11) NOT NULL,
-  `f_designation` varchar(30) NOT NULL,
-  `f_dept` varchar(10) NOT NULL,
-  `f_load` float NOT NULL DEFAULT 0,
+  `dept` varchar(50) NOT NULL,
+  `desig` varchar(50) NOT NULL,
   `f_current_T` int(2) NOT NULL DEFAULT 0,
   `f_max_T` int(2) NOT NULL,
   `f_current_L` int(2) NOT NULL DEFAULT 0,
@@ -114,29 +112,28 @@ CREATE TABLE `faculty` (
 -- Dumping data for table `faculty`
 --
 
-INSERT INTO `faculty` (`f_id`, `f_name`, `f_code`, `f_mail`, `f_contact`, `f_designation`, `f_dept`, `f_load`, `f_current_T`, `f_max_T`, `f_current_L`, `f_max_L`, `visible`) VALUES
-(1, 'Anayatul Ahad Shoikot', 'AAS', 'AAS@gmail.com', '01973336001', 'Student', 'CSE', 0, 0, 3, 0, 3, 1),
-(2, 'Hasan Sarwar', 'HS', 'HS@gmail.com', '345636', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
-(3, 'Mohammad Nurul Huda', 'MNH', 'MNH', '902738432', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
-(4, 'Khondaker Abdullah-Al-Mamun', 'KM', 'KM', '72354793', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
-(5, 'Salekul Islam', 'SaIm', 'SaIm@gmail.com', '497356', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
-(6, 'A.K.M Muzahidul Islam', 'AKMMI', 'AKMMI@gmail.com', '37456239', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
-(7, 'Md. Motaharul Islam', 'MdMIm', 'MdMIm', '73256248', 'Professor', 'CSE', 0, 0, 1, 0, 1, 1),
-(8, 'Dewan Md. Farid', 'DMF', 'DMF@gmail.com', '985648', 'Professor', 'CSE', 0, 0, 2, 0, 1, 1),
-(9, 'Al-Sakin Khan Pathan', 'ASKP', 'ASKP@gmailcom', '32547097', 'Professor', 'CSE', 0, 0, 2, 0, 1, 1),
-(10, 'Swakkar Shatabda', 'SS', 'SS@gmail.com', '39256276', 'Professor', 'CSE', 0, 0, 2, 0, 2, 1),
-(11, 'Mohammad Shahriar Rahman', 'MdSR', 'MdSR@gmail.com', '23764498', 'Professor', 'CSE', 0, 0, 2, 0, 2, 1),
-(12, 'Muhammad Nomani Kabir', 'MNK', 'MNK@gmail.com', '83724597', 'Associate Professor', 'CSE', 0, 0, 2, 0, 2, 1),
-(13, 'Suman Ahmmed', 'SA', 'SA@gmail.com', '3436625', 'Associate Professor', 'CSE', 0, 0, 3, 0, 2, 1),
-(14, 'Riasat Azim', 'RtAm', 'RtAm@gmail.com', '45632342', 'Associate Professor(car-1)', 'CSE', 0, 0, 2, 0, 3, 1),
-(15, 'Mohammad Mamun Elahi', 'ME', 'ME@gmail.com', '13248765001', 'Associate Professor(car-2)', 'CSE', 0, 0, 2, 0, 3, 1),
-(16, 'Rubaiya Rahtin Khan', 'RRK', 'RRK@gmail.com', '23499834', 'Assistant Professor(cat-2)', 'CSE', 0, 0, 3, 0, 2, 1),
-(17, 'Md. Benzir Ahmed', 'MBAd', 'ABAd@gmail.com', '66773324', 'Assistant Professor(cat-2)', 'CSE', 0, 0, 3, 0, 2, 1),
-(18, 'Nahid Hossain', 'NHn', 'Nhn@gmail.com', '32984765', 'Assistant Professor(cat-2)', 'CSE', 0, 0, 3, 0, 2, 1),
-(19, 'Khushnur Binte Jahangir', 'KBJ', 'KBJ@gmail.com', '019743234', 'Assistant Professor(cat-2)', 'CSE', 0, 0, 3, 0, 3, 1),
-(20, 'Minhajul Bashir', 'MiBa', 'MiBa@gmail.com', '0172312132', 'Lecturer', 'CSE', 0, 0, 3, 0, 3, 1),
-(21, 'Shoib Ahmed Shourav', 'SAhSh', 'SAhSh@gmail.com', '013889731', 'Lecturer', 'CSE', 0, 0, 4, 0, 1, 1),
-(37, 'Subangkar Karmaker Shanto', 'ShKS', 'ShKS@gmail.com', '018744434', 'Lecturer', 'CSE', 0, 0, 4, 0, 2, 1);
+INSERT INTO `faculty` (`f_id`, `f_name`, `f_code`, `f_mail`, `f_contact`, `dept`, `desig`, `f_current_T`, `f_max_T`, `f_current_L`, `f_max_L`, `visible`) VALUES
+(2, 'Hasan Sarwar', 'HS', 'HS@gmail.com', '345636', '', '', 2, 2, 0, 0, 1),
+(3, 'Mohammad Nurul Huda', 'MNH', 'MNH', '902738432', '', '', 0, 1, 0, 1, 1),
+(4, 'Khondaker Abdullah-Al-Mamun', 'KM', 'KM', '72354793', '', '', 0, 1, 0, 1, 1),
+(5, 'Salekul Islam', 'SaIm', 'SaIm@gmail.com', '497356', '', '', 0, 1, 0, 1, 1),
+(6, 'A.K.M Muzahidul Islam', 'AKMMI', 'AKMMI@gmail.com', '37456239', '', '', 0, 1, 0, 1, 1),
+(7, 'Md. Motaharul Islam', 'MdMIm', 'MdMIm', '73256248', '', '', 0, 1, 0, 1, 1),
+(8, 'Dewan Md. Farid', 'DMF', 'DMF@gmail.com', '985648', '', '', 0, 2, 0, 1, 1),
+(9, 'Al-Sakin Khan Pathan', 'ASKP', 'ASKP@gmailcom', '32547097', '', '', 0, 2, 0, 1, 1),
+(10, 'Swakkar Shatabda', 'SS', 'SS@gmail.com', '39256276', '', '', 0, 2, 0, 2, 1),
+(11, 'Mohammad Shahriar Rahman', 'MdSR', 'MdSR@gmail.com', '23764498', '', '', 0, 2, 0, 2, 1),
+(12, 'Muhammad Nomani Kabir', 'MNK', 'MNK@gmail.com', '83724597', '', '', 0, 2, 0, 2, 1),
+(13, 'Suman Ahmmed', 'SA', 'SA@gmail.com', '3436625', '', '', 0, 3, 0, 2, 1),
+(14, 'Riasat Azim', 'RtAm', 'RtAm@gmail.com', '45632342', '', '', 1, 2, 0, 3, 1),
+(15, 'Mohammad Mamun Elahi', 'ME', 'ME@gmail.com', '13248765001', '', '', 0, 2, 0, 3, 1),
+(16, 'Rubaiya Rahtin Khan', 'RRK', 'RRK@gmail.com', '23499834', '', '', 0, 3, 0, 2, 1),
+(17, 'Md. Benzir Ahmed', 'MBAd', 'ABAd@gmail.com', '66773324', '', '', 0, 3, 0, 2, 1),
+(18, 'Nahid Hossain', 'NHn', 'Nhn@gmail.com', '32984765', '', '', 1, 3, 1, 2, 1),
+(19, 'Khushnur Binte Jahangir', 'KBJ', 'KBJ@gmail.com', '019743234', '', '', 0, 3, 0, 3, 1),
+(20, 'Minhajul Bashir', 'MiBa', 'MiBa@gmail.com', '0172312132', '', '', 1, 3, 0, 3, 1),
+(21, 'Shoib Ahmed Shourav', 'SAhSh', 'SAhSh@gmail.com', '013889731', '', '', 0, 4, 0, 1, 1),
+(37, 'Subangkar Karmaker Shanto', 'ShKS', 'ShKS@gmail.com', '018744434', '', '', 0, 4, 0, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -180,7 +177,31 @@ INSERT INTO `history` (`his_id`, `content_key`, `content`, `user`, `content_acti
 (21, 'course', 'Course \"Object Oriented Programming\" added (2024/02/25  09:00) ---admin1', 'admin1', 'add'),
 (22, 'note', 'Note created for Nahid Hossain (2024/02/25  09:04) ---admin1', 'admin1', 'create'),
 (23, 'note', 'Note created for Dewan Md. Farid (2024/02/25  09:05) ---admin1', 'admin1', 'create'),
-(24, 'note', 'Note created for Nahid Hossain (2024/02/25  10:17) ---admin1', 'admin1', 'create');
+(24, 'note', 'Note created for Nahid Hossain (2024/02/25  10:17) ---admin1', 'admin1', 'create'),
+(25, 'Facult course', 'Faculty[Hasan Sarwar] assigned to Biology For Engineers (2024/02/25  17:22) ---admin1', 'admin1', 'Assigned'),
+(26, 'Facult course', 'Faculty[Hasan Sarwar] assigned to History Of The Emergence Of Bangladesh (2024/02/25  17:22) ---admin1', 'admin1', 'Assigned'),
+(27, 'Facult course', 'Faculty[Anayatul Ahad Shoikot] assigned to Financial And Managerial Accounting (2024/02/25  17:26) ---admin1', 'admin1', 'Assigned'),
+(28, 'note', 'Deleted a note [Note id = 1] 2024/02/26  16:58 ---admin1', 'admin1', 'delete'),
+(29, 'note', 'Deleted a note [Note id = 2] 2024/02/26  16:58 ---admin1', 'admin1', 'delete'),
+(30, 'note', 'Deleted a note [Note id = 3] 2024/02/26  16:58 ---admin1', 'admin1', 'delete'),
+(31, 'Facult course', 'Faculty[Riasat Azim] assigned to Biology For Engineers (2024/02/27  15:14) ---admin1', 'admin1', 'Assigned'),
+(32, 'note', 'Note created for Mohammad Mamun Elahi (2024/03/14  14:14) ---admin1', 'admin1', 'create'),
+(33, 'note', 'Deleted a note [Note id = 4] 2024/03/14  14:14 ---admin1', 'admin1', 'delete'),
+(34, 'faculty', 'Faculty \"Jannatul Ferdous Tanjum\" added (2024/03/14  15:27) ---admin1', 'admin1', 'add'),
+(35, 'Facult course', 'Faculty[Jannatul Ferdous Tanjum] assigned to History Of The Emergence Of Bangladesh (2024/03/14  15:34) ---admin1', 'admin1', 'Assigned'),
+(36, 'faculty', 'Faculty \"Ahad\" added (2024/03/17  07:24) ---admin1', 'admin1', 'add'),
+(37, 'faculty', 'Faculty \"Ahad2\" added (2024/03/17  07:28) ---admin1', 'admin1', 'add'),
+(38, 'note', 'Note created for Nahid Hossain (2024/03/28  06:42) ---admin1', 'admin1', 'create'),
+(39, 'note', 'Note created for Khushnur Binte Jahangir (2024/03/30  18:24) ---admin1', 'admin1', 'create'),
+(40, 'note', 'Deleted a note [Note id = 5] 2024/03/30  18:24 ---admin1', 'admin1', 'delete'),
+(41, 'note', 'Deleted a note [Note id = 6] 2024/03/30  18:24 ---admin1', 'admin1', 'delete'),
+(42, 'faculty', 'Faculty \"Bbb\" added (2024/03/30  19:38) ---admin1', 'admin1', 'add'),
+(43, 'course', 'Course \"Aawdasdwa\" added (2024/03/30  20:11) ---admin1', 'admin1', 'add'),
+(44, 'course', 'Course \"Awd\" added (2024/03/30  21:03) ---admin1', 'admin1', 'add'),
+(45, 'Facult course', 'Faculty[Nahid Hossain] assigned to Biology For Engineers (2024/03/30  21:25) ---admin1', 'admin1', 'Assigned'),
+(46, 'Facult course', 'Faculty[Minhajul Bashir] assigned to Structured Programming Language (2024/03/30  21:37) ---admin1', 'admin1', 'Assigned'),
+(47, 'note', 'Note created for Minhajul Bashir (2024/03/30  22:32) ---admin1', 'admin1', 'create'),
+(48, 'note', 'Note created for Khondaker Abdullah-Al-Mamun (2024/03/30  22:33) ---admin1', 'admin1', 'create');
 
 -- --------------------------------------------------------
 
@@ -200,9 +221,14 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`note_id`, `note_for`, `note_content`, `visibility`) VALUES
-(1, 'Nahid Hossain', 'Web Programming', 1),
-(2, 'Dewan Md. Farid', 'Machine Learning', 1),
-(3, 'Nahid Hossain', 'AOOP at 8:30AM', 1);
+(1, 'Nahid Hossain', 'Web Programming', 0),
+(2, 'Dewan Md. Farid', 'Machine Learning', 0),
+(3, 'Nahid Hossain', 'AOOP at 8:30AM', 0),
+(4, 'Mohammad Mamun Elahi', 'adwasdw', 0),
+(5, 'Nahid Hossain', 'adwdsadw', 0),
+(6, 'Khushnur Binte Jahangir', 'ADWDAWDAWD', 0),
+(7, 'Minhajul Bashir', 'ABC', 1),
+(8, 'Khondaker Abdullah-Al-Mamun', 'asdwdawfsad', 1);
 
 -- --------------------------------------------------------
 
@@ -212,12 +238,28 @@ INSERT INTO `notes` (`note_id`, `note_for`, `note_content`, `visibility`) VALUES
 
 CREATE TABLE `timeline` (
   `t_id` int(2) NOT NULL,
-  `faculty_code` varchar(50) NOT NULL,
-  `course_code` varchar(15) NOT NULL,
+  `f_name` varchar(50) NOT NULL,
+  `c_name` varchar(50) NOT NULL,
   `section` varchar(3) NOT NULL,
   `time` varchar(20) NOT NULL,
-  `day` varchar(20) NOT NULL
+  `day` varchar(20) NOT NULL,
+  `rating` float NOT NULL DEFAULT 0,
+  `present` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `timeline`
+--
+
+INSERT INTO `timeline` (`t_id`, `f_name`, `c_name`, `section`, `time`, `day`, `rating`, `present`) VALUES
+(1, 'Nahid Hossain', 'Object Oriented Programming', 'E', '8:30 - 11:00', 'Tues', 0, 1),
+(2, 'Hasan Sarwar', 'Biology For Engineers', 'A', '11:11 - 12:30', 'Sun / Wed', 0, 1),
+(3, 'Hasan Sarwar', 'History Of The Emergence Of Bangladesh', 'A', '9:51 - 11:10', 'Sun / Wed', 0, 1),
+(4, 'Anayatul Ahad Shoikot', 'Financial And Managerial Accounting', 'A', '8:30 - 9:50', 'Sat / Tues', 0, 1),
+(5, 'Riasat Azim', 'Biology For Engineers', 'B', '11:11 - 12:30', 'Sat / Tues', 0, 1),
+(6, 'Jannatul Ferdous Tanjum', 'History Of The Emergence Of Bangladesh', 'C', '9:51 - 11:10', 'Sat / Tues', 0, 1),
+(7, 'Nahid Hossain', 'Biology For Engineers', 'C', '9:51 - 11:10', 'Sat / Tues', 0, 1),
+(8, 'Minhajul Bashir', 'Structured Programming Language', 'X', '3:11 - 4:30', 'Sat / Tues', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -273,31 +315,31 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `c_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `c_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `f_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `f_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `note_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `note_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `timeline`
 --
 ALTER TABLE `timeline`
-  MODIFY `t_id` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `t_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

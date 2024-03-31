@@ -19,10 +19,11 @@
             width: 25%;
             bottom: 45px;
             right: 49px;
-            background-color: lightsalmon;
+            background-color: rgb(95, 158, 160, .5);
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 11px 13px 7px rgba(0, 0, 0, 0.3);
             z-index: 999999;
+            border-radius: 5px;
         }
         .popup h3 {
             margin-top: 0;
@@ -41,7 +42,9 @@
 
 <body>
     <section class="sidebar">
-        <a href="#" class="logo"><img src="#" /></a>
+        <a href="#" class="logo">
+            <img src="/Resource/R.png"/>
+        </a>
         <ul class="side-menu top">
             <li>
                 <a href="/home/Home.php" class="nav-link">
@@ -108,36 +111,22 @@
             </div>
             <section class="table__body">
                 <table>
-                    <thead>
+                    <!-- <thead>
                         <tr>
-                            <th> Faculty <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Load <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Course <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> C_Code <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> C_Type <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Section <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Time <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Day <span class="icon-arrow">&UpArrow;</span></th>
-                            <th> Ratings <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Course</th>
+                            <th> C_Code </th>
+                            <th> C_Type </th>
+                            <th> Faculty </th>
+                            <th> Load </th>
+                            <th> Section </th>
+                            <th> Time </th>
+                            <th> Day </th>
                             <th> Action </th>
                         </tr>
-                    </thead>
+                    </thead> -->
                     <tbody>
                         <tr id="first_row">
                             <form id="myForm" method="POST" action="submit.php">
-                                <td id="col_1">
-                                    <input type="text" id="searchInput" oninput="filterDropdown()"
-                                        placeholder="Search Faculty">
-                                    <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
-                                        <option selected disabled>Select Faculty</option>
-                                        <?php
-                                                include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_faculty.php');
-                                        ?>
-                                    </select>
-                                </td>
-                                <td id="load">
-                                
-                                </td>
                                 <td id="col_2">
                                     <input type="text" id="searchInputCourse" oninput="filterDropdownCourse()"
                                         placeholder="Search Course">
@@ -154,6 +143,19 @@
                                 <td>
                                     <input id="typeInput" name="typeInput" type="text" value="">
                                 </td>
+                                <td id="col_1">
+                                    <input type="text" id="searchInput" oninput="filterDropdown()"
+                                        placeholder="Search Faculty">
+                                    <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
+                                        <option selected disabled>Select Faculty</option>
+                                        <?php
+                                                include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_faculty.php');
+                                        ?>
+                                    </select>
+                                </td>
+                                <td id="load">
+                            
+                                </td>
                                 <td>
                                     <input id="secInput" name="secInput" type="text" value="">
                                 </td>
@@ -164,9 +166,6 @@
                                     <input id="dayInput" name="dayInput" type="text" value="">
                                 </td>
                                 <td>
-                                    
-                                </td>
-                                <td>
                                     <button type="submit" name="add_btn">ADD</button>
                                 </td>
                                     <input type="hidden" id="c_t" name="c_t" value="">
@@ -175,11 +174,34 @@
                                     <input type="hidden" id="m_l" name="m_l" value="">
                             </form>
                         </tr>
-                        <?php 
-                                include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
-                            ?>
+                        <!-- <?php 
+                            include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
+                        ?> -->
                     </tbody>
                 </table>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <!-- <th> Course</th> -->
+                            <!-- <th> C_Code </th> -->
+                            <!-- <th> C_Type </th> -->
+                            <th> Faculty </th>
+                            <th> Friday </th>
+                            <th> Saturday </th>
+                            <th> Sunday </th>
+                            <th> Tuesday </th>
+                            <th> Wednesday </th>
+                            <th> Load </th>
+                            <th> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
+                        ?>
+                        </tbody>
+                    </table>
             </section>
         </main>
     </section>

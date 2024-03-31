@@ -16,7 +16,7 @@
         
         <section class="sidebar">
             <a href="#" class="logo">
-                <img src="/Resource/logo.jpg"/>
+                <img src="/Resource/R.png"/>
             </a>
             <ul class="side-menu top">
                 <li class="active">

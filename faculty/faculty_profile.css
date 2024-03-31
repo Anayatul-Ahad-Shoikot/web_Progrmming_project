@@ -333,13 +333,15 @@ top: 2px;
 left: 2px;
 bottom: 2px;
 width: calc(25px - 4px);
-background: var(--blue);
+background: black;
 border-radius: 50%;
 transition: 0.3s ease;
 }
 
 .content .e #switch-mode:checked + .switch-mode::before {
 left: calc(100% - (25px - 4px) - 2px);
+background: white;
+transition: 0.3s ease;
 }
 
 .content .e .notification {
@@ -413,6 +415,15 @@ object-fit: cover;
   justify-content: space-between;
 }
 
+.profileBox .left{
+  width: 70%;
+  min-height: 75vh;
+}
+
+.profileBox .right{
+  width: 30%;
+  min-height: 75vh;
+}
 .details{
   margin: 1rem 2rem;
 }
