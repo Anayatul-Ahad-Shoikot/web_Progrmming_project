@@ -199,6 +199,7 @@
             document.getElementById('edit_' + c_id).style.display = 'none';
             document.getElementById('save_' + c_id).style.display = 'inline-block';
             document.getElementById('rmv_' + c_id).style.display = 'inline-block';
+            document.getElementById('cncl_' + c_id).style.display = 'inline-block';
         }
         function saveData(c_id) {
             var fields = ['code', 'name',  'type', 'sec'];
@@ -212,6 +213,7 @@
 
             document.getElementById('save_' + c_id).style.display = 'none';
             document.getElementById('rmv_' + c_id).style.display = 'none';
+            document.getElementById('cncl_' + c_id).style.display = 'none';
             document.getElementById('edit_' + c_id).style.display = 'inline-block';
             document.getElementById('edit_' + c_id).onclick = function() { makeEditable(c_id); };
 
@@ -229,6 +231,7 @@
         function rmvData(c_id) {
             document.getElementById('save_' + c_id).style.display = 'none';
             document.getElementById('rmv_' + c_id).style.display = 'none';
+            document.getElementById('cncl_' + c_id).style.display = 'none';
             document.getElementById('edit_' + c_id).style.display = 'inline-block';
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'remove_course_BE.php', true);
@@ -241,6 +244,13 @@
             };
             xhr.send(JSON.stringify({c_id: c_id}));
         }
+        function cnclData(c_id) {
+                document.getElementById('save_' + c_id).style.display = 'none';
+                document.getElementById('rmv_' + c_id).style.display = 'none';
+                document.getElementById('cncl_' + c_id).style.display = 'none';
+                document.getElementById('edit_' + c_id).style.display = 'inline-block';
+                window.location.reload();
+            }
     </script>
 
 
