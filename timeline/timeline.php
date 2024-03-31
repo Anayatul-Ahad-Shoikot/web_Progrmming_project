@@ -19,10 +19,11 @@
             width: 25%;
             bottom: 45px;
             right: 49px;
-            background-color: lightsalmon;
+            background-color: rgb(143, 179, 169);
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 9px 11px 6px rgba(0, 0, 0, 0.3);
             z-index: 999999;
+            border-radius: 5px;
         }
         .popup h3 {
             margin-top: 0;
