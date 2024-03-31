@@ -687,11 +687,7 @@ thead th.active,tbody td.active {
 tbody td button {
     background-color: rgba(95, 158, 160, 0.5);
     border: none;
-<<<<<<< HEAD
-    padding: 1px 5px;
-=======
     padding: 2px 17px;
->>>>>>> 913532f8bc46c399e96cd41a31594cfe058b6fca
     border-radius: 5px;
     transition: .3s;
 }
@@ -707,21 +703,12 @@ tbody td button:hover {
     position: fixed;
     bottom: 21px;
     overflow: auto;
-<<<<<<< HEAD
-    border: double var(--sidebars);
-    background-color: white;
-=======
     background: var(--sidebars);
->>>>>>> 913532f8bc46c399e96cd41a31594cfe058b6fca
     z-index: 999999999999;
     border-radius: 5px;
     right: -30%;
     transition: right 0.5s ease-in-out;
-<<<<<<< HEAD
-    box-shadow: 11px 13px 7px rgba(0, 0, 0, 0.3);
-=======
     box-shadow: -3px -2px 10px 1px;
->>>>>>> 913532f8bc46c399e96cd41a31594cfe058b6fca
 }
 .modal.open {
     right: 30px; /* Adjusted to slide in */
@@ -731,17 +718,9 @@ tbody td button:hover {
     right: -30%; /* Adjusted to slide out */
 }
 .modal-content {
-<<<<<<< HEAD
-    padding: 15px 30px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(95, 158, 160, .6);
-    
-=======
     margin: 15px 30px;
     display: flex;
     flex-direction: column;
->>>>>>> 913532f8bc46c399e96cd41a31594cfe058b6fca
 }
 .modal-content h1 {
     color: var(--textcolor);
@@ -797,11 +776,6 @@ tbody td button:hover {
 }
 .modal-content button:hover{
     cursor: pointer;
-<<<<<<< HEAD
-    background-color: var(--sidebars);
-    color: white;
-=======
->>>>>>> 913532f8bc46c399e96cd41a31594cfe058b6fca
     transition: .5s ease-in-out;
 }
 #addFacultyBtn {

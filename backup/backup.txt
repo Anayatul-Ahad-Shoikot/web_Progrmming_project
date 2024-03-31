@@ -1,0 +1,1 @@
+<button type="submit" id="cncl_' .$row['f_id']. '" onclick="cnclData(\'' .$row['f_id'] . '\')" style="display: none;" name="cnclBTN" ><i class="bx bx-x"></i></button>
