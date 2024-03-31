@@ -478,7 +478,11 @@ overflow-y: hidden;
     display: flex;
     justify-content: space-between;
     align-items: top;
+<<<<<<< HEAD
     margin-top: 4rem;
+=======
+    margin-top: 30px;
+>>>>>>> 913532f8bc46c399e96cd41a31594cfe058b6fca
     gap: 40px;
     color: var(--textcolor);
 }

@@ -98,9 +98,8 @@
                             <th> Faculty Code </th>
                             <th> Mail </th>
                             <th> Contact </th>
-                            <th> Theory</th>
-                            <th> Lab</th>
-                            <th style="width: 50px;"> Action </th>
+                            <th> Mail </th>
+                            <th> Action </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -197,103 +196,7 @@
                 });
             });
         </script>
-        <script>
-            var modal = document.getElementById("facultyModal");
-            var btn = document.getElementById("addFacultyBtn");
-            var span = document.getElementsByClassName("close")[0];
 
-            function resetModal() {
-                modal.classList.remove("open", "close");
-                modal.style.display = "none";
-                modal.style.right = "-30%";
-            }
-            btn.onclick = function() {
-                modal.style.display = "block";
-                requestAnimationFrame(() => {
-                    modal.classList.add("open");
-                    modal.style.right = "";
-                });
-            }
-            span.onclick = function() {
-                modal.classList.add("close");
-                modal.classList.remove("open");
-                setTimeout(() => {
-                    resetModal();
-                }, 500);
-            }
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.classList.add("close");
-                    modal.classList.remove("open");
-                    setTimeout(() => {
-                        resetModal();
-                    }, 500);
-                }
-            }
-        </script>
-        <script>
-            function makeEditable(f_id) {
-                var fields = ['name', 'code', 'mail', 'contact', 'theory', 'lab'];
-                fields.forEach(function(field) {
-                    var currentValue = document.getElementById(field + '_' + f_id).innerText;
-                    document.getElementById(field + '_' + f_id).innerHTML = '<input type="text" value="' + currentValue + '">';
-                });
-                document.getElementById('edit_' + f_id).style.display = 'none';
-                document.getElementById('save_' + f_id).style.display = 'inline-block';
-                document.getElementById('rmv_' + f_id).style.display = 'inline-block';
-                document.getElementById('cncl_' + f_id).style.display = 'inline-block';
-
-            }
-            function saveData(f_id) {
-                var fields = ['name', 'code', 'mail', 'contact', 'theory', 'lab'];
-                var facultyData = {};
-                fields.forEach(function(field) {
-                    var inputValue = document.getElementById(field + '_' + f_id).querySelector('input').value;
-                    document.getElementById(field + '_' + f_id).innerText = inputValue;
-                    facultyData[field] = inputValue;
-                });
-                console.log("Sending data to server:", JSON.stringify({f_id: f_id, data: facultyData}));
-
-                document.getElementById('save_' + f_id).style.display = 'none';
-                document.getElementById('rmv_' + f_id).style.display = 'none';
-                document.getElementById('cncl_' + f_id).style.display = 'none';
-                document.getElementById('edit_' + f_id).style.display = 'inline-block';
-                document.getElementById('edit_' + f_id).onclick = function() { makeEditable(f_id); };
-
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'edit_faculty_BE.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        console.log("Response from server:", xhr.responseText);
-                        window.location.reload();
-                    }
-                };
-                xhr.send(JSON.stringify({f_id: f_id, data: facultyData}));
-            }
-            function rmvData(f_id) {
-                document.getElementById('save_' + f_id).style.display = 'none';
-                document.getElementById('rmv_' + f_id).style.display = 'none';
-                document.getElementById('edit_' + f_id).style.display = 'inline-block';
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'remove_faculty_BE.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        console.log("Response from server:", xhr.responseText);
-                        window.location.reload();
-                    }
-                };
-                xhr.send(JSON.stringify({f_id: f_id}));
-            }
-            function cnclData(f_id) {
-                document.getElementById('save_' + f_id).style.display = 'none';
-                document.getElementById('rmv_' + f_id).style.display = 'none';
-                document.getElementById('cncl_' + f_id).style.display = 'none';
-                document.getElementById('edit_' + f_id).style.display = 'inline-block';
-                window.location.reload();
-            }
-        </script>
         <script src="/home/Home.js"></script>
         <script src="/faculty/scripts.js"></script>
     </body>
