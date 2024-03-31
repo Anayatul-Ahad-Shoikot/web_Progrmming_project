@@ -84,11 +84,16 @@
                             <li><a href="">Faculty <?php echo "&nbsp- ".$_SESSION['f_total'] ?></a></li>
                         </ul>
                     </div>
-                    <!-- new code added -->
+                    
                     <div class="addFaculty">
                         <button id="addFacultyBtn">Add Faculty</button>
+                        <h1> or </h1>
+                        <form action="excel_import_BE.php" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="import_file" value="">
+                            <button type="submit" name="import_btn">Import</button>
+                        </form>
                     </div>
-                    <!-- -------------- -->
+
                 </div>
             <section class="table__body">
                 <table>
@@ -125,6 +130,8 @@
                     <input type="text" name="f_contact" required><br>
                     <label for="f_mail">Mail :</label><br>
                     <input type="text" name="f_mail" required><br>
+                    <label for="f_room">Room :</label><br>
+                    <input type="text" name="f_room" required><br>
                     <label for="dept">Department :</label>
                     <select name="dept">
                         <option value="" disabled selected>Select Department</option>

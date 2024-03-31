@@ -764,6 +764,34 @@ tbody td button:hover {
     cursor: pointer;
     color: black;
 }
+
+.addFaculty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.addFaculty form {
+    background-color: var(--sidebars);
+    padding: 6px 15px;
+    border-radius: 5px;
+}
+
+.addFaculty form button {
+    background-color: white;
+    color: var(--textcolor);
+    border: none;
+    border-radius: 5px;
+    padding: 2px 8px;
+    transition: .6s;
+}
+
+.addFaculty form button:hover {
+    cursor: pointer;
+    background: rgb(193, 243, 245);
+    transition: .6s;
+}
 .modal-content button {
     width: 100%;
     margin-top: 2rem;
@@ -783,19 +811,18 @@ tbody td button:hover {
     transition: .5s ease-in-out;
 }
 #addFacultyBtn {
-    width: 137px;
     background: var(--sidebars);
-    padding: 10px 25px;
+    padding: 9px 15px;
     border-radius: 10px;
     color: white;
     font-weight: 500;
     transition: .6s;
     border: none;
-    margin-right: 3rem;
 }
 #addFacultyBtn:hover{
     background: rgba(95, 158, 160, 0.5);
     scale: 1.05;
     color: var(--textcolor);
+    cursor: pointer;
     transition: .6s;
 }

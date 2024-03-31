@@ -15,6 +15,7 @@ if (isset($_SESSION['ac_id']) && isset($_SESSION['prior'])) {
         $f_max_l = $_POST["f_max_l"];
         $dept = $_POST["dept"];
         $desig = $_POST["desig"];
+        $f_room = $_POST[ "f_room"];
 
         $checkSql = "SELECT * FROM faculty WHERE f_name = ?";
         $stmt = $con->prepare($checkSql);
@@ -26,8 +27,8 @@ if (isset($_SESSION['ac_id']) && isset($_SESSION['prior'])) {
             header("Location: /faculty/Faculty.php");
             exit(0);
         } else {
-            $sql = "INSERT INTO faculty (f_name, f_code, f_mail, f_contact, dept, desig, f_max_T, f_max_L) 
-                    VALUES ('$f_name', '$f_code', '$f_mail', '$f_contact',  '$dept', '$desig', $f_max_t, $f_max_l)";
+            $sql = "INSERT INTO faculty (f_name, f_code, f_mail, f_contact, dept, desig, f_room,f_max_T, f_max_L) 
+                    VALUES ('$f_name', '$f_code', '$f_mail', '$f_contact',  '$dept', '$desig', $f_room, $f_max_t, $f_max_l)";
             if ($con->query($sql) === TRUE) {
                 $content = 'Faculty "'. $f_name. '" added ('. date('Y/m/d  H:i').') ---'.$user;
                 $content_key = 'faculty';
