@@ -86,11 +86,14 @@
                     </div>
                     
                     <div class="addFaculty">
-                        <button id="addFacultyBtn">Add Faculty</button>
-                        <h1> or </h1>
+                        <button id="downloadBtn"><i class='bx bxs-download'></i></button>
+                        <h1></h1>
+                        <button id="addBtn"><i class='bx bx-plus-medical'></i></button>
+                        <h1></h1>
                         <form action="excel_import_BE.php" method="POST" enctype="multipart/form-data">
-                            <input type="file" name="import_file" value="">
-                            <button type="submit" name="import_btn">Import</button>
+                            <input type="file" name="import_file" id="uploadBtn">
+                            <label for="uploadBtn"><i class='bx bx-import' ></i>Import File</label>
+                            <button type="submit" name="import_btn" id="importBtn">Go</button>
                         </form>
                     </div>
 
@@ -206,7 +209,7 @@
         </script>
         <script>
             var modal = document.getElementById("facultyModal");
-            var btn = document.getElementById("addFacultyBtn");
+            var btn = document.getElementById("addBtn");
             var span = document.getElementsByClassName("close")[0];
 
             function resetModal() {

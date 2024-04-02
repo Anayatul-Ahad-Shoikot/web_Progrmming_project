@@ -769,13 +769,7 @@ tbody td button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-}
-
-.addFaculty form {
-    background-color: var(--sidebars);
-    padding: 6px 15px;
-    border-radius: 5px;
+    gap: 20px;
 }
 
 .addFaculty form button {
@@ -810,19 +804,90 @@ tbody td button:hover {
     cursor: pointer;
     transition: .5s ease-in-out;
 }
-#addFacultyBtn {
+
+input[type="file"]{
+    display: none;
+}
+
+.addFaculty h1 {
+    height: 25px;
+    border-left: 1.5px solid rgb(128, 128, 128, 0.6);
+}
+
+#downloadBtn {
     background: var(--sidebars);
-    padding: 9px 15px;
-    border-radius: 10px;
+    padding: 5px 8px;
+    border-radius: 3px;
     color: white;
     font-weight: 500;
+    box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.35);
     transition: .6s;
     border: none;
 }
-#addFacultyBtn:hover{
+#downloadBtn:hover{
     background: rgba(95, 158, 160, 0.5);
-    scale: 1.05;
+    scale: 0.9;
     color: var(--textcolor);
     cursor: pointer;
     transition: .6s;
+}
+
+#addBtn {
+    background: var(--sidebars);
+    padding: 5px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.35);
+    transition: .6s;
+    border: none;
+}
+#addBtn:hover{
+    background: rgba(95, 158, 160, 0.5);
+    scale: 0.9;
+    color: var(--textcolor);
+    cursor: pointer;
+    transition: .6s;
+}
+
+.addFaculty label {
+    display: inline-block;
+    color: white;
+    background-color: var(--red);
+    text-align: center;
+    padding: 4px 8px;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 3px 0px 0px 3px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: .6s;
+}
+
+.addFaculty label i {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.addFaculty label:hover {
+    transform: scale(0.9);
+    background-color: rgb(219, 80, 74, .5);
+    transition: .6s;
+    color: var(--textcolor);
+}
+
+#importBtn {
+    margin-left: -5px;
+    padding: 5px 5px;
+    border-radius: 0px 3px 3px 0px;
+    background-color: var(--red);
+    font-weight: 700;
+}
+
+#importBtn:hover {
+    transform: scale(0.9);
+    background-color: rgb(219, 80, 74, .5);
+    transition: .6s;
+    color: var(--textcolor);
 }

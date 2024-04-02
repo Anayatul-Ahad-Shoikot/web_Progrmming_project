@@ -41,9 +41,7 @@ table_headings.forEach((head, i) => {
 })
 
 function sortTable(column, sort_asc) {
-    // Get all rows excluding the first one
-    const rowsToSort = [...table_rows].slice(1);
-
+    const rowsToSort = [...table_rows];
     rowsToSort.sort((a, b) => {
         let first_row = a.querySelectorAll('td')[column].textContent.toLowerCase(),
             second_row = b.querySelectorAll('td')[column].textContent.toLowerCase();

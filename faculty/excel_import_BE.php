@@ -7,10 +7,15 @@
         $ac_id = $_SESSION['ac_id'];
         $prior = $_SESSION['prior'];
         if(isset($_POST['import_btn'])){
+            if ($_FILES['import_file']['error'] == UPLOAD_ERR_NO_FILE) {
+                $_SESSION['red'] = "Select a spreadsheet first";
+                header("Location: /faculty/Faculty.php");
+                exit(0);
+                echo 'Error.';
+            }
             $fileName = $_FILES[ 'import_file' ][ 'name'];
             $file_extension = pathinfo($fileName, PATHINFO_EXTENSION);
             $allowed_extensions = ['csv', 'xls', 'xlsx'];
-            
             if(in_array($file_extension, $allowed_extensions)){
                 $inputFileNamePath = $_FILES[ 'import_file' ][ 'tmp_name'];
                 $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileNamePath);
