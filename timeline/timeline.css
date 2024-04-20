@@ -513,7 +513,6 @@ thead th {
     background-color: #d5d1defe;
     cursor: pointer;
     text-transform: capitalize;
-    min-width: 130px;
 }
 
 tbody tr:nth-child(even) {

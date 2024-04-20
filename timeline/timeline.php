@@ -1,6 +1,6 @@
 <?php
-    include('/xampp/htdocs/web_Progrmming_project/timeline/DataHold.php');
-    include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
+include('/xampp/htdocs/web_Progrmming_project/timeline/DataHold.php');
+include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,11 +25,13 @@
             z-index: 999999;
             border-radius: 5px;
         }
+
         .popup h3 {
             margin-top: 0;
             margin-bottom: 5px;
             font-family: 'Segoe UI';
         }
+
         .close-btn {
             position: absolute;
             top: 5px;
@@ -43,7 +45,7 @@
 <body>
     <section class="sidebar">
         <a href="#" class="logo">
-            <img src="/Resource/R.png"/>
+            <img src="/Resource/R.png" />
         </a>
         <ul class="side-menu top">
             <li>
@@ -95,8 +97,7 @@
             </form>
             <input type="checkbox" hidden id="switch-mode" />
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>"
-                    alt="profile" /></a>
+            <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>" alt="profile" /></a>
         </nav>
         <main class="table" id="customers_table">
             <div class="head-title">
@@ -111,30 +112,38 @@
             </div>
             <section class="table__body">
                 <table>
-                    <!-- <thead>
+                    <thead>
                         <tr>
-                            <th> Course</th>
-                            <th> C_Code </th>
-                            <th> C_Type </th>
                             <th> Faculty </th>
-                            <th> Load </th>
-                            <th> Section </th>
-                            <th> Time </th>
-                            <th> Day </th>
+                            <th> Course </th>
+                            <th> Friday </th>
+                            <th> Saturday </th>
+                            <th> Sunday </th>
+                            <th> Tuesday </th>
+                            <th> Wednesday </th>
+                            <th> Theory </th>
+                            <th> Lab </th>
+                            <th> Total </th>
                             <th> Action </th>
                         </tr>
-                    </thead> -->
-                    <tbody>
                         <tr id="first_row">
                             <form id="myForm" method="POST" action="submit.php">
+                                <td id="col_1">
+                                    <input type="text" id="searchInput" oninput="filterDropdown()" placeholder="Search Faculty">
+                                    <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
+                                        <option selected disabled>Select Faculty</option>
+                                        <?php
+                                            include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_faculty.php');
+                                        ?>
+                                    </select>
+                                </td>
                                 <td id="col_2">
-                                    <input type="text" id="searchInputCourse" oninput="filterDropdownCourse()"
-                                        placeholder="Search Course">
+                                    <input type="text" id="searchInputCourse" oninput="filterDropdownCourse()" placeholder="Search Course">
                                     <select name="course" id="courseSelect" onchange="updateCourseInfo()">
                                         <option selected disabled>Select Course</option>
                                         <?php
-                                                include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_course.php');
-                                            ?>
+                                        include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_course.php');
+                                        ?>
                                     </select>
                                 </td>
                                 <td>
@@ -143,18 +152,8 @@
                                 <td>
                                     <input id="typeInput" name="typeInput" type="text" value="">
                                 </td>
-                                <td id="col_1">
-                                    <input type="text" id="searchInput" oninput="filterDropdown()"
-                                        placeholder="Search Faculty">
-                                    <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
-                                        <option selected disabled>Select Faculty</option>
-                                        <?php
-                                                include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_faculty.php');
-                                        ?>
-                                    </select>
-                                </td>
                                 <td id="load">
-                            
+
                                 </td>
                                 <td>
                                     <input id="secInput" name="secInput" type="text" value="">
@@ -168,83 +167,63 @@
                                 <td>
                                     <button type="submit" name="add_btn">ADD</button>
                                 </td>
-                                    <input type="hidden" id="c_t" name="c_t" value="">
-                                    <input type="hidden" id="m_t" name="m_t" value="">
-                                    <input type="hidden" id="c_l" name="c_l" value="">
-                                    <input type="hidden" id="m_l" name="m_l" value="">
+                                <input type="hidden" id="c_t" name="c_t" value="">
+                                <input type="hidden" id="m_t" name="m_t" value="">
+                                <input type="hidden" id="c_l" name="c_l" value="">
+                                <input type="hidden" id="m_l" name="m_l" value="">
                             </form>
-                        </tr>
-                        <!-- <?php 
-                            include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
-                        ?> -->
-                    </tbody>
-                </table>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <!-- <th> Course</th> -->
-                            <!-- <th> C_Code </th> -->
-                            <!-- <th> C_Type </th> -->
-                            <th> Faculty </th>
-                            <th> Friday </th>
-                            <th> Saturday </th>
-                            <th> Sunday </th>
-                            <th> Tuesday </th>
-                            <th> Wednesday </th>
-                            <th> Load </th>
-                            <th> Action </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                            include ("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
+
+                        <?php
+                        include("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
                         ?>
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
             </section>
         </main>
     </section>
     <div class="notification-container">
         <?php
-                if(isset($_SESSION['red'])){
-                    echo '<div class="alert one">
-                            <h5>'.$_SESSION['red'].'</h5>
+        if (isset($_SESSION['red'])) {
+            echo '<div class="alert one">
+                            <h5>' . $_SESSION['red'] . '</h5>
                         </div>';
-                    unset($_SESSION['red']);
-                }
-                if(isset($_SESSION['green'])){
-                    echo '<div class="alert two">
-                            <h5>'.$_SESSION['green'].'</h5>
+            unset($_SESSION['red']);
+        }
+        if (isset($_SESSION['green'])) {
+            echo '<div class="alert two">
+                            <h5>' . $_SESSION['green'] . '</h5>
                         </div>';
-                    unset($_SESSION['green']);
-                }
-            ?>
+            unset($_SESSION['green']);
+        }
+        ?>
     </div>
     <div class="popup" id="notePopup">
         <span class="close-btn" onclick="closePopup()">&times;</span>
         <h3>Proposals:</h3>
         <div id="noteContent"></div>
     </div>
-    
+
 
 
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const alerts = document.querySelectorAll('.notification-container > div');
-        alerts.forEach(function(alert) {
-            setTimeout(function() {
-                alert.style.opacity = '1';
+        document.addEventListener('DOMContentLoaded', function() {
+            const alerts = document.querySelectorAll('.notification-container > div');
+            alerts.forEach(function(alert) {
                 setTimeout(function() {
-                    alert.style.opacity = '0';
+                    alert.style.opacity = '1';
                     setTimeout(function() {
-                        alert.style.display = 'none';
-                    }, 500);
-                }, 6000);
-            }, 500);
+                        alert.style.opacity = '0';
+                        setTimeout(function() {
+                            alert.style.display = 'none';
+                        }, 500);
+                    }, 6000);
+                }, 500);
+            });
         });
-    });
     </script>
     <script src="/timeline/InputScript.js"></script>
     <script src="/home/Home.js"></script>
