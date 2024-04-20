@@ -89,6 +89,16 @@
                     </ul>
                 </div>
 
+                <div class="addFaculty">
+                        <button id="downloadBtn"><i class='bx bxs-download'></i></button>
+                        <h1></h1>
+                        <form action="excel_import_BE.php" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="import_file" id="uploadBtn">
+                            <label for="uploadBtn"><i class='bx bx-import' ></i>Import File</label>
+                            <button type="submit" name="import_btn" id="importBtn">Go</button>
+                        </form>
+                    </div>
+
             </div>
             <section class="table__body">
                 <table>

@@ -99,7 +99,7 @@
 
                 </div>
             <section class="table__body">
-                <table>
+                <table id="TABLE">
                     <thead>
                         <tr>
                             <th> Faculty Name</th>
@@ -305,6 +305,7 @@
                 window.location.reload();
             }
         </script>
+        <script src="/faculty/download.js"></script>
         <script src="/home/Home.js"></script>
         <script src="/faculty/scripts.js"></script>
     </body>
