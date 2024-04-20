@@ -1,23 +1,30 @@
 function showTimeOptions() {
     var c_type = document.getElementById("c_type").value;
     var c_time = document.getElementById("c_time");
-    var c_day = document.getElementById("c_day");
+    var c_day1 = document.getElementById("c_day1");
+    var c_day2 = document.getElementById("c_day2");
     c_time.innerHTML = '<option selected disabled>Select Time</option>';
-    c_day.innerHTML = '<option selected disabled>Select Day</option>'
+    c_day1.innerHTML = '<option selected disabled>Select Day1</option>';
+    c_day2.innerHTML = '<option selected disabled>Select Day2</option>';
 
     if (c_type === "Theory") {
         c_time.disabled = false;
-        c_day.disabled = false;
+        c_day1.disabled = false;
+        c_day2.disabled = false;
         addTheoryTimeOptions(c_time);
-        addTheoryDayOptions(c_day);
+        addTheoryDayOptions(c_day1);
+        addTheoryDayOptions(c_day2);
     } else if (c_type === "Lab") {
         c_time.disabled = false;
-        c_day.disabled = false;
+        c_day1.disabled = false;
+        c_day2.disabled = false;
         addLabTimeOptions(c_time);
-        addLabDayOptions(c_day);
+        addLabDayOptions(c_day1);
+        addLabDayOptions(c_day2);
     } else {
         c_time.disabled = true;
-        c_day.disabled = true;
+        c_day1.disabled = true;
+        c_day2.disabled = true;
     }
 }
 
@@ -40,9 +47,10 @@ function addTheoryTimeOptions(selectElement) {
 
 function addTheoryDayOptions(selectElement) {
     var theoryDays = [
-        "Sat / Tues",
-        "Sun / Wed",
-        "Fri"
+        "Sat",
+        "Sun",
+        "Tues",
+        "Wed"
     ];
     theoryDays.forEach(function(day) {
         var option = document.createElement("option");
@@ -71,8 +79,7 @@ function addLabDayOptions(selectElement) {
         "Sat",
         "Sun",
         "Tues",
-        "Wed",
-        "Fri"
+        "Wed"
     ];
     labDays.forEach(function(day) {
         var option = document.createElement("option");

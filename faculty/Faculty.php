@@ -81,7 +81,7 @@
                         <ul class="breadcrumb">
                             <li><a class="active" href="/home/Home.php">Home</a></li>
                             <li>></li>
-                            <li><a href="">Faculty <?php echo "&nbsp- ".$_SESSION['f_total'] ?></a></li>
+                            <li><a href="">Faculty <?php echo "&nbsp- ". $_SESSION['F_total'] ?></a></li>
                         </ul>
                     </div>
                     

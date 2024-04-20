@@ -11,7 +11,8 @@
                 $c_type = $_POST["c_type"];
                 $c_sec = strtoupper($_POST["c_sec"]);
                 $c_time = $_POST["c_time"];
-                $c_day = $_POST["c_day"];
+                $c_day1 = $_POST["c_day1"];
+                $c_day2 = $_POST["c_day2"];
                 $checkSection = "SELECT * FROM course WHERE (c_code = '$c_code' && c_name = '$c_name' && c_type = '$c_type' && c_sec = '$c_sec')";
                 $checkSectionResult = mysqli_query($con, $checkSection);
                 if (mysqli_num_rows($checkSectionResult) > 0) {
@@ -19,8 +20,7 @@
                     header("Location: /course/course.php");
                     exit(0);
                 } else {
-                    $sql = "INSERT INTO course (c_code, c_name, c_type, c_sec, c_time, c_day) 
-                            VALUES ('$c_code', '$c_name', '$c_type', '$c_sec', '$c_time', '$c_day')";
+                    $sql = "INSERT INTO course (c_code, c_name, c_type, c_sec, c_time, c_day1, c_day2) VALUES ('$c_code', '$c_name', '$c_type', '$c_sec', '$c_time', '$c_day1', '$c_day2')";
                     if ($con->query($sql) === TRUE) {
                         $content = 'Course "'. $c_name. '" added ('. date('Y/m/d  H:i').') ---'.$user;
                         $content_key = 'course';

@@ -9,7 +9,7 @@
         if(isset($_POST['import_btn'])){
             if ($_FILES['import_file']['error'] == UPLOAD_ERR_NO_FILE) {
                 $_SESSION['red'] = "Select a spreadsheet first";
-                header("Location: /faculty/Faculty.php");
+                header("Location: /course/course.php");
                 exit(0);
                 echo 'Error.';
             }
@@ -21,37 +21,41 @@
                 $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileNamePath);
                 $data = $spreadsheet->getActiveSheet()->toArray();
                 foreach ($data as $row){
-                    $f_name = $row['0'];
-                    $f_code = $row['1'];
-                    $dept = $row['2'];
-                    $desig = $row['3'];
-                    $f_contact = $row['4'];
-                    $f_mail = $row['5'];
-                    $f_room = $row['6'];
+                    $c_code = $row['0'];
+                    $c_name = $row['1'];
+                    if ($row['2'] == 0){
+                        $c_type = "Theory";
+                    } else {
+                        $c_type = "Lab";
+                    }
+                    $c_sec = $row['3'];
+                    $c_day1 = $row['4'];
+                    $c_day2 = $row['5'];
+                    $c_time = $row['6'];
 
-                    $insert_data = "INSERT INTO faculty (f_name, f_code, f_mail, f_contact, dept, desig, f_room) VALUES ('$f_name', '$f_code', '$f_mail', '$f_contact', '$dept', '$desig', '$f_room')";
+                    $insert_data = "INSERT INTO course (c_code, c_name, c_type, c_sec, c_time, c_day1, c_day2) VALUES ('$c_code', '$c_name', '$c_type', '$c_sec', '$c_time', '$c_day1', '$c_day2')";
                     $result = mysqli_query($con, $insert_data);
                     $msg = true;
                 }
                     if($msg){
-                        $content = 'Excel file imported at ('. date('Y/m/d  H:i').') ---'.$user;
+                        $content = 'Course list imported at ('. date('Y/m/d  H:i').') ---'.$user;
                         $content_key = 'import';
                         $content_activity = 'add';
                         $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
                         $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
                         $stmt2->execute();
-                        $_SESSION['green'] = "Import successfully";
-                        header("Location: /faculty/Faculty.php");
+                        $_SESSION['green'] = "Imported successfully";
+                        header("Location: /course/course.php");
                         exit(0);
                     } else {
                         $_SESSION['red'] = "Import faild";
-                        header("Location: /faculty/Faculty.php");
+                        header("Location: /course/course.php");
                         exit(0);
                     }
                 }
             } else {
                 $_SESSION['red'] = "Invalid file type";
-                header("Location: /faculty/Faculty.php" );
+                header("Location: /course/course.php" );
                 exit(0);
             }
         }

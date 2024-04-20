@@ -1,6 +1,6 @@
-<?php 
-    include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
-    include('/xampp/htdocs/web_Progrmming_project/course/course_counter_BE.php');
+<?php
+include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
+include('/xampp/htdocs/web_Progrmming_project/course/course_counter_BE.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@
 
     <section class="sidebar">
         <a href="#" class="logo">
-            <img src="/Resource/R.png"/>
+            <img src="/Resource/R.png" />
         </a>
         <ul class="side-menu top">
             <li>
@@ -75,8 +75,7 @@
             </form>
             <input type="checkbox" hidden id="switch-mode" />
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>"
-                    alt="profile" /></a>
+            <a href="/accounts/account.php" class="profile"><img src="../accounts/<?php echo $img ?>" alt="profile" /></a>
         </nav>
         <main class="table" id="customers_table">
             <div class="head-title">
@@ -90,28 +89,29 @@
                 </div>
 
                 <div class="addFaculty">
-                        <button id="downloadBtn"><i class='bx bxs-download'></i></button>
-                        <h1></h1>
-                        <form action="excel_import_BE.php" method="POST" enctype="multipart/form-data">
-                            <input type="file" name="import_file" id="uploadBtn">
-                            <label for="uploadBtn"><i class='bx bx-import' ></i>Import File</label>
-                            <button type="submit" name="import_btn" id="importBtn">Go</button>
-                        </form>
-                    </div>
+                    <button id="downloadBtn"><i class='bx bxs-download'></i></button>
+                    <h1></h1>
+                    <form action="excel_import_BE.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="import_file" id="uploadBtn">
+                        <label for="uploadBtn"><i class='bx bx-import'></i>Import File</label>
+                        <button type="submit" name="import_btn" id="importBtn">Go</button>
+                    </form>
+                </div>
 
             </div>
             <section class="table__body">
                 <table>
                     <thead>
                         <tr>
-                            <th> Course Code</th>
-                            <th> Course Name</th>
-                            <th> Type</th>
-                            <th> Section</th>
-                            <th> Time slot</th>
-                            <th> Day slot</th>
-                            <th> Status</th>
-                            <th> Action</th>
+                            <th> Course Code </th>
+                            <th> Course Name </th>
+                            <th> Course Type </th>
+                            <th> Section </th>
+                            <th> Time slot </th>
+                            <th> Day 1 </th>
+                            <th> Day 2 </th>
+                            <th> Status </th>
+                            <th> Action </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -139,8 +139,13 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="c_day" id="c_day" disabled>
-                                        <option selected disabled>Select Day</option>
+                                    <select name="c_day1" id="c_day1" disabled>
+                                        <option selected disabled>Select Day1</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="c_day2" id="c_day2" disabled>
+                                        <option selected disabled>Select Day2</option>
                                     </select>
                                 </td>
                                 <td>
@@ -152,7 +157,7 @@
                             </form>
                         </tr>
                         <?php
-                            include('/xampp/htdocs/web_Progrmming_project/course/fetch_course_BE.php');
+                        include('/xampp/htdocs/web_Progrmming_project/course/fetch_course_BE.php');
                         ?>
                     </tbody>
                 </table>
@@ -162,19 +167,19 @@
 
     <div class="notification-container">
         <?php
-                if(isset($_SESSION['red'])){
-                    echo '<div class="alert one">
-                            <h5>'.$_SESSION['red'].'</h5>
+        if (isset($_SESSION['red'])) {
+            echo '<div class="alert one">
+                            <h5>' . $_SESSION['red'] . '</h5>
                         </div>';
-                    unset($_SESSION['red']);
-                }
-                if(isset($_SESSION['green'])){
-                    echo '<div class="alert two">
-                            <h5>'.$_SESSION['green'].'</h5>
+            unset($_SESSION['red']);
+        }
+        if (isset($_SESSION['green'])) {
+            echo '<div class="alert two">
+                            <h5>' . $_SESSION['green'] . '</h5>
                         </div>';
-                    unset($_SESSION['green']);
-                }
-            ?>
+            unset($_SESSION['green']);
+        }
+        ?>
     </div>
 
 
@@ -184,24 +189,24 @@
     <script src="/course/button_popup.js"></script>
     <script src="/course/classTime.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const alerts = document.querySelectorAll('.notification-container > div');
-        alerts.forEach(function(alert) {
-            setTimeout(function() {
-                alert.style.opacity = '1';
+        document.addEventListener('DOMContentLoaded', function() {
+            const alerts = document.querySelectorAll('.notification-container > div');
+            alerts.forEach(function(alert) {
                 setTimeout(function() {
-                    alert.style.opacity = '0';
+                    alert.style.opacity = '1';
                     setTimeout(function() {
-                        alert.style.display = 'none';
-                    }, 500);
-                }, 6000);
-            }, 500);
+                        alert.style.opacity = '0';
+                        setTimeout(function() {
+                            alert.style.display = 'none';
+                        }, 500);
+                    }, 6000);
+                }, 500);
+            });
         });
-    });
     </script>
     <script>
         function makeEditable(c_id) {
-            var fields = ['code', 'name',  'type', 'sec'];
+            var fields = ['code', 'name', 'type', 'sec'];
             fields.forEach(function(field) {
                 var currentValue = document.getElementById(field + '_' + c_id).innerText;
                 document.getElementById(field + '_' + c_id).innerHTML = '<input type="text" value="' + currentValue + '">';
@@ -211,33 +216,43 @@
             document.getElementById('rmv_' + c_id).style.display = 'inline-block';
             document.getElementById('cncl_' + c_id).style.display = 'inline-block';
         }
+
         function saveData(c_id) {
-            var fields = ['code', 'name',  'type', 'sec'];
+            var fields = ['code', 'name', 'type', 'sec'];
             var courseData = {};
             fields.forEach(function(field) {
                 var inputValue = document.getElementById(field + '_' + c_id).querySelector('input').value;
                 document.getElementById(field + '_' + c_id).innerText = inputValue;
                 courseData[field] = inputValue;
             });
-            console.log("Sending data to server:", JSON.stringify({c_id: c_id, data: courseData}));
+            console.log("Sending data to server:", JSON.stringify({
+                c_id: c_id,
+                data: courseData
+            }));
 
             document.getElementById('save_' + c_id).style.display = 'none';
             document.getElementById('rmv_' + c_id).style.display = 'none';
             document.getElementById('cncl_' + c_id).style.display = 'none';
             document.getElementById('edit_' + c_id).style.display = 'inline-block';
-            document.getElementById('edit_' + c_id).onclick = function() { makeEditable(c_id); };
+            document.getElementById('edit_' + c_id).onclick = function() {
+                makeEditable(c_id);
+            };
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'edit_course_BE.php', true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onreadystatechange = function () {
+            xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     console.log("Response from server:", xhr.responseText);
                     window.location.reload();
                 }
             };
-            xhr.send(JSON.stringify({c_id: c_id, data: courseData}));
+            xhr.send(JSON.stringify({
+                c_id: c_id,
+                data: courseData
+            }));
         }
+
         function rmvData(c_id) {
             document.getElementById('save_' + c_id).style.display = 'none';
             document.getElementById('rmv_' + c_id).style.display = 'none';
@@ -246,21 +261,24 @@
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'remove_course_BE.php', true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onreadystatechange = function () {
+            xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     console.log("Response from server:", xhr.responseText);
                     window.location.reload();
                 }
             };
-            xhr.send(JSON.stringify({c_id: c_id}));
+            xhr.send(JSON.stringify({
+                c_id: c_id
+            }));
         }
+
         function cnclData(c_id) {
-                document.getElementById('save_' + c_id).style.display = 'none';
-                document.getElementById('rmv_' + c_id).style.display = 'none';
-                document.getElementById('cncl_' + c_id).style.display = 'none';
-                document.getElementById('edit_' + c_id).style.display = 'inline-block';
-                window.location.reload();
-            }
+            document.getElementById('save_' + c_id).style.display = 'none';
+            document.getElementById('rmv_' + c_id).style.display = 'none';
+            document.getElementById('cncl_' + c_id).style.display = 'none';
+            document.getElementById('edit_' + c_id).style.display = 'inline-block';
+            window.location.reload();
+        }
     </script>
 
 
