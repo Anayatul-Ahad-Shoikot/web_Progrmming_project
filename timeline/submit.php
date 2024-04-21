@@ -5,7 +5,7 @@
         if(isset($_POST['add_btn']) && isset($_POST['faculty']) && isset($_POST['course'])) {
             $f_name = $_POST['faculty'];
             $c_name = $_POST['course'];
-            $c_type = $_POST['typeInput'];
+            $c_code = $_POST['col_3'];
             $c_sec = $_POST['secInput'];
             $c_time = $_POST['timeInput'];
             $c_day = $_POST['dayInput'];

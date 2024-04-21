@@ -116,14 +116,13 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                         <tr>
                             <th> Faculty </th>
                             <th> Course </th>
-                            <th> Friday </th>
+                            <th> Course Code </th>
                             <th> Saturday </th>
                             <th> Sunday </th>
                             <th> Tuesday </th>
                             <th> Wednesday </th>
                             <th> Theory </th>
                             <th> Lab </th>
-                            <th> Total </th>
                             <th> Action </th>
                         </tr>
                         <tr id="first_row">
@@ -146,23 +145,26 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                         ?>
                                     </select>
                                 </td>
-                                <td>
-                                    <input id="codeInput" name="codeInput" type="text" value="">
+                                <td >
+                                    <input id="col_3" name="col_3" type="text" value="">
                                 </td>
                                 <td>
-                                    <input id="typeInput" name="typeInput" type="text" value="">
-                                </td>
-                                <td id="load">
-
+                                    <input id="sat" name="sat" type="text" value="">
                                 </td>
                                 <td>
-                                    <input id="secInput" name="secInput" type="text" value="">
+                                    <input id="sun" name="sun" type="text" value="">
                                 </td>
                                 <td>
-                                    <input id="timeInput" name="timeInput" type="text" value="">
+                                    <input id="tue" name="tue" type="text" value="">
                                 </td>
                                 <td>
-                                    <input id="dayInput" name="dayInput" type="text" value="">
+                                    <input id="wed" name="wed" type="text" value="">      
+                                </td>
+                                <td id="theory">
+                                    
+                                </td>
+                                <td id="lab"></td>
+                                    
                                 </td>
                                 <td>
                                     <button type="submit" name="add_btn">ADD</button>
