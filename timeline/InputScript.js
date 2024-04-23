@@ -37,10 +37,13 @@ function updateFacultyInfo() {
     m_t.value = selectedOption.getAttribute("data-max_T");
     c_l.value = selectedOption.getAttribute("data-current_L");
     m_l.value = selectedOption.getAttribute("data-max_L");
-    var load = document.getElementById("load");
+    var theory = document.getElementById("theory");
+    var lab = document.getElementById("lab");
     var ratioT = selectedOption.getAttribute("data-current_T") + " / " + selectedOption.getAttribute("data-max_T");
+    theory.innerHTML = ratioT;
     var RatioL = selectedOption.getAttribute("data-current_L") + " / " + selectedOption.getAttribute("data-max_L");
-    load.innerHTML = "Theory: " + ratioT + "<br> Lab: " + RatioL;
+    lab.innerHTML = RatioL;
+
 
     var selectedFaculty = selectedOption.value;
     if (selectedFaculty) {
@@ -60,16 +63,53 @@ function updateFacultyInfo() {
 function updateCourseInfo() {
     var select = document.getElementById("courseSelect");
     var selectedOption = select.options[select.selectedIndex];
-    var codeInput = document.getElementById("codeInput");
-    var typeInput = document.getElementById("typeInput");
-    var secInput = document.getElementById("secInput");
-    var timeInput = document.getElementById("timeInput");
-    var dayInput = document.getElementById("dayInput");
-    codeInput.value = selectedOption.getAttribute("data-code");
-    typeInput.value = selectedOption.getAttribute("data-type");
-    secInput.value = selectedOption.getAttribute("data-sec");
-    timeInput.value = selectedOption.getAttribute("data-time");
-    dayInput.value = selectedOption.getAttribute("data-day");
+    if (selectedOption.getAttribute("data-type") == "Lab"){
+        var col_3 = document.getElementById("col_3");
+        col_3.value = selectedOption.getAttribute("data-code");
+        switch(selectedOption.getAttribute("data-day1")){
+            case 'Sat':
+                sat.value = "Sat";
+                sun.value = "X";
+                tue.value = "X";
+                wed.value = "X";
+                break;
+            case 'Sun':
+                sun.value = "Sun";
+                sat.value = "X";
+                tue.value = "X";
+                wed.value = "X";
+                break;
+            case 'Tue':
+                tue.value = "Tue";
+                sun.value = "X";
+                sat.value = "X";
+                wed.value = "X";
+                break;
+            case 'Wed':
+                wed.value = "Wed";
+                sun.value = "X";
+                tue.value = "X";
+                sat.value = "X";
+                break;
+        }
+    } else {
+        var col_3 = document.getElementById("col_3");
+        col_3.value = selectedOption.getAttribute("data-code");
+        switch(selectedOption.getAttribute("data-day1")){
+            case 'Sat':
+                sat.value = "Sat";
+                tue.value = "Tue";
+                sun.value = "X";
+                wed.value = "X";
+                break;
+            case 'Sun':
+                sun.value = "Sun";
+                wed.value = "Wed";
+                sat.value = "X";
+                tue.value = "X";
+                break;
+        }
+    }
 }
 
 function displayPopup(notes) {
