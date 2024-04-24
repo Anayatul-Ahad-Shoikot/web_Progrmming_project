@@ -3,7 +3,7 @@
     if (isset($_GET['faculty'])) {
         $selectedFaculty = $_GET['faculty'];
         $selectedFaculty = mysqli_real_escape_string($con, $selectedFaculty);
-        $query = "SELECT note_content FROM notes WHERE note_for = '$selectedFaculty' AND visibility = 1";
+        $query = "SELECT note_content FROM notes WHERE f_code = '$selectedFaculty' AND visibility = 1";
         $result = mysqli_query($con, $query);
         if ($result) {
             $notes = '';

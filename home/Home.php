@@ -172,8 +172,7 @@
             <div class="popup-content">
                 <span class="close">&times;</span>
                 <form action="/home/save_note_BE.php" id="noteForm" method="POST">
-                    <!-- <input type="text" id="facultyName" name="note_for" placeholder="Faculty Name" required> -->
-                    <select name="note_for" id="facultyName">
+                    <select name="f_code" id="facultyName">
                         <option selected disabled>Select Faculty</option>
                         <?php
                             include('/xampp/htdocs/web_Progrmming_project/db_con.php');
@@ -181,7 +180,7 @@
                             $result = $con->query($sql);
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
-                                    echo '<option value="' . $row['f_name'] . '">' . $row['f_name'] . '</option>';
+                                    echo '<option value="' . $row['f_code'] . '">' . $row['f_name'] . '</option>';
                                 }
                             }
                             $con->close();

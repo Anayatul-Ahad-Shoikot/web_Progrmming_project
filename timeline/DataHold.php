@@ -17,7 +17,7 @@
         echo json_encode($facultyInfo);
     }
     if (!empty($selectedCourse)) {
-        $stmt = $con->prepare("SELECT c_code, c_name, c_type, c_sec, c_time, c_day FROM course WHERE c_name = ?");
+        $stmt = $con->prepare("SELECT * FROM course WHERE c_name = ?");
         $stmt->bind_param("s", $selectedCourse);
         $stmt->execute();
         $stmt->bind_result($c_code, $c_name, $c_type, $c_sec, $c_time, $c_day);
