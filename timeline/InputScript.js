@@ -48,47 +48,141 @@ function updateFacultyInfo() {
         xhr2.open("GET", "fetch_course.php?faculty=" + encodeURIComponent(selectedFaculty), true);
         xhr2.onreadystatechange = function() {
             if (xhr2.readyState === 4 && xhr2.status === 200) {
-                // Parse the JSON response containing available courses
                 var courses = JSON.parse(xhr2.responseText);
                 var courseSelect = document.getElementById("courseSelect");
-                courseSelect.innerHTML = ''; // Clear current options
-                
-                // Append new options to the course select dropdown
+                courseSelect.innerHTML = '<option selected disabled>Select Course</option>';
                 courses.forEach(function(course) {
                     var option = document.createElement('option');
-                    option.value = course.c_code;
-                    option.textContent = course.c_name+ '['+ course.c_type +'] - ' + course.c_sec;
+                    option.value = course.c_code + '|' + course.c_sec;
+                    option.textContent = `${course.c_name} - [${course.c_time}]`;
+                    option.title = `code: ${course.c_code},   type: ${course.c_type} - ${course.c_sec},  day: ${course.c_day1} ${course.c_day2}`;
+                    option.setAttribute('data-day1', course.c_day1);
+                    option.setAttribute('data-type', course.c_type);
                     courseSelect.appendChild(option);
+                    
                 });
             }
         };
         xhr2.send();
+
+        var xhr3 = new XMLHttpRequest();
+        xhr3.open("GET", "fetch_sat_course.php?faculty=" + encodeURIComponent(selectedFaculty), true);
+        xhr3.onreadystatechange = function() {
+            if (xhr3.readyState === 4 && xhr3.status === 200) {
+                var satCourses = JSON.parse(xhr3.responseText);
+                var satSelect = document.getElementById("satSelect");
+                satSelect.innerHTML = '<option selected disabled>Select Course</option>';
+                satCourses.forEach(function(x) {
+                    var option = document.createElement('option');
+                    option.value = x.c_code + '|' + x.c_sec;
+                    option.textContent = `${x.c_name} - [${x.c_time}]`;
+                    option.title = `code: ${x.c_code},   type: ${x.c_type} - ${x.c_sec},  day: ${x.c_day1} ${x.c_day2}`;
+                    option.setAttribute('data-day1', x.c_day1);
+                    option.setAttribute('data-type', x.c_type);
+                    satSelect.appendChild(option);
+                    
+                });
+            }
+        };
+        xhr3.send();
+
+        var xhr4 = new XMLHttpRequest();
+        xhr4.open("GET", "fetch_sun_course.php?faculty=" + encodeURIComponent(selectedFaculty), true);
+        xhr4.onreadystatechange = function() {
+            if (xhr4.readyState === 4 && xhr4.status === 200) {
+                var courses = JSON.parse(xhr4.responseText);
+                var sunSelect = document.getElementById("sunSelect");
+                sunSelect.innerHTML = '<option selected disabled>Select Course</option>';
+                courses.forEach(function(course) {
+                    var option = document.createElement('option');
+                    option.value = course.c_code + '|' + course.c_sec;
+                    option.textContent = `${course.c_name} - [${course.c_time}]`;
+                    option.title = `code: ${course.c_code},   type: ${course.c_type} - ${course.c_sec},  day: ${course.c_day1} ${course.c_day2}`;
+                    option.setAttribute('data-day1', course.c_day1);
+                    option.setAttribute('data-type', course.c_type);
+                    sunSelect.appendChild(option);
+                    
+                });
+            }
+        };
+        xhr4.send();
+
+        var xhr5 = new XMLHttpRequest();
+        xhr5.open("GET", "fetch_tue_course.php?faculty=" + encodeURIComponent(selectedFaculty), true);
+        xhr5.onreadystatechange = function() {
+            if (xhr5.readyState === 4 && xhr5.status === 200) {
+                var courses = JSON.parse(xhr5.responseText);
+                var tueSelect = document.getElementById("tueSelect");
+                tueSelect.innerHTML = '<option selected disabled>Select Course</option>';
+                courses.forEach(function(course) {
+                    var option = document.createElement('option');
+                    option.value = course.c_code + '|' + course.c_sec;
+                    option.textContent = `${course.c_name} - [${course.c_time}]`;
+                    option.title = `code: ${course.c_code},   type: ${course.c_type} - ${course.c_sec},  day: ${course.c_day1} ${course.c_day2}`;
+                    option.setAttribute('data-day1', course.c_day1);
+                    option.setAttribute('data-type', course.c_type);
+                    tueSelect.appendChild(option);
+                    
+                });
+            }
+        };
+        xhr5.send();
+
+        var xhr6 = new XMLHttpRequest();
+        xhr6.open("GET", "fetch_wed_course.php?faculty=" + encodeURIComponent(selectedFaculty), true);
+        xhr6.onreadystatechange = function() {
+            if (xhr6.readyState === 4 && xhr6.status === 200) {
+                var courses = JSON.parse(xhr6.responseText);
+                var wedSelect = document.getElementById("wedSelect");
+                wedSelect.innerHTML = '<option selected disabled>Select Course</option>';
+                courses.forEach(function(course) {
+                    var option = document.createElement('option');
+                    option.value = course.c_code + '|' + course.c_sec;
+                    option.textContent = `${course.c_name} - [${course.c_time}]`;
+                    option.title = `code: ${course.c_code},   type: ${course.c_type} - ${course.c_sec},  day: ${course.c_day1} ${course.c_day2}`;
+                    option.setAttribute('data-day1', course.c_day1);
+                    option.setAttribute('data-type', course.c_type);
+                    wedSelect.appendChild(option);
+                    
+                });
+            }
+        };
+        xhr6.send();
     }
 }
 // filtering the course names of dropdown for easy search
 function filterDropdownCourse() {
     var input, filter, select, option, i;
     input = document.getElementById("searchInputCourse");
-    filter = input.value.toUpperCase(); // Convert filter to upper case for case-insensitive comparison
+    filter = input.value.toUpperCase();
     select = document.getElementById("courseSelect");
     option = select.getElementsByTagName("option");
     for (i = 0; i < option.length; i++) {
-        // Check if the option text contains the filter text
-        txtValue = option[i].textContent || option[i].innerText; // Get text content or inner text of the option
+        txtValue = option[i].textContent || option[i].innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            option[i].style.display = ""; // Show the option
+            option[i].style.display = "";
         } else {
-            option[i].style.display = "none"; // Hide the option if it does not match
+            option[i].style.display = "none";
         }
     }
 }
+
+
+
 function updateCourseInfo() {
     var select = document.getElementById("courseSelect");
     var selectedOption = select.options[select.selectedIndex];
-    if (selectedOption.getAttribute("data-type") == "Lab"){
-        var col_3 = document.getElementById("col_3");
-        col_3.value = selectedOption.getAttribute("data-code");
-        switch(selectedOption.getAttribute("data-day1")){
+    var sat = document.getElementById("sat");
+    var sun = document.getElementById("sun");
+    var tue = document.getElementById("tue");
+    var wed = document.getElementById("wed");
+    sat.value = "";
+    sun.value = "";
+    tue.value = "";
+    wed.value = "";
+
+    if (selectedOption.getAttribute("data-type") == "Lab") {
+        switch(selectedOption.getAttribute("data-day1")) {
             case 'Sat':
                 sat.value = "Sat";
                 sun.value = "X";
@@ -115,9 +209,7 @@ function updateCourseInfo() {
                 break;
         }
     } else {
-        var col_3 = document.getElementById("col_3");
-        col_3.value = selectedOption.getAttribute("data-code");
-        switch(selectedOption.getAttribute("data-day1")){
+        switch(selectedOption.getAttribute("data-day1")) {
             case 'Sat':
                 sat.value = "Sat";
                 tue.value = "Tue";
@@ -132,7 +224,16 @@ function updateCourseInfo() {
                 break;
         }
     }
+    var satSelect = document.getElementById("satSelect");
+    var sunSelect = document.getElementById("sunSelect");
+    var tueSelect = document.getElementById("tueSelect");
+    var wedSelect = document.getElementById("wedSelect");
+    satSelect.style.display = 'none';
+    sunSelect.style.display = 'none';
+    tueSelect.style.display = 'none';
+    wedSelect.style.display = 'none';
 }
+
 
 function displayPopup(notes) {
     var popupSound = document.getElementById("popupSound");

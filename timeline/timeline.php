@@ -115,8 +115,6 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                     <thead>
                         <tr>
                             <th> Faculty </th>
-                            <th> Course </th>
-                            <th> Course Code </th>
                             <th> Saturday </th>
                             <th> Sunday </th>
                             <th> Tuesday </th>
@@ -136,49 +134,28 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                         ?>
                                     </select>
                                 </td>
-                                <td id="col_2">
-                                    <input type="text" id="searchInputCourse" oninput="filterDropdownCourse()" placeholder="Search Course">
-                                    <select name="course" id="courseSelect" onchange="updateCourseInfo()">
+                                <td>
+                                    <input id="sat" name="satInput" type="text" placeholder="Search Course">
+                                    <select id="satSelect" name="sat">
                                         <option selected disabled>Select Course</option>
                                     </select>
                                 </td>
-                                <td >
-                                    <input id="col_3" name="col_3" type="text" value="">
-                                </td>
                                 <td>
-                                    <input id="sat" type="text" name="sat" value="" oninput="filterDropdownSat()" placeholder="Search Course">
-                                    <select name="sat" id="satCourseSelect" onchange="updateSatCourseInfo()">
+                                    <input id="sun" name="sunInput" type="text" placeholder="Search Course">
+                                    <select id="sunSelect" name="sun">
                                         <option selected disabled>Select Course</option>
-                                        <?php
-                                            include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_sat_course.php');
-                                        ?>
                                     </select>
                                 </td>
                                 <td>
-                                    <input id="sun" type="text" name="sun" value="" oninput="filterDropdownSun()" placeholder="Search Course">
-                                    <select name="sun" id="sunCourseSelect" onchange="updateSunCourseInfo()">
+                                    <input id="tue" name="tueInput" type="text" placeholder="Search Course">
+                                    <select id="tueSelect" name="tue">
                                         <option selected disabled>Select Course</option>
-                                        <?php
-                                            include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_sun_course.php');
-                                        ?>
                                     </select>
                                 </td>
                                 <td>
-                                    <input id="tue" type="text" name="tue" value="" oninput="filterDropdownTue()" placeholder="Search Course">
-                                    <select name="tue" id="tueCourseSelect" onchange="updateTueCourseInfo()">
+                                    <input id="wed" name="wedInput" type="text" placeholder="Search Course">
+                                    <select id="wedSelect" name="wed">
                                         <option selected disabled>Select Course</option>
-                                        <?php
-                                            include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_tue_course.php');
-                                        ?>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input id="wed" type="text" name="wed" value="" oninput="filterDropdownWed()" placeholder="Search Course">
-                                    <select name="wed" id="wedCourseSelect" onchange="updateWedCourseInfo()">
-                                        <option selected disabled>Select Course</option>
-                                        <?php
-                                            include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_wed_course.php');
-                                        ?>
                                     </select>      
                                 </td>
                                 <td id="theory">
@@ -199,9 +176,8 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                         </tr>
                     </thead>
                     <tbody>
-
-                        <?php
-                        include("/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php");
+                        <?php 
+                            include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php');
                         ?>
                     </tbody>
                 </table>
