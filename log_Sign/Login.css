@@ -72,7 +72,7 @@ body {
 .r {
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(-135deg, #0C7B93 0%, #27496D 100%);
+    background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
 }
 
 /* Large circles */
@@ -92,37 +92,45 @@ body {
 
 .r:nth-child(even) {
     animation: floating 9s infinite;
+    top: -9rem;
+    left: 42rem;
+    z-index: -1000;
 }
 @keyframes floating {
     0% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-28px);
     }
     100% {
         transform: translateY(0px);
     }
 }
 .r:first-child {
-    top: 2rem;
-    left: 65rem;
+    top: -9rem;
+    left: 42rem;
+    z-index: -1000;
+    background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
 }
 .r.s:nth-child(2) {
-    top: 20rem;
-    right: 13rem;
-    background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
-}
-.r.s:nth-child(3) {
-    bottom: 22rem;
-    left: 48rem;
+    top: -7rem;
+    left: 32rem;
+    z-index: -1000;
     background: linear-gradient(-135deg, #d6b12f 0%, #f45136 100%);
 }
-.r:last-child {
-    bottom: 1rem;
-    right: 42rem;
+.r.s:nth-child(3) {
+    top: 29rem;
+    right: 39rem;
+    z-index: -1000;
     background: linear-gradient(-135deg, #1ee492 0%, #662bd6 100%);
 }
+.r:last-child {
+    top: -9rem;
+    left: 42rem;
+    z-index: -1000;
+}
+
 
 .login-container, .alert {
     position: relative;

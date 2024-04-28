@@ -11,13 +11,11 @@ session_start();
 </head>
 <body>
     <div class="auth-wrapper">
-        <div class="auth-bg">
-            <span class="r"></span>
-            <span class="r s"></span>
-            <span class="r s"></span>
-            <span class="r"></span>
-        </div>
         <div class="content" style="position: relative; z-index: 2;">
+            <span class="r"></span>
+            <span class="r s"></span>
+            <span class="r s"></span>
+            <span class="r" style="top: 15rem;left: -8rem;z-index: -1000;background: linear-gradient(-135deg, #d6b12f 0%, #f45136 100%);"></span>
             <div class="alert one">
                 <?php
                 if (isset($_SESSION['red'])) {
