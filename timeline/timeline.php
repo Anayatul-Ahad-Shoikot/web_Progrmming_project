@@ -12,6 +12,9 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/timeline/timeline.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <style>
         .popup {
             display: none;
@@ -124,51 +127,104 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                             <th> Action </th>
                         </tr>
                         <tr id="first_row">
-                            <form id="myForm" method="POST" action="submit.php">
-                                <td id="col_1">
-                                    <input type="text" id="searchInput" oninput="filterDropdownFaculty()" placeholder="Search Faculty">
-                                    <select name="faculty" id="facultySelect" onchange="updateFacultyInfo()">
-                                        <option selected disabled>Select Faculty</option>
+                            <form id="myForm" method="POST" action="/timeline/submit.php">
+                                <td>
+                                <select name="faculty" id="facultySelect" class="form-control" onchange="updateFacultyInfo()">
+                                    <option selected disabled>select faculty </option>
                                         <?php
-                                            include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_faculty.php');
+                                            include '/xampp/htdocs/web_Progrmming_project/db_con.php';
+                                            $sql = "SELECT * FROM faculty WHERE visible = 1";
+                                            $result = $con->query($sql);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                    echo '<option value="' . $row["f_code"] . '" data-current_T="' . $row["f_current_T"] . '" data-max_T="' . $row["f_max_T"] . '" data-current_L="' . $row["f_current_L"] . '" data-max_L="' . $row["f_max_L"] . '">' . $row["f_name"] . '</option>';
+                                                }
+                                                echo "done";
+                                            } else {
+                                                echo '<option>No faculty found</option>';
+                                            }
+                                            $con->close();
+                                        ?>
+                                </select>
+                                </td>
+                                <td>
+                                    <select name="saturday" id="saturdaySelect" class="form-control" >
+                                        <option selected disabled>select Saturday Course </option>
+                                        <?php
+                                            include '/xampp/htdocs/web_Progrmming_project/db_con.php';
+                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND ((c_day1 = 'Sat' AND c_day2= 'Tue') OR c_day1 = 'Sat')";
+                                            $result = $con->query($sql);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$row["c_startTime"].'-'.$row["c_endTime"].']</option>';
+                                                }
+                                            } else {
+                                                echo '<option>No Course Found!</option>';
+                                            }
+                                            $con->close();
                                         ?>
                                     </select>
                                 </td>
                                 <td>
-                                    <input id="sat" name="satInput" type="text" placeholder="Search Course">
-                                    <select id="satSelect" name="sat">
-                                        <option selected disabled>Select Course</option>
+                                    <select name="sunday" id="sundaySelect" class="form-control">
+                                        <option selected disabled>select Sunday Course </option>
+                                        <?php
+                                            include '/xampp/htdocs/web_Progrmming_project/db_con.php';
+                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND (c_day1 = 'Sun' OR c_day2= 'Wed')";
+                                            $result = $con->query($sql);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$row["c_startTime"].'-'.$row["c_endTime"].']</option>';
+                                                }
+                                            } else {
+                                                echo '<option>No Course Found!</option>';
+                                            }
+                                            $con->close();
+                                        ?>
                                     </select>
                                 </td>
                                 <td>
-                                    <input id="sun" name="sunInput" type="text" placeholder="Search Course">
-                                    <select id="sunSelect" name="sun">
-                                        <option selected disabled>Select Course</option>
+                                    <select name="tuesday" id="tuesdaySelect" class="form-control">
+                                        <option selected disabled>select Tuesday Course </option>
+                                        <?php
+                                            include '/xampp/htdocs/web_Progrmming_project/db_con.php';
+                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND ((c_day1 = 'Sat' AND c_day2= 'Tue') OR c_day1 = 'Tue')";
+                                            $result = $con->query($sql);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$row["c_startTime"].'-'.$row["c_endTime"].']</option>';
+                                                }
+                                            } else {
+                                                echo '<option>No Course Found!</option>';
+                                            }
+                                            $con->close();
+                                        ?>
                                     </select>
                                 </td>
                                 <td>
-                                    <input id="tue" name="tueInput" type="text" placeholder="Search Course">
-                                    <select id="tueSelect" name="tue">
-                                        <option selected disabled>Select Course</option>
+                                    <select name="wednesday" id="wednesdaySelect" class="form-control">
+                                        <option selected disabled>select Wednesday Course </option>
+                                        <?php
+                                            include '/xampp/htdocs/web_Progrmming_project/db_con.php';
+                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND (c_day1 = 'Wed' OR c_day2= 'Wed')";
+                                            $result = $con->query($sql);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$row["c_startTime"].'-'.$row["c_endTime"].']</option>';
+                                                }
+                                            } else {
+                                                echo '<option>No Course Found!</option>';
+                                            }
+                                            $con->close();
+                                        ?>
                                     </select>
-                                </td>
-                                <td>
-                                    <input id="wed" name="wedInput" type="text" placeholder="Search Course">
-                                    <select id="wedSelect" name="wed">
-                                        <option selected disabled>Select Course</option>
-                                    </select>      
                                 </td>
                                 <td id="theory">
                                     
                                 </td>
-                                <td id="lab"></td>
+                                <td id="lab">
                                     
                                 </td>
-                                <input type="hidden" id="c_t" name="c_t" value="">
-                                <input type="hidden" id="m_t" name="m_t" value="">
-                                <input type="hidden" id="c_l" name="c_l" value="">
-                                <input type="hidden" id="m_l" name="m_l" value="">
-
                                 <td>
                                     <button type="submit" name="add_btn">ADD</button>
                                 </td>
@@ -176,9 +232,9 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
+                        <!-- <?php 
                             include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php');
-                        ?>
+                        ?> -->
                     </tbody>
                 </table>
             </section>
@@ -222,6 +278,35 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                         }, 500);
                     }, 6000);
                 }, 500);
+            });
+        });
+        $(document).ready(function() {
+            $('#facultySelect').select2({
+                placeholder: "Select faculty",
+                allowClear: true
+            });
+        });
+        $(document).ready(function() {
+            $('#saturdaySelect').select2({
+                placeholder: "Select Saturday Course",
+                allowClear: true
+            });
+        });
+        $(document).ready(function() {
+            $('#sundaySelect').select2({
+                placeholder: "Select Sunday Course",
+                allowClear: true
+            });
+        });
+        $(document).ready(function() {
+            $('#tuesdaySelect').select2({
+                placeholder: "Select Tuesday Course",
+                allowClear: true
+            });
+        });$(document).ready(function() {
+            $('#wednesdaySelect').select2({
+                placeholder: "Select Wednesday Course",
+                allowClear: true
             });
         });
     </script>

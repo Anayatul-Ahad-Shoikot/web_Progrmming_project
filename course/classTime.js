@@ -2,40 +2,33 @@ function showTimeOptions() {
     var c_type = document.getElementById("c_type").value;
     var c_time = document.getElementById("c_time");
     var c_day1 = document.getElementById("c_day1");
-    var c_day2 = document.getElementById("c_day2");
     c_time.innerHTML = '<option selected disabled>Select Time</option>';
     c_day1.innerHTML = '<option selected disabled>Select Day1</option>';
-    c_day2.innerHTML = '<option selected disabled>Select Day2</option>';
 
     if (c_type === "Theory") {
         c_time.disabled = false;
         c_day1.disabled = false;
-        c_day2.disabled = false;
         addTheoryTimeOptions(c_time);
         addTheoryDayOptions(c_day1);
-        addTheoryDayOptions(c_day2);
     } else if (c_type === "Lab") {
         c_time.disabled = false;
         c_day1.disabled = false;
-        c_day2.disabled = false;
         addLabTimeOptions(c_time);
         addLabDayOptions(c_day1);
-        addLabDayOptions(c_day2);
     } else {
         c_time.disabled = true;
         c_day1.disabled = true;
-        c_day2.disabled = true;
     }
 }
 
 function addTheoryTimeOptions(selectElement) {
     var theoryTimes = [
-        "8:30 - 9:50",
-        "9:51 - 11:10",
-        "11:11 - 12:30",
-        "12:31 - 1:50",
-        "1:51 - 3:10",
-        "3:11 - 4:30"
+        "8:30AM - 9:50AM",
+        "9:51AM - 11:10AM",
+        "11:11AM - 12:30PM",
+        "12:31PM - 1:50PM",
+        "1:51PM - 3:10PM",
+        "3:11PM - 4:30PM"
     ];
     theoryTimes.forEach(function(time) {
         var option = document.createElement("option");
@@ -47,10 +40,8 @@ function addTheoryTimeOptions(selectElement) {
 
 function addTheoryDayOptions(selectElement) {
     var theoryDays = [
-        "Sat",
-        "Sun",
-        "Tues",
-        "Wed"
+        "Sat Tues",
+        "Sun Wed",
     ];
     theoryDays.forEach(function(day) {
         var option = document.createElement("option");
@@ -62,9 +53,9 @@ function addTheoryDayOptions(selectElement) {
 
 function addLabTimeOptions(selectElement) {
     var labTimes = [
-        "8:30 - 11:00",
-        "11:11 - 1:40",
-        "2:00 - 4:30"
+        "8:30AM - 11:00AM",
+        "11:11AM - 1:40PM",
+        "2:00PM - 4:30PM"
     ];
     labTimes.forEach(function(time) {
         var option = document.createElement("option");

@@ -1,6 +1,20 @@
 <?php
     include('/xampp/htdocs/web_Progrmming_project/db_con.php');
     require('/xampp/htdocs/web_Progrmming_project/vendor/autoload.php');
+
+    function convertTime($time) {
+        $period = substr($time, -2);
+        $time = substr($time, 0, -2);
+        list($hours, $minutes) = explode(':', $time);
+        if ($period == "PM" && $hours != 12) {
+            $hours = $hours + 12;
+        }
+        if ($period == "AM" && $hours == 12) {
+            $hours = 0;
+        }
+        return sprintf("%02d:%02d", $hours, $minutes);
+    }
+
     session_start();
     $user = $_SESSION['username'];
     if (isset($_SESSION['ac_id']) && isset($_SESSION['prior'])) {
@@ -32,8 +46,12 @@
                     $c_day1 = $row['4'];
                     $c_day2 = $row['5'];
                     $c_time = $row['6'];
-
-                    $insert_data = "INSERT INTO course (c_code, c_name, c_type, c_sec, c_time, c_day1, c_day2) VALUES ('$c_code', '$c_name', '$c_type', '$c_sec', '$c_time', '$c_day1', '$c_day2')";
+                    $time_parts = explode('-', $c_time);
+                    $c_startTime = trim($time_parts[0]);
+                    $c_startTime = convertTime($c_startTime);
+                    $c_endTime = trim($time_parts[1]);
+                    $c_endTime = convertTime($c_endTime);
+                    $insert_data = "INSERT INTO course (c_code, c_name, c_type, c_sec, c_startTime, c_endTime, c_day1, c_day2) VALUES ('$c_code', '$c_name', '$c_type', '$c_sec', '$c_startTime', '$c_endTime', '$c_day1', '$c_day2')";
                     $result = mysqli_query($con, $insert_data);
                     $msg = true;
                 }

@@ -848,6 +848,24 @@ input[type="file"]{
     display: none;
 }
 
+#deleteBtn {
+    background: var(--sidebars);
+    padding: 5px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.35);
+    transition: .6s;
+    border: none;
+}
+#deleteBtn:hover{
+    background: rgba(95, 158, 160, 0.5);
+    scale: 0.9;
+    color: var(--textcolor);
+    cursor: pointer;
+    transition: .6s;
+}
+
 #downloadBtn {
     background: var(--sidebars);
     padding: 5px 8px;

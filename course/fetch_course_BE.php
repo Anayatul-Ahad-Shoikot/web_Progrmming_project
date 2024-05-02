@@ -11,9 +11,8 @@ if (isset($_SESSION['ac_id']) && isset($_SESSION['prior'])) {
                 '<td id="name_' . $row['c_id'] . '">' . $row['c_name'] . '</td>' .
                 '<td id="type_' . $row['c_id'] . '">' . $row['c_type'] . '</td>' .
                 '<td id="sec_' . $row['c_id'] . '">' . $row['c_sec'] . '</td>' .
-                '<td>' . $row['c_time'] . '</td>' .
-                '<td>' . $row['c_day1'] . '</td>' .
-                '<td>' . $row['c_day2'] . '</td>' .
+                '<td>' . $row['c_startTime'] . ' - ' . $row['c_endTime'] . '</td>' .
+                '<td>' . $row['c_day1'] . ' ' . $row['c_day2'] . '</td>' .
                 '<td><p class="' . ($row['Allocation'] == "Assigned" ? "status cancelled" : "status delivered") . '">' . $row['Allocation'] . '</p></td>' .
                 '<td>
                     <button id="edit_' . $row['c_id'] . '" onclick="makeEditable(\'' . $row['c_id'] . '\')"><i class="bx bx-edit" ></i></button>

@@ -89,6 +89,8 @@ include('/xampp/htdocs/web_Progrmming_project/course/course_counter_BE.php');
                 </div>
 
                 <div class="addFaculty">
+                    <button id="deleteBtn"><i class='bx bxs-trash-alt'></i></button>
+                    <h1></h1>
                     <button id="downloadBtn"><i class='bx bxs-download'></i></button>
                     <h1></h1>
                     <form action="excel_import_BE.php" method="POST" enctype="multipart/form-data">
@@ -108,8 +110,7 @@ include('/xampp/htdocs/web_Progrmming_project/course/course_counter_BE.php');
                             <th> Course Type </th>
                             <th> Section </th>
                             <th> Time slot </th>
-                            <th> Day 1 </th>
-                            <th> Day 2 </th>
+                            <th> Day</th>
                             <th> Status </th>
                             <th> Action </th>
                         </tr>
@@ -141,11 +142,6 @@ include('/xampp/htdocs/web_Progrmming_project/course/course_counter_BE.php');
                                 <td>
                                     <select name="c_day1" id="c_day1" disabled>
                                         <option selected disabled>Select Day1</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name="c_day2" id="c_day2" disabled>
-                                        <option selected disabled>Select Day2</option>
                                     </select>
                                 </td>
                                 <td>
