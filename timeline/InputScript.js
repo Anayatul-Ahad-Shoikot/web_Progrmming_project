@@ -3,7 +3,6 @@ function updateFacultyInfo() {
     var select = document.getElementById("facultySelect");
     var selectedOption = select.options[select.selectedIndex];
     if (!selectedOption.value) return;
-
     var theory = document.getElementById("theory");
     var lab = document.getElementById("lab");
     theory.innerHTML = selectedOption.getAttribute("data-current_T") + " / " + selectedOption.getAttribute("data-max_T");
@@ -33,4 +32,68 @@ function displayPopup(notes) {
 function closePopup() {
     var popup = document.getElementById("notePopup");
     popup.style.display = "none";
+}
+function checkSatCourse() {
+    var facultySelect = document.getElementById('facultySelect');
+    var saturdaySelect = document.getElementById('saturdaySelect');
+    var facultyId = facultySelect.value;
+    var courseId = saturdaySelect.value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/timeline/check_Saturday.php?facultyId=' + encodeURIComponent(facultyId) + '&courseId=' + encodeURIComponent(courseId), true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            if (xhr.responseText === "YES") {
+                alert('Opss....Time conflicts.');
+            }
+        }
+    };
+    xhr.send();
+}
+function checkSunCourse() {
+    var facultySelect = document.getElementById('facultySelect');
+    var saturdaySelect = document.getElementById('sundaySelect');
+    var facultyId = facultySelect.value;
+    var courseId = saturdaySelect.value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/timeline/check_Sunday.php?facultyId=' + encodeURIComponent(facultyId) + '&courseId=' + encodeURIComponent(courseId), true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            if (xhr.responseText === "YES") {
+                alert('Opss....Time conflicts.');
+            }
+        }
+    };
+    xhr.send();
+}
+function checkTueCourse() {
+    var facultySelect = document.getElementById('facultySelect');
+    var saturdaySelect = document.getElementById('tuesdaySelect');
+    var facultyId = facultySelect.value;
+    var courseId = saturdaySelect.value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/timeline/check_Tuesday.php?facultyId=' + encodeURIComponent(facultyId) + '&courseId=' + encodeURIComponent(courseId), true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            if (xhr.responseText === "YES") {
+                alert('Opss....Time conflicts.');
+            }
+        }
+    };
+    xhr.send();
+}
+function checkWedCourse() {
+    var facultySelect = document.getElementById('facultySelect');
+    var saturdaySelect = document.getElementById('wednesdaySelect');
+    var facultyId = facultySelect.value;
+    var courseId = saturdaySelect.value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/timeline/check_Wednesday.php?facultyId=' + encodeURIComponent(facultyId) + '&courseId=' + encodeURIComponent(courseId), true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            if (xhr.responseText === "YES") {
+                alert('Opss....Time conflicts.');
+            }
+        }
+    };
+    xhr.send();
 }

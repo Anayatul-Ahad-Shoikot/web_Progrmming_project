@@ -1,5 +1,4 @@
 <?php
-include('/xampp/htdocs/web_Progrmming_project/timeline/DataHold.php');
 include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
 ?>
 <!DOCTYPE html>
@@ -148,15 +147,17 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                 </select>
                                 </td>
                                 <td>
-                                    <select name="saturday" id="saturdaySelect" class="form-control" >
+                                    <select name="saturday" id="saturdaySelect" class="form-control" onchange="checkSatCourse()" >
                                         <option selected disabled>select Saturday Course </option>
                                         <?php
                                             include '/xampp/htdocs/web_Progrmming_project/db_con.php';
-                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND ((c_day1 = 'Sat' AND c_day2= 'Tue') OR c_day1 = 'Sat')";
+                                            $sql = "SELECT * FROM course WHERE Allocation = 'Not Assigned' AND c_day1 = 'Sat'";
                                             $result = $con->query($sql);
                                             if ($result->num_rows > 0) {
                                                 while ($row = $result->fetch_assoc()) {
-                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$row["c_startTime"].'-'.$row["c_endTime"].']</option>';
+                                                    $start_time_12hr = date("h:i", strtotime($row["c_startTime"]));
+                                                    $end_time_12hr = date("h:i", strtotime($row["c_endTime"]));
+                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].'; Day:'.$row["c_day1"].'-'.$row["c_day2"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
                                                 }
                                             } else {
                                                 echo '<option>No Course Found!</option>';
@@ -166,15 +167,17 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="sunday" id="sundaySelect" class="form-control">
+                                    <select name="sunday" id="sundaySelect" class="form-control" onchange="checkSunCourse()">
                                         <option selected disabled>select Sunday Course </option>
                                         <?php
                                             include '/xampp/htdocs/web_Progrmming_project/db_con.php';
-                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND (c_day1 = 'Sun' OR c_day2= 'Wed')";
+                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND c_day1 = 'Sun'";
                                             $result = $con->query($sql);
                                             if ($result->num_rows > 0) {
                                                 while ($row = $result->fetch_assoc()) {
-                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$row["c_startTime"].'-'.$row["c_endTime"].']</option>';
+                                                    $start_time_12hr = date("h:i", strtotime($row["c_startTime"]));
+                                                    $end_time_12hr = date("h:i", strtotime($row["c_endTime"]));
+                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
                                                 }
                                             } else {
                                                 echo '<option>No Course Found!</option>';
@@ -184,15 +187,17 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="tuesday" id="tuesdaySelect" class="form-control">
+                                    <select name="tuesday" id="tuesdaySelect" class="form-control" onchange="checkTueCourse()">
                                         <option selected disabled>select Tuesday Course </option>
                                         <?php
                                             include '/xampp/htdocs/web_Progrmming_project/db_con.php';
-                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND ((c_day1 = 'Sat' AND c_day2= 'Tue') OR c_day1 = 'Tue')";
+                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND ((c_day1 = 'Sat' AND c_day2 = 'Tue') OR c_day1 = 'Tue')";
                                             $result = $con->query($sql);
                                             if ($result->num_rows > 0) {
                                                 while ($row = $result->fetch_assoc()) {
-                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$row["c_startTime"].'-'.$row["c_endTime"].']</option>';
+                                                    $start_time_12hr = date("h:i", strtotime($row["c_startTime"]));
+                                                    $end_time_12hr = date("h:i", strtotime($row["c_endTime"]));
+                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
                                                 }
                                             } else {
                                                 echo '<option>No Course Found!</option>';
@@ -202,15 +207,17 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="wednesday" id="wednesdaySelect" class="form-control">
+                                    <select name="wednesday" id="wednesdaySelect" class="form-control" onchange="checkWedCourse()">
                                         <option selected disabled>select Wednesday Course </option>
                                         <?php
                                             include '/xampp/htdocs/web_Progrmming_project/db_con.php';
-                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND (c_day1 = 'Wed' OR c_day2= 'Wed')";
+                                            $sql = "SELECT c_id, c_name, c_startTime, c_endTime, c_type, c_sec FROM course WHERE Allocation = 'Not Assigned' AND ((c_day1 = 'Sun' AND c_day2= 'Wed') OR c_day1 = 'Wed')";
                                             $result = $con->query($sql);
                                             if ($result->num_rows > 0) {
                                                 while ($row = $result->fetch_assoc()) {
-                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$row["c_startTime"].'-'.$row["c_endTime"].']</option>';
+                                                    $start_time_12hr = date("h:i", strtotime($row["c_startTime"]));
+                                                    $end_time_12hr = date("h:i", strtotime($row["c_endTime"]));
+                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
                                                 }
                                             } else {
                                                 echo '<option>No Course Found!</option>';
@@ -283,30 +290,30 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
         $(document).ready(function() {
             $('#facultySelect').select2({
                 placeholder: "Select faculty",
-                allowClear: true
+                allowClear: false
             });
         });
         $(document).ready(function() {
             $('#saturdaySelect').select2({
                 placeholder: "Select Saturday Course",
-                allowClear: true
+                allowClear: false
             });
         });
         $(document).ready(function() {
             $('#sundaySelect').select2({
                 placeholder: "Select Sunday Course",
-                allowClear: true
+                allowClear: false
             });
         });
         $(document).ready(function() {
             $('#tuesdaySelect').select2({
                 placeholder: "Select Tuesday Course",
-                allowClear: true
+                allowClear: false
             });
         });$(document).ready(function() {
             $('#wednesdaySelect').select2({
                 placeholder: "Select Wednesday Course",
-                allowClear: true
+                allowClear: false
             });
         });
     </script>

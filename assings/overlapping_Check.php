@@ -22,11 +22,10 @@ function timesOverlap($time1, $time2) {
 function convertTo24Hour($time) {
     list($hours, $minutes) = explode(':', $time);
     $hours = (int)$hours;
-    // Check if the time is in the PM range and adjust if necessary
     if ($hours >= 1 && $hours <= 4) {
-        $hours += 12; // Convert PM hour to 24-hour format
+        $hours += 12;
     }
-    return sprintf("%02d:%02d", $hours, $minutes); // Returns formatted time
+    return printf("%02d:%02d", $hours, $minutes);
 }
 
 // Given individual time points with adjustment for PM times
