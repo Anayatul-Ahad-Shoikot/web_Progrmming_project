@@ -44,6 +44,7 @@ function checkSatCourse() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             if (xhr.responseText === "YES") {
                 alert('Opss....Time conflicts.');
+                window.location.reload();
             }
         }
     };
@@ -60,6 +61,7 @@ function checkSunCourse() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             if (xhr.responseText === "YES") {
                 alert('Opss....Time conflicts.');
+                window.location.reload();
             }
         }
     };
@@ -76,6 +78,7 @@ function checkTueCourse() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             if (xhr.responseText === "YES") {
                 alert('Opss....Time conflicts.');
+                window.location.reload();
             }
         }
     };
@@ -92,6 +95,7 @@ function checkWedCourse() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             if (xhr.responseText === "YES") {
                 alert('Opss....Time conflicts.');
+                window.location.reload();
             }
         }
     };

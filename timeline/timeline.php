@@ -46,7 +46,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
 
 <body>
     <section class="sidebar">
-        <a href="#" class="logo">
+        <a href="/home/Home.php" class="logo">
             <img src="/Resource/R.png" />
         </a>
         <ul class="side-menu top">
@@ -117,17 +117,17 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                     <thead>
                         <tr>
                             <th> Faculty </th>
+                            <th> Theory </th>
+                            <th> Lab </th>
                             <th> Saturday </th>
                             <th> Sunday </th>
                             <th> Tuesday </th>
                             <th> Wednesday </th>
-                            <th> Theory </th>
-                            <th> Lab </th>
                             <th> Action </th>
                         </tr>
                         <tr id="first_row">
                             <form id="myForm" method="POST" action="/timeline/submit.php">
-                                <td>
+                                <td id="f_col">
                                 <select name="faculty" id="facultySelect" class="form-control" onchange="updateFacultyInfo()">
                                     <option selected disabled>select faculty </option>
                                         <?php
@@ -136,7 +136,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                             $result = $con->query($sql);
                                             if ($result->num_rows > 0) {
                                                 while ($row = $result->fetch_assoc()) {
-                                                    echo '<option value="' . $row["f_code"] . '" data-current_T="' . $row["f_current_T"] . '" data-max_T="' . $row["f_max_T"] . '" data-current_L="' . $row["f_current_L"] . '" data-max_L="' . $row["f_max_L"] . '">' . $row["f_name"] . '</option>';
+                                                    echo '<option value="' . $row["f_code"] . '-' . $row["f_name"] .'" data-current_T="' . $row["f_current_T"] . '" data-max_T="' . $row["f_max_T"] . '" data-current_L="' . $row["f_current_L"] . '" data-max_L="' . $row["f_max_L"] . '">' . $row["f_name"] . '</option>';
                                                 }
                                                 echo "done";
                                             } else {
@@ -146,7 +146,13 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                         ?>
                                 </select>
                                 </td>
-                                <td>
+                                <td id="theory">
+                                    
+                                </td>
+                                <td id="lab">
+                                    
+                                </td>
+                                <td id="S_col">
                                     <select name="saturday" id="saturdaySelect" class="form-control" onchange="checkSatCourse()" >
                                         <option selected disabled>select Saturday Course </option>
                                         <?php
@@ -157,7 +163,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                                 while ($row = $result->fetch_assoc()) {
                                                     $start_time_12hr = date("h:i", strtotime($row["c_startTime"]));
                                                     $end_time_12hr = date("h:i", strtotime($row["c_endTime"]));
-                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].'; Day:'.$row["c_day1"].'-'.$row["c_day2"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
+                                                echo '<option value="' . $row["c_id"] . '-' . $row["c_type"] .'" title="'.$row["c_type"].'; Day:'.$row["c_day1"].'-'.$row["c_day2"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
                                                 }
                                             } else {
                                                 echo '<option>No Course Found!</option>';
@@ -166,7 +172,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                         ?>
                                     </select>
                                 </td>
-                                <td>
+                                <td id="S_col">
                                     <select name="sunday" id="sundaySelect" class="form-control" onchange="checkSunCourse()">
                                         <option selected disabled>select Sunday Course </option>
                                         <?php
@@ -177,7 +183,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                                 while ($row = $result->fetch_assoc()) {
                                                     $start_time_12hr = date("h:i", strtotime($row["c_startTime"]));
                                                     $end_time_12hr = date("h:i", strtotime($row["c_endTime"]));
-                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
+                                                echo '<option value="' . $row["c_id"] . '-' . $row["c_type"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
                                                 }
                                             } else {
                                                 echo '<option>No Course Found!</option>';
@@ -186,7 +192,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                         ?>
                                     </select>
                                 </td>
-                                <td>
+                                <td id="S_col">
                                     <select name="tuesday" id="tuesdaySelect" class="form-control" onchange="checkTueCourse()">
                                         <option selected disabled>select Tuesday Course </option>
                                         <?php
@@ -197,7 +203,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                                 while ($row = $result->fetch_assoc()) {
                                                     $start_time_12hr = date("h:i", strtotime($row["c_startTime"]));
                                                     $end_time_12hr = date("h:i", strtotime($row["c_endTime"]));
-                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
+                                                echo '<option value="' . $row["c_id"] . '-' . $row["c_type"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
                                                 }
                                             } else {
                                                 echo '<option>No Course Found!</option>';
@@ -206,7 +212,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                         ?>
                                     </select>
                                 </td>
-                                <td>
+                                <td id="S_col">
                                     <select name="wednesday" id="wednesdaySelect" class="form-control" onchange="checkWedCourse()">
                                         <option selected disabled>select Wednesday Course </option>
                                         <?php
@@ -217,7 +223,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                                 while ($row = $result->fetch_assoc()) {
                                                     $start_time_12hr = date("h:i", strtotime($row["c_startTime"]));
                                                     $end_time_12hr = date("h:i", strtotime($row["c_endTime"]));
-                                                echo '<option value="' . $row["c_id"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
+                                                echo '<option value="' . $row["c_id"] . '-' . $row["c_type"] .'" title="'.$row["c_type"].';  '.$row["c_sec"].'"> ' . $row["c_name"] . '- ['.$start_time_12hr.'-'.$end_time_12hr.']</option>';
                                                 }
                                             } else {
                                                 echo '<option>No Course Found!</option>';
@@ -225,12 +231,6 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                             $con->close();
                                         ?>
                                     </select>
-                                </td>
-                                <td id="theory">
-                                    
-                                </td>
-                                <td id="lab">
-                                    
                                 </td>
                                 <td>
                                     <button type="submit" name="add_btn">ADD</button>

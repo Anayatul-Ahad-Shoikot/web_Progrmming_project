@@ -19,7 +19,7 @@ include('/xampp/htdocs/web_Progrmming_project/course/course_counter_BE.php');
 <body>
 
     <section class="sidebar">
-        <a href="#" class="logo">
+        <a href="/home/Home.php" class="logo">
             <img src="/Resource/R.png" />
         </a>
         <ul class="side-menu top">

@@ -17,7 +17,7 @@
        
 
         <section class="sidebar">
-            <a href="#" class="logo">
+            <a href="/home/Home.php" class="logo">
                 <img src="/Resource/UIU_logo_Long.png"/>
             </a>
             <ul class="side-menu top">

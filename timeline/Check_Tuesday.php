@@ -11,7 +11,9 @@
         return $s1 < $e2 && $e1 > $s2;
     }
     include '/xampp/htdocs/web_Progrmming_project/db_con.php';
-    $facultyId = $_GET['facultyId'];
+    $faculty = explode('-', $_GET['facultyId']);
+    $facultyId = $faculty[0];
+    $facultyName = $faculty[1];
     $courseId = $_GET['courseId'];
     $sql = "SELECT c_name, c_startTime, c_endTime, c_type FROM course WHERE c_id = ?";
     $stmt = $con->prepare($sql);

@@ -557,27 +557,9 @@ table {
     margin-top: 5px;
     overflow: hidden;
 }
-
 #first_row ::-webkit-scrollbar {
     display: none;
 }
-/* 
-#first_row button {
-    padding: 5px;
-    width: 60%;
-    border: none;
-    border-radius: 5px;
-    background: var(--sidebars);
-    color: wheat;
-}
-#first_row button:hover {
-    padding: 5px;
-    width: 60%;
-    border-radius: 5px;
-    border: 2px solid black;
-    background: var(--orange);
-    color: black;
-} */
 #first_row .searchable-select {
   position: relative;
   display: inline-block;
@@ -698,4 +680,11 @@ thead th.active,tbody td.active {
     color: #6c00bd;
 }
   
-  
+
+#S_col {
+    width: 370px;
+}
+
+#f_col{
+    width: 340px;
+}
