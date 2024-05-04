@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2024 at 11:22 AM
+-- Generation Time: May 04, 2024 at 09:57 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -69,15 +69,15 @@ CREATE TABLE `course` (
 INSERT INTO `course` (`c_id`, `c_code`, `c_name`, `c_type`, `c_sec`, `c_startTime`, `c_endTime`, `c_day1`, `c_day2`, `Allocation`) VALUES
 (43, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'L', '08:30', '11:00', 'Sat', '', 'Assigned'),
 (44, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'E', '11:11', '13:40', 'Sat', '', 'Not Assigned'),
-(45, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'Y', '14:00', '16:30', 'Sat', '', 'Not Assigned'),
+(45, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'Y', '14:00', '16:30', 'Sat', '', 'Assigned'),
 (46, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'A', '08:30', '11:00', 'Sat', '', 'Not Assigned'),
-(47, 'CSE 1111', 'Structured Programming Language', 'Theory', 'V', '15:11', '16:30', 'Sat', 'Tue', 'Not Assigned'),
-(48, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Z', '15:11', '16:30', 'Sat', 'Tue', 'Not Assigned'),
-(49, 'CSE 1111', 'Structured Programming Language', 'Theory', 'H', '11:11', '12:30', 'Sat', 'Tue', 'Not Assigned'),
+(47, 'CSE 1111', 'Structured Programming Language', 'Theory', 'V', '15:11', '16:30', 'Sat', 'Tue', 'Assigned'),
+(48, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Z', '15:11', '16:30', 'Sat', 'Tue', 'Assigned'),
+(49, 'CSE 1111', 'Structured Programming Language', 'Theory', 'H', '11:11', '12:30', 'Sat', 'Tue', 'Assigned'),
 (50, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Q', '13:51', '15:10', 'Sat', 'Tue', 'Not Assigned'),
-(51, 'CSE 1111', 'Structured Programming Language', 'Theory', 'P', '12:31', '13:50', 'Sat', 'Tue', 'Not Assigned'),
-(52, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Y', '15:11', '16:30', 'Sat', 'Tue', 'Not Assigned'),
-(53, 'CSE 1111', 'Structured Programming Language', 'Theory', 'S', '13:51', '15:10', 'Sat', 'Tue', 'Not Assigned'),
+(51, 'CSE 1111', 'Structured Programming Language', 'Theory', 'P', '12:31', '13:50', 'Sat', 'Tue', 'Assigned'),
+(52, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Y', '15:11', '16:30', 'Sat', 'Tue', 'Assigned'),
+(53, 'CSE 1111', 'Structured Programming Language', 'Theory', 'S', '13:51', '15:10', 'Sat', 'Tue', 'Assigned'),
 (54, 'CSE 1111', 'Structured Programming Language', 'Theory', 'K', '09:51', '11:10', 'Sat', 'Tue', 'Not Assigned'),
 (55, 'CSE 1111', 'Structured Programming Language', 'Theory', 'E', '12:31', '13:50', 'Sat', 'Tue', 'Not Assigned'),
 (56, 'CSE 1111', 'Structured Programming Language', 'Theory', 'D', '09:51', '11:10', 'Sat', 'Tue', 'Not Assigned'),
@@ -86,7 +86,7 @@ INSERT INTO `course` (`c_id`, `c_code`, `c_name`, `c_type`, `c_sec`, `c_startTim
 (59, 'CSE 1111', 'Structured Programming Language', 'Theory', 'X', '15:11', '16:30', 'Sat', 'Tue', 'Not Assigned'),
 (60, 'CSE 1111', 'Structured Programming Language', 'Theory', 'T', '08:30', '09:50', 'Sat', 'Tue', 'Not Assigned'),
 (61, 'CSE 1111', 'Structured Programming Language', 'Theory', 'AA', '09:51', '11:10', 'Sat', 'Tue', 'Not Assigned'),
-(62, 'CSE 1111', 'Structured Programming Language', 'Theory', 'B', '08:30', '09:50', 'Sat', 'Tue', 'Not Assigned'),
+(62, 'CSE 1111', 'Structured Programming Language', 'Theory', 'B', '08:30', '09:50', 'Sat', 'Tue', 'Assigned'),
 (63, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'V', '08:30', '11:00', 'Sat', '', 'Not Assigned'),
 (64, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'AE', '08:30', '11:00', 'Sat', '', 'Not Assigned'),
 (65, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'H', '08:30', '11:00', 'Sat', '', 'Not Assigned'),
@@ -137,17 +137,17 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`f_id`, `f_name`, `f_code`, `f_mail`, `f_contact`, `dept`, `desig`, `f_room`, `f_current_T`, `f_max_T`, `f_current_L`, `f_max_L`, `visible`) VALUES
-(1, 'Hasan Sarwar', '[HS]', '', '', 'CSE', 'Professor', 1001, 0, 0, 0, 0, 1),
+(1, 'Hasan Sarwar', 'HS', '', '', 'CSE', 'Professor', 1001, 2, 0, 0, 0, 1),
 (2, 'Mohammad Nurul Huda', 'MNH', '', '', 'CSE', 'Professor', 1002, 0, 0, 0, 0, 1),
 (3, 'Khondaker Abdullah -Al-Mamun', 'KM', '', '', 'CSE', 'Professor', 1003, 0, 2, 0, 2, 1),
 (4, 'Salekul Islam', 'SaIm', '', '', 'CSE', 'Professor', 1004, 0, 0, 0, 0, 1),
 (5, 'A.K.M. Muzahidul Islam', 'AKMMI', '', '', 'CSE', 'Professor', 1005, 0, 0, 0, 0, 1),
 (6, 'Md. Motaharul Islam', 'MdMIm', '', '', 'CSE', 'Professor', 1006, 0, 0, 0, 0, 1),
-(7, 'Dewan Md. Farid', 'DMF', '', '', 'CSE', 'Professor', 1007, 0, 2, 0, 4, 1),
+(7, 'Dewan Md. Farid', 'DMF', '', '', 'CSE', 'Professor', 1007, 1, 2, 0, 4, 1),
 (8, 'Al-Sakib Khan Pathan', 'ASKP', '', '', 'CSE', 'Professor', 1008, 0, 0, 0, 0, 1),
 (9, 'Swakkhar Shatabda', 'SS', '', '', 'CSE', 'Professor', 1009, 0, 0, 0, 0, 1),
 (10, 'Mohammad Shahriar Rahman', 'MdSR', '', '', 'CSE', 'Professor', 1010, 0, 0, 0, 0, 1),
-(11, 'Muhammad Nomani Kabir', 'MNK', '', '', 'CSE', 'Associate Professor', 1011, 0, 4, 0, 3, 1),
+(11, 'Muhammad Nomani Kabir', 'MNK', '', '', 'CSE', 'Associate Professor', 1011, 1, 4, 1, 3, 1),
 (12, 'Suman Ahmmed', 'SA', '', '', 'CSE', 'Associate Professor', 1012, 0, 0, 0, 0, 1),
 (13, 'Riasat Azim', 'RtAm', '', '', 'CSE', 'Assistant Professor (Category 1)', 1013, 0, 0, 0, 0, 1),
 (14, 'Mohammad Mamun Elahi', 'ME', '', '', 'CSE', 'Assistant Professor (Category 2)', 1014, 0, 5, 0, 2, 1),
@@ -158,7 +158,7 @@ INSERT INTO `faculty` (`f_id`, `f_name`, `f_code`, `f_mail`, `f_contact`, `dept`
 (19, 'Minhajul Bashir', 'MiBa', '', '', 'CSE', 'Lecturer', 1019, 0, 0, 0, 0, 1),
 (20, 'Shoib Ahmed Shourav', 'SAhSh', '', '', 'CSE', 'Lecturer', 1020, 0, 0, 0, 0, 1),
 (21, 'Subangkar Karmaker Shanto', 'ShKS', '', '', 'CSE', 'Lecturer', 1021, 0, 0, 0, 0, 1),
-(22, 'Ahad', 'AAS', 'ashoikot@gmailcom', '01312404674', 'CSE', 'Lecturer', 801, 0, 4, 0, 2, 1);
+(22, 'Ahad', 'AAS', 'ashoikot@gmailcom', '01312404674', 'CSE', 'Lecturer', 801, 3, 4, 0, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -250,7 +250,15 @@ INSERT INTO `history` (`his_id`, `content_key`, `content`, `user`, `content_acti
 (69, 'import', 'Course list imported at (2024/04/30  07:35) ---admin1', 'admin1', 'add'),
 (70, 'import', 'Course list imported at (2024/05/01  17:40) ---admin1', 'admin1', 'add'),
 (71, 'note', 'Deleted a note [Note id = 10] 2024/05/02  16:31 ---admin1', 'admin1', 'delete'),
-(72, 'note', 'Deleted a note [Note id = 13] 2024/05/02  16:31 ---admin1', 'admin1', 'delete');
+(72, 'note', 'Deleted a note [Note id = 13] 2024/05/02  16:31 ---admin1', 'admin1', 'delete'),
+(73, 'Assigned', 'Hasan Sarwar assigned [47] at (2024/05/04  18:09) ---admin1', 'admin1', 'Faculty course'),
+(74, 'Assigned', 'Ahad assigned [48] at (2024/05/04  18:47) ---admin1', 'admin1', 'Faculty course'),
+(75, 'Assigned', 'Ahad assigned [49] at (2024/05/04  19:14) ---admin1', 'admin1', 'Faculty course'),
+(76, 'Assigned', 'Hasan Sarwar assigned [53] at (2024/05/04  19:16) ---admin1', 'admin1', 'Faculty course'),
+(77, 'Assigned', 'Ahad assigned [62] at (2024/05/04  19:17) ---admin1', 'admin1', 'Faculty course'),
+(78, 'Assigned', 'Muhammad Nomani Kabir assigned [45] at (2024/05/04  20:50) ---admin1', 'admin1', 'Faculty course'),
+(79, 'Assigned', 'Muhammad Nomani Kabir assigned [51] at (2024/05/04  21:56) ---admin1', 'admin1', 'Faculty course'),
+(80, 'Assigned', 'Dewan Md. Farid assigned [52] at (2024/05/04  21:56) ---admin1', 'admin1', 'Faculty course');
 
 -- --------------------------------------------------------
 
@@ -270,10 +278,8 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`note_id`, `f_code`, `note_content`, `visibility`) VALUES
-(10, 'DMF', 'OOP', 0),
 (11, 'AAS', 'BIO', 1),
-(12, 'AAS', 'Physics', 1),
-(13, 'DMF', 'asdw', 0);
+(12, 'AAS', 'Physics', 1);
 
 -- --------------------------------------------------------
 
@@ -293,9 +299,10 @@ CREATE TABLE `timeline` (
 --
 
 INSERT INTO `timeline` (`t_id`, `f_code`, `c_id`, `present`) VALUES
-(1, 'AAS', '43', 1),
-(4, 'AAS', '56', 1),
-(5, 'AAS', '81', 1);
+(11, 'HS', '53', 1),
+(13, 'MNK', '45', 1),
+(14, 'MNK', '51', 1),
+(15, 'DMF', '52', 1);
 
 --
 -- Indexes for dumped tables
@@ -363,7 +370,7 @@ ALTER TABLE `faculty`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `notes`
@@ -375,7 +382,7 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `timeline`
 --
 ALTER TABLE `timeline`
-  MODIFY `t_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `t_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
