@@ -117,8 +117,6 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                     <thead>
                         <tr>
                             <th> Faculty </th>
-                            <th> Theory </th>
-                            <th> Lab </th>
                             <th> Saturday </th>
                             <th> Sunday </th>
                             <th> Tuesday </th>
@@ -136,7 +134,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                             $result = $con->query($sql);
                                             if ($result->num_rows > 0) {
                                                 while ($row = $result->fetch_assoc()) {
-                                                    echo '<option value="' . $row["f_code"] . '-' . $row["f_name"] .'" data-current_T="' . $row["f_current_T"] . '" data-max_T="' . $row["f_max_T"] . '" data-current_L="' . $row["f_current_L"] . '" data-max_L="' . $row["f_max_L"] . '">' . $row["f_name"] . '</option>';
+                                                    echo '<option value="' . $row["f_code"] . '-' . $row["f_name"] .'" title="Theory: ' . $row["f_current_T"] . '/' . $row["f_max_T"] .'; Lab: ' . $row["f_current_L"] . '/' . $row["f_max_L"] .'">' . $row["f_name"] . '</option>';
                                                 }
                                                 echo "done";
                                             } else {
@@ -146,14 +144,8 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                         ?>
                                 </select>
                                 </td>
-                                <td id="theory">
-                                    
-                                </td>
-                                <td id="lab">
-                                    
-                                </td>
                                 <td id="S_col">
-                                    <select name="saturday" id="saturdaySelect" class="form-control" onchange="checkSatCourse()" >
+                                    <select name="saturday" id="saturdaySelect" class="form-control" onchange="checkSatCourse()">
                                         <option selected disabled>select Saturday Course </option>
                                         <?php
                                             include '/xampp/htdocs/web_Progrmming_project/db_con.php';
@@ -233,15 +225,15 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
                                     </select>
                                 </td>
                                 <td>
-                                    <button type="submit" name="add_btn">ADD</button>
+                                    <button type="submit" name="add_btn" id="add_btn">ADD</button>
                                 </td>
                             </form>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <?php 
+                        <?php 
                             include('/xampp/htdocs/web_Progrmming_project/timeline/fetch_timeline.php');
-                        ?> -->
+                        ?>
                     </tbody>
                 </table>
             </section>
@@ -263,6 +255,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
         }
         ?>
     </div>
+
     <div class="popup" id="notePopup">
         <span class="close-btn" onclick="closePopup()">&times;</span>
         <h3>Proposals:</h3>
@@ -270,7 +263,9 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
     </div>
 
 
-
+    <audio id="popupSound">
+        <source src="/Resource/notification.wav" type="audio/mpeg">
+    </audio>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -320,9 +315,7 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
     <script src="/timeline/InputScript.js"></script>
     <script src="/home/Home.js"></script>
     <script src="/faculty/scripts.js"></script>
-    <audio id="popupSound">
-        <source src="/Resource/notification.wav" type="audio/mpeg">
-    </audio>
+    
 </body>
 
 </html>
