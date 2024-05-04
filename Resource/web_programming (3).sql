@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2024 at 09:10 PM
+-- Generation Time: May 04, 2024 at 11:22 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -55,9 +55,10 @@ CREATE TABLE `course` (
   `c_name` varchar(50) DEFAULT NULL,
   `c_type` varchar(10) DEFAULT NULL,
   `c_sec` varchar(5) DEFAULT NULL,
-  `c_time` varchar(40) DEFAULT NULL,
+  `c_startTime` varchar(15) DEFAULT NULL,
+  `c_endTime` varchar(15) NOT NULL,
   `c_day1` varchar(10) DEFAULT NULL,
-  `c_day2` varchar(10) DEFAULT NULL,
+  `c_day2` varchar(10) NOT NULL,
   `Allocation` varchar(20) NOT NULL DEFAULT 'Not Assigned'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -65,18 +66,49 @@ CREATE TABLE `course` (
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`c_id`, `c_code`, `c_name`, `c_type`, `c_sec`, `c_time`, `c_day1`, `c_day2`, `Allocation`) VALUES
-(2, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'E', '11:11 - 01:40', 'Sat', '', 'Not Assigned'),
-(3, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'Y', '02:00 - 04:30', 'Sat', '', 'Not Assigned'),
-(4, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'A', '08:30 - 11:00', 'Sat', '', 'Not Assigned'),
-(5, 'CSE 1111', 'Structured Programming Language', 'Theory', 'V', '03:11 - 04:30', 'Sat', 'Tue', 'Not Assigned'),
-(6, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Z', '03:11 - 04:30', 'Sat', 'Tue', 'Not Assigned'),
-(7, 'CSE 1111', 'Structured Programming Language', 'Theory', 'H', '11:11 - 12:30', 'Sat', 'Tue', 'Not Assigned'),
-(8, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Q', '01:51 - 03:10', 'Sat', 'Tue', 'Not Assigned'),
-(9, 'CSE 1111', 'Structured Programming Language', 'Theory', 'P', '12:31 - 01:50', 'Sat', 'Tue', 'Not Assigned'),
-(11, 'CSE 1111', 'Structured Programming Language', 'Theory', 'S', '01:51 - 03:10', 'Sat', 'Tue', 'Not Assigned'),
-(12, 'CSE 1111', 'Structured Programming Language', 'Theory', 'K', '09:51 - 11:10', 'Sat', 'Tue', 'Not Assigned'),
-(14, 'CSE 1111', 'Structured Programming Language', 'Theory', 'D', '09:51 - 11:10', 'Sat', 'Tue', 'Not Assigned');
+INSERT INTO `course` (`c_id`, `c_code`, `c_name`, `c_type`, `c_sec`, `c_startTime`, `c_endTime`, `c_day1`, `c_day2`, `Allocation`) VALUES
+(43, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'L', '08:30', '11:00', 'Sat', '', 'Assigned'),
+(44, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'E', '11:11', '13:40', 'Sat', '', 'Not Assigned'),
+(45, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'Y', '14:00', '16:30', 'Sat', '', 'Not Assigned'),
+(46, 'CSE 1110', 'Introduction to Computer Systems', 'Lab', 'A', '08:30', '11:00', 'Sat', '', 'Not Assigned'),
+(47, 'CSE 1111', 'Structured Programming Language', 'Theory', 'V', '15:11', '16:30', 'Sat', 'Tue', 'Not Assigned'),
+(48, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Z', '15:11', '16:30', 'Sat', 'Tue', 'Not Assigned'),
+(49, 'CSE 1111', 'Structured Programming Language', 'Theory', 'H', '11:11', '12:30', 'Sat', 'Tue', 'Not Assigned'),
+(50, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Q', '13:51', '15:10', 'Sat', 'Tue', 'Not Assigned'),
+(51, 'CSE 1111', 'Structured Programming Language', 'Theory', 'P', '12:31', '13:50', 'Sat', 'Tue', 'Not Assigned'),
+(52, 'CSE 1111', 'Structured Programming Language', 'Theory', 'Y', '15:11', '16:30', 'Sat', 'Tue', 'Not Assigned'),
+(53, 'CSE 1111', 'Structured Programming Language', 'Theory', 'S', '13:51', '15:10', 'Sat', 'Tue', 'Not Assigned'),
+(54, 'CSE 1111', 'Structured Programming Language', 'Theory', 'K', '09:51', '11:10', 'Sat', 'Tue', 'Not Assigned'),
+(55, 'CSE 1111', 'Structured Programming Language', 'Theory', 'E', '12:31', '13:50', 'Sat', 'Tue', 'Not Assigned'),
+(56, 'CSE 1111', 'Structured Programming Language', 'Theory', 'D', '09:51', '11:10', 'Sat', 'Tue', 'Not Assigned'),
+(57, 'CSE 1111', 'Structured Programming Language', 'Theory', 'I', '11:11', '12:30', 'Sat', 'Tue', 'Not Assigned'),
+(58, 'CSE 1111', 'Structured Programming Language', 'Theory', 'O', '13:51', '15:10', 'Sat', 'Tue', 'Not Assigned'),
+(59, 'CSE 1111', 'Structured Programming Language', 'Theory', 'X', '15:11', '16:30', 'Sat', 'Tue', 'Not Assigned'),
+(60, 'CSE 1111', 'Structured Programming Language', 'Theory', 'T', '08:30', '09:50', 'Sat', 'Tue', 'Not Assigned'),
+(61, 'CSE 1111', 'Structured Programming Language', 'Theory', 'AA', '09:51', '11:10', 'Sat', 'Tue', 'Not Assigned'),
+(62, 'CSE 1111', 'Structured Programming Language', 'Theory', 'B', '08:30', '09:50', 'Sat', 'Tue', 'Not Assigned'),
+(63, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'V', '08:30', '11:00', 'Sat', '', 'Not Assigned'),
+(64, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'AE', '08:30', '11:00', 'Sat', '', 'Not Assigned'),
+(65, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'H', '08:30', '11:00', 'Sat', '', 'Not Assigned'),
+(66, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'O', '14:00', '16:30', 'Sat', '', 'Not Assigned'),
+(67, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'E', '14:00', '16:30', 'Sat', '', 'Not Assigned'),
+(68, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'L', '14:00', '16:30', 'Sat', '', 'Not Assigned'),
+(69, 'CSE 1112', 'Structured Programming Language Laboratory', 'Lab', 'A', '11:11', '13:40', 'Sat', '', 'Not Assigned'),
+(70, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'I', '12:31', '13:50', 'Sun', 'Wed', 'Not Assigned'),
+(71, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'G', '13:51', '15:10', 'Sun', '', 'Not Assigned'),
+(72, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'B', '08:30', '09:50', 'Wed', '', 'Not Assigned'),
+(73, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'E', '11:11', '12:30', 'Wed', '', 'Not Assigned'),
+(74, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'L', '15:11', '16:30', 'Sat', 'Tue', 'Not Assigned'),
+(75, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'K', '13:51', '15:10', 'Sat', 'Tue', 'Not Assigned'),
+(76, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'J', '13:51', '15:10', 'Sat', 'Tue', 'Not Assigned'),
+(77, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'F', '12:31', '13:50', 'Sat', 'Tue', 'Not Assigned'),
+(78, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'C', '09:51', '11:10', 'Sat', 'Tue', 'Not Assigned'),
+(79, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'N', '12:31', '13:50', 'Sat', 'Tue', 'Not Assigned'),
+(80, 'CSE 1115', 'Object Oriented Programming', 'Theory', 'M', '12:31', '13:50', 'Sat', 'Tue', 'Not Assigned'),
+(81, 'CSE 1116', 'Object Oriented Programming Laboratory', 'Lab', 'J', '11:11', '13:40', 'Sat', '', 'Not Assigned'),
+(82, 'CSE 1116', 'Object Oriented Programming Laboratory', 'Lab', 'C', '11:11', '13:40', 'Sat', '', 'Not Assigned'),
+(83, 'CSE 1116', 'Object Oriented Programming Laboratory', 'Lab', 'K', '11:11', '13:40', 'Sat', '', 'Not Assigned'),
+(84, 'CSE 1116', 'Object Oriented Programming Laboratory', 'Lab', 'F', '14:00', '16:30', 'Sat', '', 'Assigned');
 
 -- --------------------------------------------------------
 
@@ -105,7 +137,7 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`f_id`, `f_name`, `f_code`, `f_mail`, `f_contact`, `dept`, `desig`, `f_room`, `f_current_T`, `f_max_T`, `f_current_L`, `f_max_L`, `visible`) VALUES
-(1, 'Hasan Sarwar', 'HS', '', '', 'CSE', 'Professor', 1001, 0, 0, 0, 0, 1),
+(1, 'Hasan Sarwar', '[HS]', '', '', 'CSE', 'Professor', 1001, 0, 0, 0, 0, 1),
 (2, 'Mohammad Nurul Huda', 'MNH', '', '', 'CSE', 'Professor', 1002, 0, 0, 0, 0, 1),
 (3, 'Khondaker Abdullah -Al-Mamun', 'KM', '', '', 'CSE', 'Professor', 1003, 0, 2, 0, 2, 1),
 (4, 'Salekul Islam', 'SaIm', '', '', 'CSE', 'Professor', 1004, 0, 0, 0, 0, 1),
@@ -213,7 +245,12 @@ INSERT INTO `history` (`his_id`, `content_key`, `content`, `user`, `content_acti
 (64, 'import', 'Course list imported at (2024/04/24  18:09) ---admin1', 'admin1', 'add'),
 (65, 'import', 'Course list imported at (2024/04/24  18:10) ---admin1', 'admin1', 'add'),
 (66, 'import', 'Course list imported at (2024/04/24  18:13) ---admin1', 'admin1', 'add'),
-(67, 'note', 'Note created for DMF (2024/04/28  20:45) ---admin1', 'admin1', 'create');
+(67, 'note', 'Note created for DMF (2024/04/28  20:45) ---admin1', 'admin1', 'create'),
+(68, 'course', 'Course \"Xxxxzzzxxxx\" added (2024/04/30  07:26) ---admin1', 'admin1', 'add'),
+(69, 'import', 'Course list imported at (2024/04/30  07:35) ---admin1', 'admin1', 'add'),
+(70, 'import', 'Course list imported at (2024/05/01  17:40) ---admin1', 'admin1', 'add'),
+(71, 'note', 'Deleted a note [Note id = 10] 2024/05/02  16:31 ---admin1', 'admin1', 'delete'),
+(72, 'note', 'Deleted a note [Note id = 13] 2024/05/02  16:31 ---admin1', 'admin1', 'delete');
 
 -- --------------------------------------------------------
 
@@ -233,10 +270,10 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`note_id`, `f_code`, `note_content`, `visibility`) VALUES
-(10, 'DMF', 'OOP', 1),
+(10, 'DMF', 'OOP', 0),
 (11, 'AAS', 'BIO', 1),
 (12, 'AAS', 'Physics', 1),
-(13, 'DMF', 'asdw', 1);
+(13, 'DMF', 'asdw', 0);
 
 -- --------------------------------------------------------
 
@@ -247,8 +284,7 @@ INSERT INTO `notes` (`note_id`, `f_code`, `note_content`, `visibility`) VALUES
 CREATE TABLE `timeline` (
   `t_id` int(2) NOT NULL,
   `f_code` varchar(15) NOT NULL,
-  `c_code` varchar(15) NOT NULL,
-  `c_sec` varchar(5) NOT NULL,
+  `c_id` varchar(15) NOT NULL,
   `present` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -256,9 +292,10 @@ CREATE TABLE `timeline` (
 -- Dumping data for table `timeline`
 --
 
-INSERT INTO `timeline` (`t_id`, `f_code`, `c_code`, `c_sec`, `present`) VALUES
-(4, 'SAhSh', 'CSE 1111', 'V', 1),
-(5, 'SAhSh', 'CSE 1111', 'Q', 1);
+INSERT INTO `timeline` (`t_id`, `f_code`, `c_id`, `present`) VALUES
+(1, 'AAS', '43', 1),
+(4, 'AAS', '56', 1),
+(5, 'AAS', '81', 1);
 
 --
 -- Indexes for dumped tables
@@ -314,7 +351,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `c_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `c_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `faculty`
@@ -326,7 +363,7 @@ ALTER TABLE `faculty`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `his_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `notes`
@@ -338,7 +375,7 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `timeline`
 --
 ALTER TABLE `timeline`
-  MODIFY `t_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `t_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

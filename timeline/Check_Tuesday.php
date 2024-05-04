@@ -30,7 +30,7 @@
     if ($result1->num_rows > 0) {
         while ($row1 = $result1->fetch_assoc()) {
             $id = $row1['c_id'];
-            $sql2 = "SELECT c_name, c_type, c_startTime, c_endTime FROM course WHERE c_id = ?";
+            $sql2 = "SELECT c_name, c_type, c_startTime, c_endTime FROM course WHERE c_id = ? AND ((c_day1 = 'Sat' AND c_day2 = 'Tue') OR c_day1 = 'Tue')";
             $stmt2 = $con->prepare($sql2);
             $stmt2->bind_param("i", $id);
             $stmt2->execute();

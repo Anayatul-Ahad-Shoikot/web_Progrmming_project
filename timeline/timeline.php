@@ -290,30 +290,30 @@ include('/xampp/htdocs/web_Progrmming_project/accounts/fetch_info_BE.php');
         $(document).ready(function() {
             $('#facultySelect').select2({
                 placeholder: "Select faculty",
-                allowClear: false
+                allowClear: true
             });
         });
         $(document).ready(function() {
             $('#saturdaySelect').select2({
                 placeholder: "Select Saturday Course",
-                allowClear: false
+                allowClear: true
             });
         });
         $(document).ready(function() {
             $('#sundaySelect').select2({
                 placeholder: "Select Sunday Course",
-                allowClear: false
+                allowClear: true
             });
         });
         $(document).ready(function() {
             $('#tuesdaySelect').select2({
                 placeholder: "Select Tuesday Course",
-                allowClear: false
+                allowClear: true
             });
         });$(document).ready(function() {
             $('#wednesdaySelect').select2({
                 placeholder: "Select Wednesday Course",
-                allowClear: false
+                allowClear: true
             });
         });
     </script>
