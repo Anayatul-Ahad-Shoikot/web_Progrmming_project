@@ -62,7 +62,7 @@ function applyStylesBasedOnTime($type, $startTime, &$slots) {
     if ($type == "Theory") {
         foreach ($theoryStartTimes as $slot => $time) {
             if ($startTime == $time) {
-                $slots[$slot] = " style='background-color: red;'";
+                $slots[$slot] = " style='background-color: #5f9ea0;'";
             }
         }
     }
@@ -78,7 +78,7 @@ function applyStylesBasedOnTime($type, $startTime, &$slots) {
     if ($type == "Lab") {
         if (array_key_exists($startTime, $labStartTimes)) {
             foreach ($labStartTimes[$startTime] as $slot) {
-                $slots[$slot] = " style='background-color: red;'";
+                $slots[$slot] = " style='background-color: #5f9ea0;'";
             }
         }
     }

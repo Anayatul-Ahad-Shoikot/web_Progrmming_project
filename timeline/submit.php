@@ -6,6 +6,8 @@
             $faculty = explode('-', $_POST['faculty']);
             $facultyId = $faculty[0];
             $facultyName = $faculty[1];
+
+
             if (!empty($_POST['saturday'])) {
                 $saturday = explode('-', $_POST['saturday']);
                 $saturday_id = $saturday[0];
@@ -51,6 +53,52 @@
             }
 
 
+            if (!empty($_POST['sunday'])) {
+                $sunday = explode('-', $_POST['sunday']);
+                $sunday_id = $sunday[0];
+                $sunday_type = $sunday[1];
+                $sql_sunday = "INSERT INTO timeline (f_code, c_id) VALUES ('$facultyId', '$sunday_id')";
+                if($con->query($sql_sunday) === TRUE) {
+                    if($sunday_type == 'Theory'){
+                        $updateFacultyInfo = "UPDATE faculty SET f_current_T = f_current_T + 1  WHERE f_code = '$facultyId'";
+                        $updateFacultyInfoResult = mysqli_query($con, $updateFacultyInfo);
+                        $updateCourseInfo = "UPDATE course SET Allocation = 'Assigned' WHERE c_id = '$sunday_id'";
+                        $updateCourseInfoResult = mysqli_query($con, $updateCourseInfo);
+                        if ($updateCourseInfoResult && $updateFacultyInfoResult) {
+                            $content = ''. $facultyName .' assigned ['. $sunday_id .'] at ('  . date('Y/m/d  H:i').') ---' . $user;
+                            $content_key = 'Assigned';
+                            $content_activity = 'Faculty course';
+                            $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                            $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
+                            $stmt2->execute();
+                            $stmt2->close();
+                            $_SESSION['green'] = "Couese Assigned successfully!";
+                        }
+                    } else {
+                        $updateFacultyInfo = "UPDATE faculty SET f_current_L = f_current_L + 1  WHERE f_code = '$facultyId'";
+                        $updateFacultyInfoResult = mysqli_query($con, $updateFacultyInfo);
+                        $updateCourseInfo = "UPDATE course SET Allocation = 'Assigned' WHERE c_id = '$sunday_id'";
+                        $updateCourseInfoResult = mysqli_query($con, $updateCourseInfo);
+                        if ($updateCourseInfoResult && $updateFacultyInfoResult) {
+                            $content = ''. $facultyName .' assigned ['. $sunday_id .'] at ('  . date('Y/m/d  H:i').') ---' . $user;
+                            $content_key = 'Assigned';
+                            $content_activity = 'Faculty course';
+                            $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                            $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
+                            $stmt2->execute();
+                            $stmt2->close();
+                            $_SESSION['green'] = "Couese Assigned successfully!";
+                        }
+                    }
+                }  else {
+                    $_SESSION['red'] = "Faild to Assign course.";
+                    header("Location: /timeline/timeline.php");
+                    exit(0);
+                }
+            }
+
+
+
             if (!empty($_POST['tuesday'])) {
                 $tuesday = explode('-', $_POST['tuesday']);
                 $tuesday_id = $tuesday[0];
@@ -94,6 +142,53 @@
                     exit(0);
                 }
             }
+
+
+
+            if (!empty($_POST['wednesday'])) {
+                $wednesday = explode('-', $_POST['wednesday']);
+                $wednesday_id = $wednesday[0];
+                $wednesday_type = $wednesday[1];
+                $sql_wednesday = "INSERT INTO timeline (f_code, c_id) VALUES ('$facultyId', '$wednesday_id')";
+                if($con->query($sql_wednesday) === TRUE) {
+                    if($wednesday_type == 'Theory'){
+                        $updateFacultyInfo = "UPDATE faculty SET f_current_T = f_current_T + 1  WHERE f_code = '$facultyId'";
+                        $updateFacultyInfoResult = mysqli_query($con, $updateFacultyInfo);
+                        $updateCourseInfo = "UPDATE course SET Allocation = 'Assigned' WHERE c_id = '$wednesday_id'";
+                        $updateCourseInfoResult = mysqli_query($con, $updateCourseInfo);
+                        if ($updateCourseInfoResult && $updateFacultyInfoResult) {
+                            $content = ''. $facultyName .' assigned ['. $wednesday_id .'] at ('  . date('Y/m/d  H:i').') ---' . $user;
+                            $content_key = 'Assigned';
+                            $content_activity = 'Faculty course';
+                            $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                            $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
+                            $stmt2->execute();
+                            $stmt2->close();
+                            $_SESSION['green'] = "Couese Assigned successfully!";
+                        }
+                    } else {
+                        $updateFacultyInfo = "UPDATE faculty SET f_current_L = f_current_L + 1  WHERE f_code = '$facultyId'";
+                        $updateFacultyInfoResult = mysqli_query($con, $updateFacultyInfo);
+                        $updateCourseInfo = "UPDATE course SET Allocation = 'Assigned' WHERE c_id = '$wednesday_id'";
+                        $updateCourseInfoResult = mysqli_query($con, $updateCourseInfo);
+                        if ($updateCourseInfoResult && $updateFacultyInfoResult) {
+                            $content = ''. $facultyName .' assigned ['. $wednesday_id .'] at ('  . date('Y/m/d  H:i').') ---' . $user;
+                            $content_key = 'Assigned';
+                            $content_activity = 'Faculty course';
+                            $stmt2 = $con->prepare("INSERT INTO history (content_key, content, user, content_activity) VALUES (?, ?, ?, ?)");
+                            $stmt2->bind_param("ssss", $content_key, $content, $user, $content_activity);
+                            $stmt2->execute();
+                            $stmt2->close();
+                            $_SESSION['green'] = "Couese Assigned successfully!";
+                        }
+                    }
+                }  else {
+                    $_SESSION['red'] = "Faild to Assign course.";
+                    header("Location: /timeline/timeline.php");
+                    exit(0);
+                }
+            }
+            
         } else {
             $_SESSION['red'] = "please login first.";
             header("Location: /xampp/htdocs/web_Progrmming_project/Log_Sign/Login.php");
@@ -104,14 +199,3 @@
         exit(0);
 
 ?>
-<!-- //             $sunday = explode('-', $_POST['sunday']);
-//             $sunday_id = $sunday[0];
-//             $sunday_type = $sunday[1];
-            
-//             $tuesday = explode('-', $_POST['tuesday']);
-//             $tuesday_id = $tuesday[0];
-//             $tuesday_type = $tuesday[1];
-            
-//             $wednesday = explode('-', $_POST['wednesday']);
-//             $wednesday_id = $wednesday[0];
-//             $wednesday_type = $wednesday[1];

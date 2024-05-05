@@ -581,7 +581,7 @@
     transition: 0.3s;
     }
     #first_row button:hover {
-    background-color: rgba(95, 158, 160);
+    background-color: #5f9ea0;
     cursor: pointer;
     transition: 0.3s;
     }
